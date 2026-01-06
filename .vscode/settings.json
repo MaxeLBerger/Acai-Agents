@@ -1,0 +1,125 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // ACAI AGENTS - VS Code Workspace Settings
+  // ═══════════════════════════════════════════════════════════════════════════════
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Editor Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.rulers": [100],
+  "editor.wordWrap": "off",
+  "editor.minimap.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.linkedEditing": true,
+  "editor.suggestSelection": "first",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Formatter Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // ESLint Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "eslint.enable": true,
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript"],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Files Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true,
+    "**/*.min.js": true,
+    "**/*.min.css": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Search Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/*.min.js": true,
+    "**/*.min.css": true,
+    "package-lock.json": true
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Emmet Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // CSS Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "css.validate": true,
+  "css.lint.duplicateProperties": "warning",
+  "css.lint.emptyRules": "warning",
+  "css.lint.unknownVendorSpecificProperties": "warning",
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // HTML Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "html.format.wrapLineLength": 120,
+  "html.format.wrapAttributes": "auto",
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Terminal Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+
+  // ─────────────────────────────────────────────────────────────────────────────────
+  // Git Configuration
+  // ─────────────────────────────────────────────────────────────────────────────────
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true
+}

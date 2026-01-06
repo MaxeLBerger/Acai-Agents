@@ -1,0 +1,53 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ACAI AGENTS - Git Attributes
+#
+# Goals:
+# - Keep repository contents normalized (LF in the index)
+# - Make checkouts predictable across Windows/macOS/Linux
+#
+# Notes:
+# - `* text=auto eol=lf` ensures text files are normalized to LF.
+# - Use explicit CRLF only where required (e.g. .bat/.cmd).
+# - Mark known binary formats to avoid accidental text conversion/diffs.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Default: treat files as text when possible and normalize to LF.
+* text=auto eol=lf
+
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Images (binary)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+
+# Fonts (binary)
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+# Media (binary)
+*.mp4 binary
+*.mov binary
+*.webm binary
+*.mp3 binary
+*.wav binary
+
+# Archives (binary)
+*.zip binary
+*.tar binary
+*.gz binary
+*.tgz binary
+*.7z binary
+*.rar binary
+
+# SVG is text (keep diffs readable)
+*.svg text eol=lf

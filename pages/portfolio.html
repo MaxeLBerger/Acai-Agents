@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="description"
+      content="AcaiStack Portfolio - See our recent projects and client success stories. Fintech, SaaS, and mobile apps."
+    />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <title>Portfolio - AcaiStack</title>
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/gsap-animations.css" />
+    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  </head>
+  <body>
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="navbar" role="banner">
+      <div class="navbar-content container">
+        <a href="../index.html" class="navbar-brand">
+          <span class="brand-text brand-gradient-twist">AcaiStack</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <ul id="navbarMenu" class="navbar-menu">
+            <li><a href="../index.html" class="navbar-link">Home</a></li>
+            <li><a href="services.html" class="navbar-link">Services</a></li>
+            <li><a href="pricing.html" class="navbar-link">Pricing</a></li>
+            <li><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+            <li><a href="team.html" class="navbar-link">Team</a></li>
+            <li>
+              <button
+                id="bwModeToggle"
+                class="mode-toggle-btn"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+                title="Toggle dark mode"
+              >
+                <svg
+                  class="mode-icon mode-icon-dark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+                <svg
+                  class="mode-icon mode-icon-light"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                </svg>
+              </button>
+            </li>
+            <li><a href="contact.html" class="navbar-cta">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="relative-content page-content">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Our <span class="gradient-text">Portfolio</span></h1>
+          <p class="page-subtitle">Real projects. Real results. See what we've built for businesses like yours.</p>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section class="portfolio-section">
+        <div class="container">
+          <div class="portfolio-grid">
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23208396' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EFintech Platform%3C/text%3E%3C/svg%3E"
+                  alt="Fintech payment platform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Fintech Payment Platform</h3>
+                <p>Real-time payment processing with advanced security, processing 10k+ transactions/day.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">Stripe API</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2332b8c6' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESAAS Dashboard%3C/text%3E%3C/svg%3E"
+                  alt="Enterprise SaaS dashboard"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Enterprise SaaS Dashboard</h3>
+                <p>Multi-tenant analytics platform with real-time data visualization for 500+ enterprises.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">D3.js</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2300d9ff' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EMobile App%3C/text%3E%3C/svg%3E"
+                  alt="Native mobile application"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Cross-Platform Mobile App</h3>
+                <p>Native iOS/Android application with offline sync and push notifications for 100k+ users.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React Native</span>
+                  <span class="tech-tag">Firebase</span>
+                  <span class="tech-tag">SQLite</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23a855f7' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EE-Commerce%3C/text%3E%3C/svg%3E"
+                  alt="E-commerce platform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>E-Commerce Platform</h3>
+                <p>Full-featured online store with AI-powered product recommendations and inventory management.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Shopify</span>
+                  <span class="tech-tag">GraphQL</span>
+                  <span class="tech-tag">AI/ML</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f97316' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EHealthcare Portal%3C/text%3E%3C/svg%3E"
+                  alt="Healthcare patient portal"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Healthcare Patient Portal</h3>
+                <p>HIPAA-compliant patient management system with appointment scheduling and telemedicine.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">HIPAA</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2310b981' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EAI Chatbot%3C/text%3E%3C/svg%3E"
+                  alt="AI customer service chatbot"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>AI Customer Service Agent</h3>
+                <p>24/7 intelligent chatbot handling 80% of customer inquiries automatically with 95% satisfaction.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">OpenAI</span>
+                  <span class="tech-tag">LangChain</span>
+                  <span class="tech-tag">WebSocket</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us Section -->
+      <section class="why-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Why Businesses Choose <span class="gradient-text">AcaiStack</span></h2>
+          </div>
+
+          <div class="why-grid grid grid-cols-3 gap-8">
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M 4.5 16.5 C 3 18 3 21 3 21 C 3 21 6 21 7.5 19.5 C 8.24 18.75 8.24 17.25 7.5 16.5 C 6.76 15.75 5.25 15.75 4.5 16.5 Z"
+                  />
+                  <path d="M 12 15 L 9 12 C 9 12 10 6 16 4 C 16 4 18 10 16 16 L 12 15 Z" />
+                  <path d="M 14 6 C 14 6 18 6 20 10 L 16 16" />
+                  <circle cx="14" cy="9" r="1.5" />
+                </svg>
+              </div>
+              <h3>Launch in Weeks, Not Months</h3>
+              <p>Our AI-enhanced workflow gets your website live fast - without cutting corners on quality.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="4" y1="7" x2="12" y2="7" />
+                  <circle cx="14" cy="7" r="2" fill="currentColor" />
+                  <line x1="18" y1="7" x2="20" y2="7" />
+                  <line x1="4" y1="12" x2="8" y2="12" />
+                  <circle cx="10" cy="12" r="2" fill="currentColor" />
+                  <line x1="14" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="17" x2="10" y2="17" />
+                  <circle cx="12" cy="17" r="2" fill="currentColor" />
+                  <line x1="16" y1="17" x2="20" y2="17" />
+                </svg>
+              </div>
+              <h3>You're in Control</h3>
+              <p>Manage your AI agents, update content, and view analytics from one simple dashboard.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M 4 20 L 4 4" />
+                  <path d="M 4 20 L 20 20" />
+                  <path d="M 6 16 L 10 11 L 14 14 L 20 6" />
+                  <path d="M 16 6 L 20 6 L 20 10" />
+                </svg>
+              </div>
+              <h3>Built to Scale</h3>
+              <p>From startup to enterprise - your website and AI agents grow with your business.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to Join Our Success Stories?</h2>
+            <p>Let's discuss your project and make it our next case study.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content grid grid-cols-4 gap-8">
+          <div class="footer-section">
+            <h4>
+              <span class="brand-text brand-gradient-twist" style="font-size: 20px">AcaiStack</span>
+            </h4>
+            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="contact.html#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/gsap-animations.js" defer></script>
+  </body>
+</html>

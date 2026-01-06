@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Primary Meta Tags -->
+    <title>Dashboard - AcaiStack | Web Development & AI Agents</title>
+    <meta
+      name="description"
+      content="AcaiStack Dashboard - Manage your AI agents, view analytics, and control your intelligent automation."
+    />
+    <meta name="keywords" content="AI dashboard, agent management, automation control, analytics" />
+    <meta name="author" content="AcaiStack" />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://acai-agents.dev/dashboard" />
+    <meta property="og:title" content="AcaiStack Dashboard - Manage Your AI Agents" />
+    <meta property="og:description" content="Control your AI agents and view analytics from one powerful dashboard." />
+    <meta property="og:image" content="https://acai-agents.dev/assets/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://acai-agents.dev/dashboard" />
+    <meta property="twitter:title" content="AcaiStack Dashboard" />
+    <meta property="twitter:description" content="Manage your AI agents and automation." />
+    <meta property="twitter:image" content="https://acai-agents.dev/assets/og-image.png" />
+
+    <!-- Security Headers -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../css/base.css" as="style" />
+    <link rel="preload" href="js/utils.js" as="script" />
+
+    <link rel="preload" href="../assets/logo_small.png" as="image" type="image/png" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/gsap-animations.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logo_small.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logo_small.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://acai-agents.dev/dashboard" />
+
+    <!-- GSAP Animation Library with SRI -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Background Effects -->
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER NAVIGATION -->
+    <header class="navbar" role="banner">
+      <div class="navbar-content container">
+        <a href="../index.html" class="navbar-brand">
+          <span class="brand-text brand-gradient-twist">AcaiStack</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <ul id="navbarMenu" class="navbar-menu">
+            <li><a href="../index.html" class="navbar-link">Home</a></li>
+            <li><a href="services.html" class="navbar-link">Services</a></li>
+            <li><a href="pricing.html" class="navbar-link">Pricing</a></li>
+            <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li><a href="team.html" class="navbar-link">Team</a></li>
+            <li>
+              <button
+                id="bwModeToggle"
+                class="mode-toggle-btn"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+                title="Toggle dark mode"
+              >
+                <svg
+                  class="mode-icon mode-icon-dark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+                <svg
+                  class="mode-icon mode-icon-light"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                </svg>
+              </button>
+            </li>
+            <li><a href="contact.html" class="navbar-cta">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative-content">
+      <!-- HERO SECTION -->
+      <section id="home" class="hero-section gsap-hero">
+        <div class="hero-background">
+          <div class="hero-orb hero-orb-1"></div>
+          <div class="hero-orb hero-orb-2"></div>
+          <div class="hero-orb hero-orb-3"></div>
+        </div>
+
+        <div class="container hero-main-container">
+          <div class="hero-content-wrapper">
+            <!-- Left: Text Content -->
+            <div class="hero-text-content">
+              <div class="hero-badge gsap-fade-in">
+                <span class="badge-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M 12 2 L 14 8 L 20 8 L 15.5 12 L 17 18 L 12 14 L 7 18 L 8.5 12 L 4 8 L 10 8 Z" />
+                    <circle cx="5" cy="5" r="1.5" fill="currentColor" />
+                    <circle cx="19" cy="7" r="1" fill="currentColor" />
+                  </svg>
+                </span>
+                <span class="badge-text">Web Development + AI Automation</span>
+              </div>
+
+              <h1 class="hero-title gsap-split-text">
+                <span class="title-line">Stunning Websites.</span>
+                <span class="title-line gradient-text-animated">Smart Agents.</span>
+                <span class="title-line">Total Control.</span>
+              </h1>
+
+              <p class="hero-subtitle gsap-fade-up">
+                We build beautiful, high-performance websites with AI agents that automate your business.
+              </p>
+
+              <div class="hero-cta gsap-stagger-in">
+                <a href="contact.html" class="btn btn-primary btn-lg btn-glow" role="button">
+                  <span>Get Your Website</span>
+                  <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a href="services.html" class="btn btn-secondary btn-lg btn-outline" role="button">
+                  <span>Explore Services</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Single Large Logo -->
+            <div class="hero-visual-showcase">
+              <div class="showcase-container showcase-single">
+                <div class="floating-image frame-hero-logo" data-speed="0.5">
+                  <img src="../assets/logo_small.png" alt="AcaiStack Logo" class="hero-main-logo" loading="eager" />
+                  <div class="image-glow"></div>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div class="showcase-ring ring-1"></div>
+                <div class="showcase-ring ring-2"></div>
+                <div class="showcase-ring ring-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator gsap-bounce">
+          <span class="scroll-text">Scroll to explore</span>
+          <div class="scroll-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION (Simplified/Expensive Look) -->
+      <section id="services" class="services-overview-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Our <span class="gradient-text-animated">Services</span></h2>
+            <p class="section-subtitle">
+              We build digital products that help businesses grow. From stunning websites to intelligent AI agents.
+            </p>
+          </div>
+          <div class="services-overview-grid">
+            <article class="service-overview-card scroll-reveal">
+              <div class="service-card-image">
+                <img
+                  src="../assets/cleaned_hero_images/websites_cleaned.png"
+                  alt="Website Development"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3>Websites</h3>
+                <p>
+                  Beautiful, high-performance websites that convert visitors into customers. Mobile-responsive,
+                  SEO-optimized, and blazing fast.
+                </p>
+                <a href="services.html" class="service-card-link">Learn More →</a>
+              </div>
+            </article>
+
+            <article class="service-overview-card featured scroll-reveal">
+              <div class="service-card-badge">Most Popular</div>
+              <div class="service-card-image">
+                <img src="../assets/cleaned_hero_images/aiagents_cleaned.png" alt="AI Agents" loading="lazy" />
+              </div>
+              <div class="service-card-content">
+                <h3>AI Agents</h3>
+                <p>
+                  Intelligent automation that works 24/7. Chat agents, lead qualification, customer support, and process
+                  automation.
+                </p>
+                <a href="services.html" class="service-card-link">Learn More →</a>
+              </div>
+            </article>
+
+            <article class="service-overview-card scroll-reveal">
+              <div class="service-card-image">
+                <img src="../assets/cleaned_hero_images/mobile_apps_cleaned.png" alt="Mobile Apps" loading="lazy" />
+              </div>
+              <div class="service-card-content">
+                <h3>Mobile Apps</h3>
+                <p>
+                  Native and cross-platform mobile applications that provide seamless experiences for your users on iOS
+                  and Android.
+                </p>
+                <a href="services.html" class="service-card-link">Learn More →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PINNED IMAGE SEQUENCE SECTION (From Original Index) -->
+      <section id="image-sequence" class="image-sequence-section">
+        <div class="sequence-container">
+          <div class="sequence-content">
+            <div class="sequence-text">
+              <h2 class="sequence-title gsap-reveal">Our <span class="gradient-text">Process</span></h2>
+              <p class="sequence-description gsap-reveal">
+                Watch how we transform your vision into reality through our innovative AI-powered development process.
+              </p>
+            </div>
+
+            <div class="sequence-frames">
+              <div class="sequence-frame active" data-step="1">
+                <div class="frame-content">
+                  <span class="frame-number">01</span>
+                  <h3>Discovery</h3>
+                  <p>We dive deep into your requirements, understanding your vision and goals.</p>
+                </div>
+              </div>
+              <div class="sequence-frame" data-step="2">
+                <div class="frame-content">
+                  <span class="frame-number">02</span>
+                  <h3>AI Design</h3>
+                  <p>Our AI agents architect intelligent solutions tailored to your needs.</p>
+                </div>
+              </div>
+              <div class="sequence-frame" data-step="3">
+                <div class="frame-content">
+                  <span class="frame-number">03</span>
+                  <h3>Development</h3>
+                  <p>Expert developers bring the AI-enhanced designs to life with precision.</p>
+                </div>
+              </div>
+              <div class="sequence-frame" data-step="4">
+                <div class="frame-content">
+                  <span class="frame-number">04</span>
+                  <h3>Launch</h3>
+                  <p>Your intelligent solution goes live with continuous AI optimization.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sequence-progress">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="progress-steps">
+                <span class="step active">Discovery</span>
+                <span class="step">Design</span>
+                <span class="step">Develop</span>
+                <span class="step">Launch</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sequence-visual">
+            <div class="visual-stack">
+              <img
+                src="../assets/templates/acai-heaven.png"
+                alt="Discovery Phase"
+                class="stack-image img-1"
+                data-step="1"
+              />
+              <img
+                src="../assets/templates/acai-bowl-pc.png"
+                alt="Design Phase"
+                class="stack-image img-2"
+                data-step="2"
+              />
+              <img
+                src="../assets/templates/acai-potential.png"
+                alt="Development Phase"
+                class="stack-image img-3"
+                data-step="3"
+              />
+              <img
+                src="../assets/templates/acai-agents-ad.png"
+                alt="Launch Phase"
+                class="stack-image img-4"
+                data-step="4"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO SECTION (Scroll Reveal Cards) -->
+      <section id="portfolio" class="portfolio-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Recent <span class="gradient-text-animated">Work</span></h2>
+            <p class="section-subtitle">Real projects. Real results. See what we've built for businesses like yours.</p>
+          </div>
+          <div class="portfolio-grid">
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23208396' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EFintech Platform%3C/text%3E%3C/svg%3E"
+                  alt="Fintech payment platform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Fintech Payment Platform</h3>
+                <p>Real-time payment processing with advanced security, processing 10k+ transactions/day.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Node.js</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2332b8c6' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESAAS Dashboard%3C/text%3E%3C/svg%3E"
+                  alt="Enterprise SaaS dashboard"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Enterprise SaaS Dashboard</h3>
+                <p>Comprehensive analytics dashboard for a major logistics company.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">Python</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="center-cta" style="margin-top: 40px; text-align: center">
+            <a href="portfolio.html" class="btn btn-secondary btn-outline">View All Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SMALL TEAM SECTION -->
+      <section id="team" class="team-section" style="padding-top: var(--space-80); padding-bottom: var(--space-80)">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Meet the <span class="gradient-text-animated">Team</span></h2>
+            <p class="section-subtitle">Passionate experts behind the code.</p>
+          </div>
+          <div
+            class="team-showcase"
+            style="display: flex; justify-content: center; gap: var(--space-32); flex-wrap: wrap"
+          >
+            <!-- Founder only for compactness or a few key members -->
+            <article class="team-card team-card-founder scroll-reveal" data-role="founder" style="max-width: 300px">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-placeholder">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">Maximilian H.</h3>
+                    <span class="team-role">Founder & CEO</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card team-card-member scroll-reveal" style="max-width: 300px">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div
+                      class="avatar-placeholder"
+                      style="background: rgba(33, 128, 141, 0.1); color: var(--color-primary)"
+                    >
+                      <span style="font-size: 24px; font-weight: bold">AI</span>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">Acai Bot</h3>
+                    <span class="team-role">AI Assistant</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="center-cta" style="margin-top: 40px; text-align: center">
+            <a href="team.html" class="btn btn-secondary btn-outline">Meet Everyone</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-content grid grid-cols-4 gap-8">
+          <div class="footer-section">
+            <h4>
+              <span class="brand-text brand-gradient-twist" style="font-size: 20px">AcaiStack</span>
+            </h4>
+            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="contact.html#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/gsap-animations.js" defer></script>
+  </body>
+</html>

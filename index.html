@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Primary Meta Tags -->
+    <title>AcaiStack - Professional Web Development & AI Agents</title>
+    <meta
+      name="description"
+      content="AcaiStack builds beautiful, high-performance websites with intelligent AI agents. Get stunning designs, blazing-fast performance, and 24/7 automation. Launch in weeks, not months."
+    />
+    <meta
+      name="keywords"
+      content="web development, AI agents, custom websites, AI automation, software agency, modern web design"
+    />
+    <meta name="author" content="AcaiStack" />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://acai-agents.dev/" />
+    <meta property="og:title" content="AcaiStack - Professional Web Development & AI Agents" />
+    <meta
+      property="og:description"
+      content="Beautiful websites with intelligent AI agents. Launch in weeks, not months."
+    />
+    <meta property="og:image" content="https://acai-agents.dev/assets/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://acai-agents.dev/" />
+    <meta property="twitter:title" content="AcaiStack - Professional Web Development & AI Agents" />
+    <meta
+      property="twitter:description"
+      content="Beautiful websites with intelligent AI agents. Launch in weeks, not months."
+    />
+    <meta property="twitter:image" content="https://acai-agents.dev/assets/og-image.png" />
+
+    <!-- Security Headers -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="css/base.css" as="style" />
+    <link rel="preload" href="js/utils.js" as="script" />
+    <link rel="preload" href="assets/websites.png" as="image" type="image/png" />
+    <link rel="preload" href="assets/aiagents.png" as="image" type="image/png" />
+    <link rel="preload" href="assets/mobileapps.png" as="image" type="image/png" />
+    <link rel="preload" href="assets/logo_small.png" as="image" type="image/png" />
+
+    <!-- CSS Files (optimized, no inline styles) -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/gsap-animations.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo_small.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo_small.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://acai-agents.dev/" />
+
+    <!-- Preload Logo for Performance -->
+    <link rel="preload" href="assets/acai_stack_logo.png" as="image" type="image/png" />
+
+    <!-- GSAP Animation Library (Professional-grade with SRI) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Background Effects -->
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER NAVIGATION -->
+    <header class="navbar" role="banner">
+      <div class="navbar-content container">
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/acai_stack_logo.png" alt="AcaiStack Logo" class="brand-logo" />
+          <span class="brand-text">AcaiStack</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <ul id="navbarMenu" class="navbar-menu">
+            <li><a href="index.html" class="navbar-link active">Home</a></li>
+            <li><a href="pages/services.html" class="navbar-link">Services</a></li>
+            <li><a href="pages/pricing.html" class="navbar-link">Pricing</a></li>
+            <li><a href="pages/portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li><a href="pages/team.html" class="navbar-link">Team</a></li>
+            <li>
+              <button
+                id="bwModeToggle"
+                class="mode-toggle-btn"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+                title="Toggle dark mode"
+              >
+                <svg
+                  class="mode-icon mode-icon-dark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+                <svg
+                  class="mode-icon mode-icon-light"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                </svg>
+              </button>
+            </li>
+            <li><a href="pages/contact.html" class="navbar-cta">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="relative-content">
+      <!-- IMMERSIVE HERO SECTION WITH GSAP ANIMATIONS -->
+      <section id="home" class="hero-section gsap-hero">
+        <div class="hero-background">
+          <!-- Animated gradient orbs -->
+          <div class="hero-orb hero-orb-1"></div>
+          <div class="hero-orb hero-orb-2"></div>
+          <div class="hero-orb hero-orb-3"></div>
+        </div>
+
+        <div class="container hero-main-container">
+          <div class="hero-content-wrapper">
+            <!-- Left: Text Content -->
+            <div class="hero-text-content">
+              <div class="hero-badge gsap-fade-in">
+                <span class="badge-icon"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M 12 2 L 14 8 L 20 8 L 15.5 12 L 17 18 L 12 14 L 7 18 L 8.5 12 L 4 8 L 10 8 Z" />
+                    <circle cx="5" cy="5" r="1.5" fill="currentColor" />
+                    <circle cx="19" cy="7" r="1" fill="currentColor" /></svg
+                ></span>
+                <span class="badge-text">Web Development + AI Automation</span>
+              </div>
+
+              <h1 class="hero-title gsap-split-text">
+                <span class="title-line">Stunning Websites.</span>
+                <span class="title-line gradient-text-animated">Smart Agents.</span>
+                <span class="title-line">Total Control.</span>
+              </h1>
+
+              <p class="hero-subtitle gsap-fade-up">
+                We build beautiful, high-performance websites with AI agents that automate your business. You get a
+                powerful dashboard to control everything — no coding required.
+              </p>
+
+              <div class="hero-cta gsap-stagger-in">
+                <a href="#contact" class="btn btn-primary btn-lg btn-glow" role="button">
+                  <span>Get Your Website</span>
+                  <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a href="#ai-agents" class="btn btn-secondary btn-lg btn-outline" role="button">
+                  <span>Explore AI Agents</span>
+                </a>
+              </div>
+
+              <div class="hero-stats gsap-counter">
+                <div class="stat-item">
+                  <span class="stat-number" data-target="150">0</span>
+                  <span class="stat-suffix">+</span>
+                  <span class="stat-label">Websites Launched</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number" data-target="50">0</span>
+                  <span class="stat-suffix">+</span>
+                  <span class="stat-label">AI Agents Deployed</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number" data-target="100">0</span>
+                  <span class="stat-suffix">%</span>
+                  <span class="stat-label">Customer Control</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Animated Image Showcase -->
+            <div class="hero-visual-showcase">
+              <div class="showcase-container">
+                <!-- Floating Images with GSAP Parallax -->
+                <div class="floating-image frame-1" data-speed="0.5">
+                  <img src="assets/websites.png" alt="AcaiStack Websites" loading="eager" />
+                  <div class="image-glow"></div>
+                </div>
+                <div class="floating-image frame-2" data-speed="0.8">
+                  <img src="assets/aiagents.png" alt="AcaiStack AI Agents" loading="eager" />
+                  <div class="image-glow"></div>
+                </div>
+                <div class="floating-image frame-3" data-speed="0.3">
+                  <img src="assets/mobileapps.png" alt="AcaiStack Mobile Apps" loading="eager" />
+                  <div class="image-glow"></div>
+                </div>
+                <div class="floating-image frame-4" data-speed="0.6">
+                  <img src="assets/logo_small.png" alt="AcaiStack Logo" loading="eager" />
+                  <div class="image-glow"></div>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div class="showcase-ring ring-1"></div>
+                <div class="showcase-ring ring-2"></div>
+                <div class="showcase-ring ring-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator gsap-bounce">
+          <span class="scroll-text">Scroll to explore</span>
+          <div class="scroll-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- PINNED IMAGE SEQUENCE SECTION -->
+      <section id="image-sequence" class="image-sequence-section">
+        <div class="sequence-container">
+          <div class="sequence-content">
+            <div class="sequence-text">
+              <h2 class="sequence-title gsap-reveal">Our <span class="gradient-text">Process</span></h2>
+              <p class="sequence-description gsap-reveal">
+                Watch how we transform your vision into reality through our innovative AI-powered development process.
+              </p>
+            </div>
+
+            <div class="sequence-frames">
+              <div class="sequence-frame active" data-step="1">
+                <div class="frame-content">
+                  <span class="frame-number">01</span>
+                  <h3>Discovery</h3>
+                  <p>We dive deep into your requirements, understanding your vision and goals.</p>
+                </div>
+              </div>
+              <div class="sequence-frame" data-step="2">
+                <div class="frame-content">
+                  <span class="frame-number">02</span>
+                  <h3>AI Design</h3>
+                  <p>Our AI agents architect intelligent solutions tailored to your needs.</p>
+                </div>
+              </div>
+              <div class="sequence-frame" data-step="3">
+                <div class="frame-content">
+                  <span class="frame-number">03</span>
+                  <h3>Development</h3>
+                  <p>Expert developers bring the AI-enhanced designs to life with precision.</p>
+                </div>
+              </div>
+              <div class="sequence-frame" data-step="4">
+                <div class="frame-content">
+                  <span class="frame-number">04</span>
+                  <h3>Launch</h3>
+                  <p>Your intelligent solution goes live with continuous AI optimization.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sequence-progress">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="progress-steps">
+                <span class="step active">Discovery</span>
+                <span class="step">Design</span>
+                <span class="step">Develop</span>
+                <span class="step">Launch</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sequence-visual">
+            <div class="visual-stack">
+              <img
+                src="assets/templates/acai-heaven.png"
+                alt="Discovery Phase"
+                class="stack-image img-1"
+                data-step="1"
+              />
+              <img src="assets/templates/acai-bowl-pc.png" alt="Design Phase" class="stack-image img-2" data-step="2" />
+              <img
+                src="assets/templates/acai-potential.png"
+                alt="Development Phase"
+                class="stack-image img-3"
+                data-step="3"
+              />
+              <img
+                src="assets/templates/acai-agents-ad.png"
+                alt="Launch Phase"
+                class="stack-image img-4"
+                data-step="4"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WEBSITES SECTION - Main Product -->
+      <section id="websites" class="services-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <span class="section-badge"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M 2 12 Q 2 8 12 8 Q 22 8 22 12" />
+                <path d="M 2 12 Q 2 16 12 16 Q 22 16 22 12" />
+                <path d="M 12 2 Q 14 6 14 12 Q 14 18 12 22" />
+                <path d="M 12 2 Q 10 6 10 12 Q 10 18 12 22" />
+              </svg>
+              Our Core Service</span
+            >
+            <h2 class="section-title">Professional Websites</h2>
+            <p class="section-subtitle">
+              Beautiful, fast, and conversion-optimized websites that make your business stand out.
+            </p>
+          </div>
+
+          <div class="services-grid grid grid-cols-3 gap-8">
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M 12 2 C 7 2 3 6 3 12 C 3 17 7 21 12 21 C 15 21 17.5 19.5 18.5 17.5 L 20 14" />
+                    <circle cx="7" cy="10" r="1.5" fill="currentColor" />
+                    <circle cx="12" cy="8" r="1.5" fill="currentColor" />
+                    <circle cx="16" cy="10" r="1.5" fill="currentColor" />
+                    <path d="M 18 5 L 21 8 L 19 10" fill="none" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </div>
+                <h3>Custom Design</h3>
+                <p>
+                  Unique, modern designs tailored to your brand. No templates — every pixel crafted for your business.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Custom UI</span>
+                  <span class="tech-tag">Brand Identity</span>
+                  <span class="tech-tag">Modern UX</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+                    <path d="M 13 2 L 3 14 L 9 14 L 11 22 L 21 10 L 15 10 L 13 2 Z" />
+                  </svg>
+                </div>
+                <h3>Blazing Fast</h3>
+                <p>
+                  Lightning-fast load times with optimized code, CDN delivery, and 95+ Lighthouse scores guaranteed.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Sub-second Load</span>
+                  <span class="tech-tag">CDN</span>
+                  <span class="tech-tag">Optimized</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M 10 2 L 14 2" stroke-width="1.5" />
+                    <circle cx="12" cy="20" r="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <h3>Mobile Perfect</h3>
+                <p>Responsive design that looks stunning on every device. Mobile-first approach for the modern web.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Responsive</span>
+                  <span class="tech-tag">Touch-Friendly</span>
+                  <span class="tech-tag">All Devices</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="9" cy="9" r="6" />
+                    <path d="M 14 14 L 21 21" />
+                  </svg>
+                </div>
+                <h3>SEO Optimized</h3>
+                <p>Built for search engines from day one. Technical SEO, structured data, and Core Web Vitals ready.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">SEO Ready</span>
+                  <span class="tech-tag">Schema.org</span>
+                  <span class="tech-tag">Core Vitals</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M 18 9 V 7 C 18 4.2 15.3 2 12 2 C 8.7 2 6 4.2 6 7 V 9" />
+                    <rect x="4" y="9" width="16" height="12" rx="2" />
+                    <circle cx="12" cy="16" r="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <h3>Secure & Reliable</h3>
+                <p>Enterprise-grade security with SSL, GDPR compliance, and 99.9% uptime guaranteed.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">SSL/HTTPS</span>
+                  <span class="tech-tag">GDPR</span>
+                  <span class="tech-tag">99.9% Uptime</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="1" fill="currentColor" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="12" cy="12" r="8" />
+                    <circle cx="12" cy="12" r="11" />
+                  </svg>
+                </div>
+                <h3>Conversion Focused</h3>
+                <p>Strategic layouts and CTAs designed to turn visitors into customers. Your growth is our goal.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">CRO</span>
+                  <span class="tech-tag">A/B Ready</span>
+                  <span class="tech-tag">Analytics</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI AGENTS SECTION - Unique Selling Point -->
+      <section id="ai-agents" class="ai-agents-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <span class="section-badge"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="6" y="8" width="12" height="11" rx="1.5" />
+                <path d="M 10 4 L 14 4 L 14 7 L 10 7 Z" />
+                <path d="M 12 4 L 12 2" />
+                <circle cx="9" cy="11" r="1.5" fill="currentColor" />
+                <circle cx="15" cy="11" r="1.5" fill="currentColor" />
+                <path d="M 9 14 Q 12 15 15 14" stroke-width="1.5" />
+              </svg>
+              What Makes Us Different</span
+            >
+            <h2 class="section-title">AI Agents You <span class="gradient-text">Control</span></h2>
+            <p class="section-subtitle">
+              Every website comes with intelligent AI agents — and a dashboard to manage them yourself.
+            </p>
+          </div>
+
+          <div class="agents-showcase">
+            <div class="agents-visual scroll-reveal">
+              <div class="dashboard-preview">
+                <div class="dashboard-header">
+                  <span class="dashboard-dot red"></span>
+                  <span class="dashboard-dot yellow"></span>
+                  <span class="dashboard-dot green"></span>
+                  <span class="dashboard-title">Your AI Control Center</span>
+                </div>
+                <div class="dashboard-content">
+                  <div class="agent-card-mini">
+                    <span class="agent-status active"></span>
+                    <span class="agent-name">Customer Support Bot</span>
+                    <span class="agent-toggle">ON</span>
+                  </div>
+                  <div class="agent-card-mini">
+                    <span class="agent-status active"></span>
+                    <span class="agent-name">Lead Qualifier</span>
+                    <span class="agent-toggle">ON</span>
+                  </div>
+                  <div class="agent-card-mini">
+                    <span class="agent-status paused"></span>
+                    <span class="agent-name">Content Writer</span>
+                    <span class="agent-toggle">OFF</span>
+                  </div>
+                  <div class="agent-card-mini">
+                    <span class="agent-status active"></span>
+                    <span class="agent-name">Appointment Scheduler</span>
+                    <span class="agent-toggle">ON</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="agents-features scroll-reveal">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M 3 9 L 3 17 C 3 18.1 3.9 19 5 19 L 17 19 L 20 22 L 20 9 C 20 7.9 19.1 7 18 7 L 5 7 C 3.9 7 3 7.9 3 9 Z"
+                    />
+                    <circle cx="8" cy="13" r="1" fill="currentColor" />
+                    <circle cx="12" cy="13" r="1" fill="currentColor" />
+                    <circle cx="16" cy="13" r="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h4>24/7 Customer Support</h4>
+                  <p>AI agents that answer customer questions instantly, any time of day.</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="4" y="5" width="16" height="15" rx="2" />
+                    <path d="M 8 2 L 8 8" />
+                    <path d="M 16 2 L 16 8" />
+                    <path d="M 4 11 L 20 11" />
+                    <line x1="7" y1="15" x2="10" y2="15" />
+                    <line x1="14" y1="15" x2="17" y2="15" />
+                    <line x1="7" y1="18" x2="10" y2="18" />
+                    <line x1="14" y1="18" x2="17" y2="18" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h4>Smart Scheduling</h4>
+                  <p>Automatically book appointments and manage your calendar.</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="1" fill="currentColor" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="12" cy="12" r="8" />
+                    <circle cx="12" cy="12" r="11" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h4>Lead Generation</h4>
+                  <p>Qualify leads and capture contact info while you sleep.</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="4" y1="7" x2="12" y2="7" />
+                    <circle cx="14" cy="7" r="2" fill="currentColor" />
+                    <line x1="18" y1="7" x2="20" y2="7" />
+                    <line x1="4" y1="12" x2="8" y2="12" />
+                    <circle cx="10" cy="12" r="2" fill="currentColor" />
+                    <line x1="14" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="17" x2="10" y2="17" />
+                    <circle cx="12" cy="17" r="2" fill="currentColor" />
+                    <line x1="16" y1="17" x2="20" y2="17" />
+                  </svg>
+                </div>
+                <div class="feature-content">
+                  <h4>Easy Dashboard</h4>
+                  <p>Turn agents on/off, customize behavior, view analytics — no coding needed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO SECTION -->
+      <section id="portfolio" class="portfolio-section">
+        <div class="container">
+          <h2 class="section-title scroll-reveal">Recent Projects</h2>
+          <div class="portfolio-grid">
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23208396' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EFintech Platform%3C/text%3E%3C/svg%3E"
+                  alt="Fintech payment platform"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Fintech Payment Platform</h3>
+                <p>Real-time payment processing with advanced security, processing 10k+ transactions/day.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">Stripe API</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2332b8c6' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESAAS Dashboard%3C/text%3E%3C/svg%3E"
+                  alt="Enterprise SaaS dashboard"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Enterprise SaaS Dashboard</h3>
+                <p>Multi-tenant analytics platform with real-time data visualization for 500+ enterprises.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">D3.js</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="portfolio-card card scroll-reveal">
+              <div class="portfolio-image">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2300d9ff' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EMobile App%3C/text%3E%3C/svg%3E"
+                  alt="Native mobile application"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-content">
+                <h3>Cross-Platform Mobile App</h3>
+                <p>Native iOS/Android application with offline sync and push notifications for 100k+ users.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React Native</span>
+                  <span class="tech-tag">Firebase</span>
+                  <span class="tech-tag">SQLite</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY CHOOSE US SECTION -->
+      <section id="why-acaistack" class="why-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Why Businesses Choose <span class="gradient-text">AcaiStack</span></h2>
+          </div>
+
+          <div class="why-grid grid grid-cols-3 gap-8">
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M 4.5 16.5 C 3 18 3 21 3 21 C 3 21 6 21 7.5 19.5 C 8.24 18.75 8.24 17.25 7.5 16.5 C 6.76 15.75 5.25 15.75 4.5 16.5 Z"
+                  />
+                  <path d="M 12 15 L 9 12 C 9 12 10 6 16 4 C 16 4 18 10 16 16 L 12 15 Z" />
+                  <path d="M 14 6 C 14 6 18 6 20 10 L 16 16" />
+                  <circle cx="14" cy="9" r="1.5" />
+                </svg>
+              </div>
+              <h3>Launch in Weeks, Not Months</h3>
+              <p>Our AI-enhanced workflow gets your website live fast — without cutting corners on quality.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="4" y1="7" x2="12" y2="7" />
+                  <circle cx="14" cy="7" r="2" fill="currentColor" />
+                  <line x1="18" y1="7" x2="20" y2="7" />
+                  <line x1="4" y1="12" x2="8" y2="12" />
+                  <circle cx="10" cy="12" r="2" fill="currentColor" />
+                  <line x1="14" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="17" x2="10" y2="17" />
+                  <circle cx="12" cy="17" r="2" fill="currentColor" />
+                  <line x1="16" y1="17" x2="20" y2="17" />
+                </svg>
+              </div>
+              <h3>You're in Control</h3>
+              <p>Manage your AI agents, update content, and view analytics from one simple dashboard.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M 20 12 L 20 17 C 20 18.1 19.1 19 18 19 L 6 19 C 4.9 19 4 18.1 4 17 L 4 12" />
+                  <rect x="4" y="8" width="16" height="4" rx="1" />
+                  <path d="M 8 8 L 8 6 C 8 4 12 4 12 4 C 12 4 16 4 16 6 L 16 8" />
+                  <circle cx="17" cy="15" r="1" fill="currentColor" />
+                </svg>
+              </div>
+              <h3>Transparent Pricing</h3>
+              <p>No hidden fees. No surprise costs. Know exactly what you're paying from day one.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M 6 15 L 3 12 L 6 9" />
+                  <path d="M 18 15 L 21 12 L 18 9" />
+                  <path d="M 3 12 L 9 12 C 9 12 10 14 12 14 C 14 14 15 12 15 12 L 21 12" />
+                </svg>
+              </div>
+              <h3>Ongoing Support</h3>
+              <p>We don't disappear after launch. Get continuous support and updates as you grow.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M 4 20 L 4 4" />
+                  <path d="M 4 20 L 20 20" />
+                  <path d="M 6 16 L 10 11 L 14 14 L 20 6" />
+                  <path d="M 16 6 L 20 6 L 20 10" />
+                </svg>
+              </div>
+              <h3>Built to Scale</h3>
+              <p>From startup to enterprise — your website and AI agents grow with your business.</p>
+            </div>
+
+            <div class="why-card card scroll-reveal">
+              <div class="why-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="5" y="11" width="14" height="10" rx="2" />
+                  <path d="M 8 11 L 8 7 C 8 4.79 9.79 3 12 3 C 14.21 3 16 4.79 16 7 L 16 11" />
+                  <circle cx="12" cy="16" r="1.5" fill="currentColor" />
+                </svg>
+              </div>
+              <h3>Security First</h3>
+              <p>Enterprise-grade security, GDPR compliant, and protected against modern threats.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <h2 class="section-title scroll-reveal">Get In Touch</h2>
+
+          <div class="contact-grid grid grid-cols-2 gap-8">
+            <div class="contact-info scroll-reveal">
+              <h3>Ready to get started?</h3>
+              <p>
+                Tell us about your project. We'll show you how a custom website + AI agents can transform your business.
+              </p>
+
+              <div class="contact-details">
+                <div class="detail-item">
+                  <h4>Email</h4>
+                  <a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a>
+                </div>
+                <div class="detail-item">
+                  <h4>Response Time</h4>
+                  <p>Within 24 hours</p>
+                </div>
+                <div class="detail-item">
+                  <h4>Location</h4>
+                  <p>Remote First | Worldwide</p>
+                </div>
+              </div>
+            </div>
+
+            <form id="contactForm" class="contact-form card scroll-reveal" method="POST">
+              <div class="form-group">
+                <label for="name" class="form-label required">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label required">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required aria-required="true" />
+              </div>
+
+              <div class="form-group">
+                <label for="company" class="form-label">Company</label>
+                <input type="text" id="company" name="company" class="form-input" />
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label required">Message</label>
+                <textarea id="message" name="message" class="form-textarea" required aria-required="true"></textarea>
+              </div>
+
+              <!-- CSRF Token (auto-added by utils.js) -->
+              <!-- Form submission handled with proper validation -->
+
+              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Get My Free Consultation</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content grid grid-cols-4 gap-8">
+          <div class="footer-section">
+            <h4>
+              <img src="assets/logo_small.png" alt="AcaiStack" class="footer-brand-logo" width="20" height="20" />
+              AcaiStack
+            </h4>
+            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="pages/services.html">Services</a></li>
+              <li><a href="pages/pricing.html">Pricing</a></li>
+              <li><a href="pages/portfolio.html">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="pages/team.html">Our Team</a></li>
+              <li><a href="pages/contact.html">Contact Us</a></li>
+              <li><a href="pages/contact.html#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="mailto:hello@acaistack.dev">Email Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CHAT WIDGET -->
+    <div id="chatWidget" class="chat-widget card" role="dialog" aria-labelledby="chatTitle" aria-hidden="true">
+      <div class="chat-header">
+        <h3 id="chatTitle">Chat with us</h3>
+        <button id="closeChatBtn" class="btn btn-sm" aria-label="Close chat widget">×</button>
+      </div>
+      <div id="chatMessages" class="chat-messages" role="log"></div>
+      <form id="chatForm" class="chat-form">
+        <input
+          type="text"
+          id="chatInput"
+          class="form-input"
+          placeholder="Type your message..."
+          aria-label="Chat message input"
+        />
+        <button type="submit" class="btn btn-primary btn-sm" aria-label="Send message">Send</button>
+      </form>
+    </div>
+
+    <button id="chatToggle" class="chat-toggle btn btn-primary" aria-label="Open chat widget">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M 3 9 L 3 17 C 3 18.1 3.9 19 5 19 L 17 19 L 20 22 L 20 9 C 20 7.9 19.1 7 18 7 L 5 7 C 3.9 7 3 7.9 3 9 Z"
+        />
+        <circle cx="8" cy="13" r="1" fill="currentColor" />
+        <circle cx="12" cy="13" r="1" fill="currentColor" />
+        <circle cx="16" cy="13" r="1" fill="currentColor" />
+      </svg>
+    </button>
+
+    <!-- JavaScript (PHASE 3: Security + Validation) -->
+    <script src="js/utils.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/gsap-animations.js" defer></script>
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AcaiStack",
+        "url": "https://acai-agents.dev",
+        "logo": "https://acai-agents.dev/assets/acai_stack_logo.png",
+        "description": "Professional web development agency specializing in AI-powered websites and intelligent automation",
+        "email": "hello@acaistack.dev",
+        "sameAs": [
+          "https://github.com/acai-agents",
+          "https://twitter.com/acaistack",
+          "https://linkedin.com/company/acaistack"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Remote",
+          "addressCountry": "Worldwide"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@acaistack.dev",
+          "contactType": "Customer Service",
+          "availableLanguage": ["English"]
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": "3",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Website Development",
+              "description": "Custom website design and development"
+            },
+            {
+              "@type": "Offer",
+              "name": "AI Agents",
+              "description": "Intelligent automation and AI-powered agents"
+            },
+            {
+              "@type": "Offer",
+              "name": "Mobile Apps",
+              "description": "Cross-platform mobile application development"
+            }
+          ]
+        }
+      }
+    </script>
+  </body>
+</html>

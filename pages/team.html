@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="description"
+      content="AcaiStack Team - Meet the passionate innovators and AI enthusiasts behind AcaiStack."
+    />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <title>Team - AcaiStack</title>
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/gsap-animations.css" />
+    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  </head>
+  <body>
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="navbar" role="banner">
+      <div class="navbar-content container">
+        <a href="../index.html" class="navbar-brand">
+          <span class="brand-text brand-gradient-twist">AcaiStack</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <ul id="navbarMenu" class="navbar-menu">
+            <li><a href="../index.html" class="navbar-link">Home</a></li>
+            <li><a href="services.html" class="navbar-link">Services</a></li>
+            <li><a href="pricing.html" class="navbar-link">Pricing</a></li>
+            <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li><a href="team.html" class="navbar-link active">Team</a></li>
+            <li>
+              <button
+                id="bwModeToggle"
+                class="mode-toggle-btn"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+                title="Toggle dark mode"
+              >
+                <svg
+                  class="mode-icon mode-icon-dark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+                <svg
+                  class="mode-icon mode-icon-light"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                </svg>
+              </button>
+            </li>
+            <li><a href="contact.html" class="navbar-cta">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="relative-content page-content">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Meet Our <span class="gradient-text">Team</span></h1>
+          <p class="page-subtitle">
+            Passionate innovators, creative problem-solvers, and AI enthusiasts building the future of web development.
+          </p>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="team-section">
+        <div class="team-background">
+          <div class="team-grid-lines"></div>
+          <div class="team-glow team-glow-1"></div>
+          <div class="team-glow team-glow-2"></div>
+        </div>
+
+        <div class="container">
+          <div class="team-showcase">
+            <!-- Team Member 1 - Founder -->
+            <article class="team-card team-card-founder scroll-reveal" data-role="founder">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-placeholder">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">Maximilian H.</h3>
+                    <span class="team-role">Founder & CEO</span>
+                    <div class="team-status">
+                      <span class="status-dot"></span>
+                      <span>Leading Innovation</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-card-back">
+                  <p class="team-quote">"Building the future, one line of code at a time."</p>
+                  <div class="team-skills">
+                    <span class="skill-tag">Strategy</span>
+                    <span class="skill-tag">Vision</span>
+                    <span class="skill-tag">AI</span>
+                  </div>
+                  <div class="team-social">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                          d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Team Member 2 - Lead Developer -->
+            <article class="team-card scroll-reveal" data-role="developer">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-placeholder">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">Sarah K.</h3>
+                    <span class="team-role">Lead Developer</span>
+                    <div class="team-status">
+                      <span class="status-dot"></span>
+                      <span>Crafting Code</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-card-back">
+                  <p class="team-quote">
+                    "Clean code is not written by following rules. It's written by trying to do what's right."
+                  </p>
+                  <div class="team-skills">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">TypeScript</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Team Member 3 - AI Engineer -->
+            <article class="team-card scroll-reveal" data-role="ai">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-placeholder">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">Alex M.</h3>
+                    <span class="team-role">AI Engineer</span>
+                    <div class="team-status">
+                      <span class="status-dot"></span>
+                      <span>Training Models</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-card-back">
+                  <p class="team-quote">"The best AI is the one that makes you forget it's there."</p>
+                  <div class="team-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">LLMs</span>
+                    <span class="skill-tag">ML Ops</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Team Member 4 - UI/UX Designer -->
+            <article class="team-card scroll-reveal" data-role="design">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-placeholder">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">Emma L.</h3>
+                    <span class="team-role">UI/UX Designer</span>
+                    <div class="team-status">
+                      <span class="status-dot"></span>
+                      <span>Designing Dreams</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-card-back">
+                  <p class="team-quote">"Design is not just what it looks like, it's how it works."</p>
+                  <div class="team-skills">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Motion</span>
+                    <span class="skill-tag">Research</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Team Member 5 - Growth Lead -->
+            <article class="team-card scroll-reveal" data-role="growth">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-placeholder">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">James T.</h3>
+                    <span class="team-role">Growth Lead</span>
+                    <div class="team-status">
+                      <span class="status-dot"></span>
+                      <span>Scaling Up</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-card-back">
+                  <p class="team-quote">
+                    "Growth is never by mere chance; it's the result of forces working together."
+                  </p>
+                  <div class="team-skills">
+                    <span class="skill-tag">Marketing</span>
+                    <span class="skill-tag">Analytics</span>
+                    <span class="skill-tag">SEO</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Team Member 6 - Join Us Card -->
+            <article class="team-card team-card-join scroll-reveal" data-role="join">
+              <div class="team-card-inner">
+                <div class="team-card-front">
+                  <div class="team-avatar team-avatar-join">
+                    <div class="avatar-ring avatar-ring-dashed"></div>
+                    <div class="avatar-placeholder avatar-placeholder-join">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v8M8 12h8" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="team-info">
+                    <h3 class="team-name">This Could Be You</h3>
+                    <span class="team-role">Your Dream Role</span>
+                    <div class="team-status team-status-join">
+                      <span class="status-dot status-dot-pulse"></span>
+                      <span>We're Hiring!</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-card-back team-card-back-join">
+                  <p class="team-quote">
+                    "Ready to build something extraordinary? Join our mission to revolutionize web development with AI."
+                  </p>
+                  <a href="contact.html" class="join-cta">
+                    <span>Apply Now</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Team Stats -->
+          <div class="team-stats scroll-reveal">
+            <div class="team-stat">
+              <span class="team-stat-number">5+</span>
+              <span class="team-stat-label">Countries</span>
+            </div>
+            <div class="team-stat-divider"></div>
+            <div class="team-stat">
+              <span class="team-stat-number">50+</span>
+              <span class="team-stat-label">Years Combined Experience</span>
+            </div>
+            <div class="team-stat-divider"></div>
+            <div class="team-stat">
+              <span class="team-stat-number">∞</span>
+              <span class="team-stat-label">Passion for Innovation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Want to Join Our Team?</h2>
+            <p>We're always looking for talented individuals who are passionate about AI and web development.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">View Open Positions</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content grid grid-cols-4 gap-8">
+          <div class="footer-section">
+            <h4>
+              <span class="brand-text brand-gradient-twist" style="font-size: 20px">AcaiStack</span>
+            </h4>
+            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="contact.html#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/gsap-animations.js" defer></script>
+  </body>
+</html>

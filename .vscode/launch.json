@@ -1,0 +1,45 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // ACAI AGENTS - Debug Configurations
+  // ═══════════════════════════════════════════════════════════════════════════════
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Open in Browser (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "preLaunchTask": "Start Dev Server"
+    },
+    {
+      "name": "Open in Browser (Edge)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "preLaunchTask": "Start Dev Server"
+    },
+    {
+      "name": "Open index.html (No Server)",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/index.html"
+    },
+    {
+      "name": "Attach to Chrome",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack Debug",
+      "configurations": ["Open in Browser (Chrome)"]
+    }
+  ]
+}

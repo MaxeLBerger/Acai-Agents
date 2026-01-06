@@ -1,0 +1,61 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // ACAI AGENTS - Recommended VS Code Extensions
+  // Install all: Ctrl+Shift+P > "Extensions: Show Recommended Extensions"
+  // ═══════════════════════════════════════════════════════════════════════════════
+
+  "recommendations": [
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Essential - Code Quality & Formatting
+    // ─────────────────────────────────────────────────────────────────────────────
+    "esbenp.prettier-vscode", // Code formatter
+    "dbaeumer.vscode-eslint", // JavaScript linting
+    "editorconfig.editorconfig", // EditorConfig support
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Web Development
+    // ─────────────────────────────────────────────────────────────────────────────
+    "ritwickdey.liveserver", // Live reload server
+    "ecmel.vscode-html-css", // HTML CSS class intellisense
+    "pranaygp.vscode-css-peek", // CSS peek/go to definition
+    "zignd.html-css-class-completion", // CSS class autocomplete
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // JavaScript Enhanced
+    // ─────────────────────────────────────────────────────────────────────────────
+    "xabikos.javascriptsnippets", // JS snippets
+    "wix.vscode-import-cost", // Import cost display
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // AI Assistance
+    // ─────────────────────────────────────────────────────────────────────────────
+    "github.copilot", // GitHub Copilot
+    "github.copilot-chat", // Copilot Chat
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Git & Collaboration
+    // ─────────────────────────────────────────────────────────────────────────────
+    "eamodio.gitlens", // Git supercharged
+    "mhutchie.git-graph", // Git graph visualization
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Productivity
+    // ─────────────────────────────────────────────────────────────────────────────
+    "streetsidesoftware.code-spell-checker", // Spell checking
+    "usernamehw.errorlens", // Inline error display
+    "formulahendry.auto-rename-tag", // Auto rename HTML tags
+    "christian-kohler.path-intellisense", // Path autocomplete
+
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Documentation
+    // ─────────────────────────────────────────────────────────────────────────────
+    "yzhang.markdown-all-in-one", // Markdown support
+    "bierner.markdown-preview-github-styles" // GitHub-style MD preview
+  ],
+
+  "unwantedRecommendations": [
+    // Extensions that conflict with our setup
+    "hookyqr.beautify", // Use Prettier instead
+    "lonefy.vscode-js-css-html-formatter" // Use Prettier instead
+  ]
+}

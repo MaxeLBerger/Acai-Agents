@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="description"
+      content="AcaiStack Pricing - Transparent pricing for web development, AI agents, and mobile apps. No hidden fees."
+    />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <title>Pricing - AcaiStack</title>
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/gsap-animations.css" />
+    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  </head>
+  <body>
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="navbar" role="banner">
+      <div class="navbar-content container">
+        <a href="../index.html" class="navbar-brand">
+          <span class="brand-text brand-gradient-twist">AcaiStack</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <ul id="navbarMenu" class="navbar-menu">
+            <li><a href="../index.html" class="navbar-link">Home</a></li>
+            <li><a href="services.html" class="navbar-link">Services</a></li>
+            <li><a href="pricing.html" class="navbar-link active">Pricing</a></li>
+            <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li><a href="team.html" class="navbar-link">Team</a></li>
+            <li>
+              <button
+                id="bwModeToggle"
+                class="mode-toggle-btn"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+                title="Toggle dark mode"
+              >
+                <svg
+                  class="mode-icon mode-icon-dark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+                <svg
+                  class="mode-icon mode-icon-light"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                </svg>
+              </button>
+            </li>
+            <li><a href="contact.html" class="navbar-cta">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="relative-content page-content">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Transparent <span class="gradient-text">Pricing</span></h1>
+          <p class="page-subtitle">No hidden fees. One-time investment for a website that works for you.</p>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section class="pricing-section">
+        <div class="container">
+          <div class="pricing-grid">
+            <!-- Starter Plan -->
+            <article class="pricing-card scroll-reveal">
+              <div class="pricing-header">
+                <h3 class="pricing-name">Starter</h3>
+                <p class="pricing-description">Perfect for small businesses getting started online.</p>
+                <div class="pricing-price">
+                  <span class="price-amount">$1,499</span>
+                  <span class="price-term">one-time</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Custom 5-page website
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Mobile responsive design
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Basic SEO optimization
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Contact form
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>1 month support
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>SSL certificate
+                </li>
+              </ul>
+              <a href="contact.html" class="pricing-cta btn btn-outline">Get Started</a>
+            </article>
+
+            <!-- Professional Plan -->
+            <article class="pricing-card featured scroll-reveal">
+              <div class="pricing-badge">Most Popular</div>
+              <div class="pricing-header">
+                <h3 class="pricing-name">Professional</h3>
+                <p class="pricing-description">For growing businesses that need more power.</p>
+                <div class="pricing-price">
+                  <span class="price-amount">$2,999</span>
+                  <span class="price-term">one-time</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Custom 10-page website
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Advanced responsive
+                  design
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Full SEO optimization
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Blog/News section
+                </li>
+                <li>
+                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>AI Chat Agent
+                  included
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>3 months support
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Analytics dashboard
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Content management
+                  system
+                </li>
+              </ul>
+              <a href="contact.html" class="pricing-cta btn btn-primary">Start Now</a>
+            </article>
+
+            <!-- Enterprise Plan -->
+            <article class="pricing-card scroll-reveal">
+              <div class="pricing-header">
+                <h3 class="pricing-name">Enterprise</h3>
+                <p class="pricing-description">Complete solution for established businesses.</p>
+                <div class="pricing-price">
+                  <span class="price-amount">$5,999</span>
+                  <span class="price-term">one-time</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Unlimited pages
+                </li>
+                <li>
+                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Premium design
+                  & animations
+                </li>
+                <li>
+                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>E-commerce
+                  integration
+                </li>
+                <li>
+                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Advanced AI
+                  Agents
+                </li>
+                <li>
+                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Lead
+                  qualification system
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>12 months support
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Custom integrations
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Performance optimization
+                </li>
+              </ul>
+              <a href="contact.html" class="pricing-cta btn btn-outline">Contact Us</a>
+            </article>
+          </div>
+
+          <!-- FAQ Section -->
+          <div class="pricing-faq scroll-reveal">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <h4>What's included in the one-time price?</h4>
+                <p>
+                  Everything you need to launch: design, development, testing, deployment, and initial support period.
+                </p>
+              </div>
+              <div class="faq-item">
+                <h4>Do you offer ongoing maintenance?</h4>
+                <p>
+                  Yes! After your initial support period, we offer monthly maintenance packages starting at $99/month.
+                </p>
+              </div>
+              <div class="faq-item">
+                <h4>How long does a project take?</h4>
+                <p>Starter: 2-3 weeks. Professional: 4-6 weeks. Enterprise: 8-12 weeks depending on complexity.</p>
+              </div>
+              <div class="faq-item">
+                <h4>Can I upgrade my plan later?</h4>
+                <p>
+                  Absolutely! You only pay the difference between plans plus any additional customization work needed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Not Sure Which Plan Is Right?</h2>
+            <p>Let's talk about your project and find the perfect solution for your business.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Schedule a Free Consultation</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content grid grid-cols-4 gap-8">
+          <div class="footer-section">
+            <h4>
+              <span class="brand-text brand-gradient-twist" style="font-size: 20px">AcaiStack</span>
+            </h4>
+            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="contact.html#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/gsap-animations.js" defer></script>
+  </body>
+</html>

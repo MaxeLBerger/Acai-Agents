@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Discussion
+    url: https://github.com/acai-agents/website/discussions
+    about: Use discussions for questions, ideas, and general conversation
+  - name: 📚 Documentation
+    url: https://github.com/acai-agents/website/wiki
+    about: Check our documentation before opening an issue
+  - name: 📧 Contact Support
+    url: mailto:hello@acai-agents.dev
+    about: For urgent issues or security vulnerabilities

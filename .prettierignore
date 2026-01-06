@@ -1,0 +1,41 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ACAI AGENTS - Prettier Ignore
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+*.min.js
+*.min.css
+*.bundle.js
+*.bundle.css
+
+# Generated files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Cache
+.cache/
+
+# Coverage
+coverage/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optimization results (data file)
+optimization_results.csv

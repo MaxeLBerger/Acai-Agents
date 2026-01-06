@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="description"
+      content="AcaiStack Services - Professional Web Development, AI Agents, and Mobile Apps. See what we can build for your business."
+    />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <title>Services - AcaiStack</title>
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/gsap-animations.css" />
+    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  </head>
+  <body>
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="navbar" role="banner">
+      <div class="navbar-content container">
+        <a href="../index.html" class="navbar-brand">
+          <span class="brand-text brand-gradient-twist">AcaiStack</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="navbarMenu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <ul id="navbarMenu" class="navbar-menu">
+            <li><a href="../index.html" class="navbar-link">Home</a></li>
+            <li><a href="services.html" class="navbar-link active">Services</a></li>
+            <li><a href="pricing.html" class="navbar-link">Pricing</a></li>
+            <li><a href="portfolio.html" class="navbar-link">Portfolio</a></li>
+            <li><a href="team.html" class="navbar-link">Team</a></li>
+            <li>
+              <button
+                id="bwModeToggle"
+                class="mode-toggle-btn"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+                title="Toggle dark mode"
+              >
+                <svg
+                  class="mode-icon mode-icon-dark"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+                <svg
+                  class="mode-icon mode-icon-light"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
+                </svg>
+              </button>
+            </li>
+            <li><a href="contact.html" class="navbar-cta">Get Started</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="relative-content page-content">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Our <span class="gradient-text">Services</span></h1>
+          <p class="page-subtitle">
+            We build digital products that help businesses grow. From stunning websites to intelligent AI agents.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services Overview -->
+      <section class="services-overview-section">
+        <div class="container">
+          <div class="services-overview-grid">
+            <article class="service-overview-card scroll-reveal">
+              <div class="service-card-image">
+                <img
+                  src="../assets/cleaned_hero_images/websites_cleaned.png"
+                  alt="Website Development"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3>Websites</h3>
+                <p>
+                  Beautiful, high-performance websites that convert visitors into customers. Mobile-responsive,
+                  SEO-optimized, and blazing fast.
+                </p>
+                <ul class="service-features">
+                  <li>Custom Design & Development</li>
+                  <li>SEO Optimization</li>
+                  <li>Mobile-First Approach</li>
+                  <li>Content Management System</li>
+                </ul>
+                <a href="pricing.html" class="service-card-link">View Pricing →</a>
+              </div>
+            </article>
+
+            <article class="service-overview-card featured scroll-reveal">
+              <div class="service-card-badge">Most Popular</div>
+              <div class="service-card-image">
+                <img src="../assets/cleaned_hero_images/aiagents_cleaned.png" alt="AI Agents" loading="lazy" />
+              </div>
+              <div class="service-card-content">
+                <h3>AI Agents</h3>
+                <p>
+                  Intelligent automation that works 24/7. Chat agents, lead qualification, customer support, and process
+                  automation.
+                </p>
+                <ul class="service-features">
+                  <li>24/7 Customer Support</li>
+                  <li>Lead Qualification</li>
+                  <li>Process Automation</li>
+                  <li>Custom AI Solutions</li>
+                </ul>
+                <a href="pricing.html" class="service-card-link">View Pricing →</a>
+              </div>
+            </article>
+
+            <article class="service-overview-card scroll-reveal">
+              <div class="service-card-image">
+                <img
+                  src="../assets/cleaned_hero_images/mobile_apps_cleaned.png"
+                  alt="Mobile App Development"
+                  loading="lazy"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3>Mobile Apps</h3>
+                <p>
+                  Native and cross-platform mobile applications for iOS and Android. From concept to App Store launch.
+                </p>
+                <ul class="service-features">
+                  <li>iOS & Android Development</li>
+                  <li>Cross-Platform Solutions</li>
+                  <li>App Store Optimization</li>
+                  <li>Ongoing Maintenance</li>
+                </ul>
+                <a href="contact.html" class="service-card-link">Get Quote →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Website Features Detail -->
+      <section class="services-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <span class="section-badge">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M 2 12 Q 2 8 12 8 Q 22 8 22 12" />
+                <path d="M 2 12 Q 2 16 12 16 Q 22 16 22 12" />
+                <path d="M 12 2 Q 14 6 14 12 Q 14 18 12 22" />
+                <path d="M 12 2 Q 10 6 10 12 Q 10 18 12 22" />
+              </svg>
+              Website Features
+            </span>
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-subtitle">Every website we build comes with these powerful features.</p>
+          </div>
+
+          <div class="services-grid grid grid-cols-3 gap-8">
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+                    <path d="M 13 2 L 3 14 L 9 14 L 11 22 L 21 10 L 15 10 L 13 2 Z" />
+                  </svg>
+                </div>
+                <h3>Blazing Fast</h3>
+                <p>
+                  Lightning-fast load times with optimized code, CDN delivery, and 95+ Lighthouse scores guaranteed.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Sub-second Load</span>
+                  <span class="tech-tag">CDN</span>
+                  <span class="tech-tag">Optimized</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M 10 2 L 14 2" stroke-width="1.5" />
+                    <circle cx="12" cy="20" r="1" fill="currentColor" />
+                  </svg>
+                </div>
+                <h3>Mobile Perfect</h3>
+                <p>Responsive design that looks stunning on every device. Mobile-first approach for the modern web.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Responsive</span>
+                  <span class="tech-tag">Touch-Friendly</span>
+                  <span class="tech-tag">All Devices</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card service-card scroll-reveal">
+              <div class="card-body">
+                <div class="service-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="9" cy="9" r="6" />
+                    <path d="M 14 14 L 21 21" />
+                  </svg>
+                </div>
+                <h3>SEO Optimized</h3>
+                <p>Built for search engines from day one. Technical SEO, structured data, and Core Web Vitals ready.</p>
+                <div class="tech-tags">
+                  <span class="tech-tag">SEO Ready</span>
+                  <span class="tech-tag">Schema.org</span>
+                  <span class="tech-tag">Core Vitals</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss your ideas and create something amazing together.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Get Your Free Quote</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content grid grid-cols-4 gap-8">
+          <div class="footer-section">
+            <h4>
+              <span class="brand-text brand-gradient-twist" style="font-size: 20px">AcaiStack</span>
+            </h4>
+            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="team.html">Our Team</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="contact.html#careers">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
+              <li><a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/gsap-animations.js" defer></script>
+  </body>
+</html>

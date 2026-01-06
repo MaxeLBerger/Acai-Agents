@@ -56,10 +56,8 @@
     <!-- Preload Critical Assets -->
     <link rel="preload" href="css/base.css" as="style" />
     <link rel="preload" href="js/utils.js" as="script" />
-    <link rel="preload" href="assets/websites.png" as="image" type="image/png" />
-    <link rel="preload" href="assets/aiagents.png" as="image" type="image/png" />
-    <link rel="preload" href="assets/mobileapps.png" as="image" type="image/png" />
-    <link rel="preload" href="assets/logo_small.png" as="image" type="image/png" />
+    <link rel="preload" href="assets/acai_emblem.png" as="image" type="image/png" />
+    <link rel="preload" href="assets/acai_stack_logo_clean.png" as="image" type="image/png" />
 
     <!-- CSS Files (optimized, no inline styles) -->
     <link rel="stylesheet" href="css/base.css" />
@@ -74,9 +72,6 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://acai-agents.dev/" />
-
-    <!-- Preload Logo for Performance -->
-    <link rel="preload" href="assets/acai_stack_logo.png" as="image" type="image/png" />
 
     <!-- GSAP Animation Library (Professional-grade with SRI) -->
     <script
@@ -107,7 +102,7 @@
     <header class="navbar" role="banner">
       <div class="navbar-content container">
         <a href="/" class="navbar-brand">
-          <img src="assets/acai_stack_logo.png" alt="AcaiStack Logo" class="brand-logo" />
+          <img src="assets/acai_stack_logo_clean.png" alt="AcaiStack Logo" class="brand-logo" />
           <span class="brand-text">AcaiStack</span>
         </a>
 
@@ -257,31 +252,13 @@
               </div>
             </div>
 
-            <!-- Right: Animated Image Showcase -->
+            <!-- Right: Hero Emblem -->
             <div class="hero-visual-showcase">
               <div class="showcase-container">
-                <!-- Floating Images with GSAP Parallax -->
-                <div class="floating-image frame-1" data-speed="0.5">
-                  <img src="assets/websites.png" alt="AcaiStack Websites" loading="eager" />
-                  <div class="image-glow"></div>
+                <div class="hero-emblem-wrapper gsap-fade-in">
+                  <img src="assets/acai_emblem.png" alt="AcaiStack Emblem" class="hero-emblem" loading="eager" />
+                  <div class="emblem-glow"></div>
                 </div>
-                <div class="floating-image frame-2" data-speed="0.8">
-                  <img src="assets/aiagents.png" alt="AcaiStack AI Agents" loading="eager" />
-                  <div class="image-glow"></div>
-                </div>
-                <div class="floating-image frame-3" data-speed="0.3">
-                  <img src="assets/mobileapps.png" alt="AcaiStack Mobile Apps" loading="eager" />
-                  <div class="image-glow"></div>
-                </div>
-                <div class="floating-image frame-4" data-speed="0.6">
-                  <img src="assets/logo_small.png" alt="AcaiStack Logo" loading="eager" />
-                  <div class="image-glow"></div>
-                </div>
-
-                <!-- Decorative Elements -->
-                <div class="showcase-ring ring-1"></div>
-                <div class="showcase-ring ring-2"></div>
-                <div class="showcase-ring ring-3"></div>
               </div>
             </div>
           </div>

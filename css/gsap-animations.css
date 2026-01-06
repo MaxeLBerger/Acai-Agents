@@ -10,7 +10,9 @@
    ========================================================================== */
 
 .brand-logo {
-  animation: logo-entrance 1s ease-out forwards, logo-float 3s ease-in-out 1s infinite;
+  animation:
+    logo-entrance 1s ease-out forwards,
+    logo-float 3s ease-in-out 1s infinite;
   transform-origin: center;
 }
 
@@ -29,7 +31,8 @@
 }
 
 @keyframes logo-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   25% {
@@ -61,7 +64,7 @@
   .brand-logo {
     animation: none;
   }
-  
+
   .navbar-brand:hover .brand-logo {
     animation: none;
     transform: scale(1.05);

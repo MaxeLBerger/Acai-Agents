@@ -35,13 +35,14 @@ and immersive animations.
 
 ```
 Acai-Agents/
-├── index.html              # Entry point (often redirects to dashboard)
-├── dashboard.html          # Main Landing/Dashboard page
-├── services.html           # Services & Solutions
-├── pricing.html            # Pricing Plans
-├── portfolio.html          # Case Studies/Portfolio
-├── team.html               # Team & Company Info
-├── contact.html            # Contact Form
+├── index.html              # Entry point (Landing page with hero)
+├── pages/
+│   ├── dashboard.html     # Main Dashboard page
+│   ├── services.html      # Services & Solutions
+│   ├── pricing.html       # Pricing Plans
+│   ├── portfolio.html     # Case Studies/Portfolio
+│   ├── team.html          # Team & Company Info
+│   └── contact.html       # Contact Form
 ├── css/
 │   ├── base.css           # Foundation, variables, utilities
 │   ├── components.css     # Reusable UI components
@@ -49,12 +50,21 @@ Acai-Agents/
 │   ├── layout.css         # Page structure and grids
 │   └── gsap-animations.css # GSAP-specific styles
 ├── js/
+│   ├── components/        # Centralized shared components
+│   │   ├── navbar.js      # Navigation bar (single source of truth)
+│   │   └── footer.js      # Footer (single source of truth)
+│   ├── components-loader.js # Auto-loads navbar/footer components
 │   ├── utils.js           # Security, validation, accessibility utilities
 │   ├── app.js             # General App logic (Dark mode, UI)
 │   └── gsap-animations.js # GSAP ScrollTrigger setup
+├── assets/                # Images, icons, fonts
+├── scripts/               # Build and deployment scripts
+│   └── build.js           # Production build (ESM-based)
 ├── .vscode/               # VS Code workspace settings
 ├── .github/               # GitHub templates and workflows
-└── package.json           # Project configuration
+│   ├── workflows/         # CI/CD automation
+│   └── instructions/      # Copilot instructions
+└── package.json           # Project configuration (ESM: "type": "module")
 ```
 
 ## Coding Standards
@@ -63,15 +73,51 @@ Acai-Agents/
 
 1. **Use modern ES2024 features** - const/let (no var), arrow functions,
    template literals, optional chaining, nullish coalescing
-2. **Follow the Manager pattern** - Encapsulate related functionality in Manager
+2. **ESM Modules** - Project uses "type": "module" in package.json. Always use
+   `import`/`export`, never `require()`/`module.exports`
+3. **Follow the Manager pattern** - Encapsulate related functionality in Manager
    objects (e.g., `ModeManager`, `ChatManager`)
-3. **Use event delegation** - Attach listeners to parent elements, NOT inline
+4. **Use event delegation** - Attach listeners to parent elements, NOT inline
    onclick handlers
-4. **Sanitize all user input** - Use `Sanitizer.sanitizeInput()` for any
+5. **Sanitize all user input** - Use `Sanitizer.sanitizeInput()` for any
    user-provided content
-5. **Use textContent over innerHTML** - Prevent XSS vulnerabilities
-6. **Document with JSDoc** - All public functions should have JSDoc comments
-7. **Single responsibility** - Each function should do one thing well
+6. **Use textContent over innerHTML** - Prevent XSS vulnerabilities
+7. **Document with JSDoc** - All public functions should have JSDoc comments
+8. **Single responsibility** - Each function should do one thing well
+
+### Component System (CRITICAL)
+
+**All pages use centralized components for navbar and footer. DO NOT duplicate
+HTML across pages.**
+
+1. **Navbar Component** - Located at `js/components/navbar.js`
+   - Single source of truth for navigation across all pages
+   - Automatically detects active page and adjusts paths
+   - Edit navbar ONLY in this file - changes apply to all pages
+2. **Footer Component** - Located at `js/components/footer.js`
+   - Single source of truth for footer across all pages
+   - Automatically adjusts paths based on page location
+   - Edit footer ONLY in this file - changes apply to all pages
+3. **Component Loader** - `js/components-loader.js` loads components on page
+   load
+   - Automatically replaces placeholder divs with actual HTML
+   - Uses ES6 modules with `type="module"`
+4. **HTML Pages** - All pages use placeholder divs:
+   ```html
+   <!-- In all HTML files -->
+   <div id="navbar-placeholder"></div>
+   <!-- Page content -->
+   <div id="footer-placeholder"></div>
+   <script type="module" src="js/components-loader.js"></script>
+   ```
+5. **Path Adjustment** - Components automatically detect if they're on root
+   (index.html) or subpage (pages/\*.html)
+
+**When adding new pages:**
+
+- Copy the placeholder div pattern from existing pages
+- DO NOT copy/paste navbar or footer HTML
+- The component loader will automatically populate them
 
 ### Animations (GSAP)
 
@@ -104,6 +150,13 @@ Acai-Agents/
 3. **No inline styles or scripts** - All styling in CSS files, all JS in JS
    files
 4. **Lazy loading** - Images should use `loading="lazy"`
+5. **Use component placeholders** - For navbar/footer, use placeholder divs:
+   - `<div id="navbar-placeholder"></div>`
+   - `<div id="footer-placeholder"></div>`
+6. **CSP Compliance** - Never add CSP or security headers in meta tags (must be
+   server-side)
+7. **No broken external resources** - Always verify CDN links before adding
+   external fonts/libraries
 
 ## Security Requirements
 
@@ -217,6 +270,10 @@ element.textContent = safeInput;
 - ❌ Use magic numbers without CSS variables
 - ❌ Mix concerns (JS in HTML, CSS in JS)
 - ❌ Ignore error handling
+- ❌ Duplicate navbar/footer HTML across pages
+- ❌ Use `require()`/`module.exports` (this is an ESM project)
+- ❌ Add CSP or security headers in HTML meta tags
+- ❌ Link to external CDN resources without verification
 
 ## Do
 
@@ -228,3 +285,7 @@ element.textContent = safeInput;
 - ✅ Handle errors gracefully
 - ✅ Write JSDoc comments
 - ✅ Test keyboard navigation
+- ✅ Edit navbar/footer in centralized component files only
+- ✅ Use `import`/`export` for all modules (ESM)
+- ✅ Respect `prefers-reduced-motion` for animations
+- ✅ Use placeholder divs for shared components

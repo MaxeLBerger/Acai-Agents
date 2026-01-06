@@ -93,82 +93,8 @@
     <!-- Skip to Content Link (Accessibility) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- HEADER NAVIGATION -->
-    <header class="navbar" role="banner">
-      <div class="navbar-content container">
-        <a href="/" class="navbar-brand">
-          <img src="assets/acai_stack_logo_clean.png" alt="AcaiStack Logo" class="brand-logo" />
-          <span class="brand-text">AcaiStack</span>
-        </a>
-
-        <!-- Mobile Menu Toggle -->
-        <button
-          id="mobileMenuToggle"
-          class="mobile-menu-toggle"
-          type="button"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="navbarMenu"
-        >
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-
-        <nav role="navigation" aria-label="Main navigation">
-          <ul id="navbarMenu" class="navbar-menu">
-            <li><a href="/" class="navbar-link active">Home</a></li>
-            <li><a href="pages/services.html" class="navbar-link">Services</a></li>
-            <li><a href="pages/pricing.html" class="navbar-link">Pricing</a></li>
-            <li><a href="pages/portfolio.html" class="navbar-link">Portfolio</a></li>
-            <li><a href="pages/team.html" class="navbar-link">Team</a></li>
-            <li>
-              <button
-                id="bwModeToggle"
-                class="mode-toggle-btn"
-                type="button"
-                aria-label="Toggle dark mode"
-                aria-pressed="false"
-                title="Toggle dark mode"
-              >
-                <svg
-                  class="mode-icon mode-icon-dark"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="5" />
-                  <path
-                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-                  />
-                </svg>
-                <svg
-                  class="mode-icon mode-icon-light"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
-                </svg>
-              </button>
-            </li>
-            <li><a href="pages/contact.html" class="navbar-cta">Get Started</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <!-- HEADER NAVIGATION (Loaded via components-loader.js) -->
+    <div id="navbar-placeholder"></div>
 
     <!-- MAIN CONTENT -->
     <main id="main-content" class="relative-content">
@@ -1018,53 +944,8 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content grid grid-cols-4 gap-8">
-          <div class="footer-section">
-            <h4>
-              <img src="assets/logo_small.png" alt="AcaiStack" class="footer-brand-logo" width="20" height="20" />
-              AcaiStack
-            </h4>
-            <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>
-          </div>
-
-          <div class="footer-section">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="pages/services.html">Services</a></li>
-              <li><a href="pages/pricing.html">Pricing</a></li>
-              <li><a href="pages/portfolio.html">Portfolio</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="pages/team.html">Our Team</a></li>
-              <li><a href="pages/contact.html">Contact Us</a></li>
-              <li><a href="pages/contact.html#careers">Careers</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="https://github.com" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://twitter.com" rel="noopener noreferrer">Twitter</a></li>
-              <li><a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="mailto:hello@acaistack.dev">Email Us</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2026 AcaiStack. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <!-- FOOTER (Loaded via components-loader.js) -->
+    <div id="footer-placeholder"></div>
 
     <!-- CHAT WIDGET -->
     <div id="chatWidget" class="chat-widget card" role="dialog" aria-labelledby="chatTitle" aria-hidden="true">
@@ -1107,6 +988,7 @@
     </button>
 
     <!-- JavaScript (PHASE 3: Security + Validation) -->
+    <script type="module" src="js/components-loader.js"></script>
     <script src="js/utils.js" defer></script>
     <script src="js/app.js" defer></script>
     <script src="js/gsap-animations.js" defer></script>

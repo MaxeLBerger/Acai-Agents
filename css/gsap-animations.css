@@ -6,6 +6,69 @@
  */
 
 /* ==========================================================================
+   NAVBAR LOGO ANIMATIONS
+   ========================================================================== */
+
+.brand-logo {
+  animation: logo-entrance 1s ease-out forwards, logo-float 3s ease-in-out 1s infinite;
+  transform-origin: center;
+}
+
+@keyframes logo-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes logo-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(3px) rotate(-1deg);
+  }
+}
+
+.navbar-brand:hover .brand-logo {
+  animation: logo-hover 0.6s ease-in-out forwards;
+}
+
+@keyframes logo-hover {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(0deg);
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo {
+    animation: none;
+  }
+  
+  .navbar-brand:hover .brand-logo {
+    animation: none;
+    transform: scale(1.05);
+  }
+}
+
+/* ==========================================================================
    HERO SECTION - IMMERSIVE EXPERIENCE
    ========================================================================== */
 
@@ -342,11 +405,7 @@
 .emblem-glow {
   position: absolute;
   inset: -20%;
-  background: radial-gradient(
-    circle,
-    rgba(var(--color-teal-500-rgb), 0.2) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(var(--color-teal-500-rgb), 0.2) 0%, transparent 70%);
   border-radius: 50%;
   animation: glow-pulse 4s ease-in-out infinite;
   pointer-events: none;

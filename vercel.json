@@ -2,18 +2,19 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/services", "destination": "/pages/services.html" },
-    { "source": "/agents", "destination": "/pages/agents.html" },
-    { "source": "/pricing", "destination": "/pages/pricing.html" },
-    { "source": "/portfolio", "destination": "/pages/portfolio.html" },
-    { "source": "/team", "destination": "/pages/team.html" },
-    { "source": "/contact", "destination": "/pages/contact.html" },
-    { "source": "/faq", "destination": "/pages/faq.html" },
-    { "source": "/privacy", "destination": "/pages/privacy.html" },
-    { "source": "/terms", "destination": "/pages/terms.html" }
+  "routes": [
+    { "src": "/services", "dest": "/pages/services.html" },
+    { "src": "/agents", "dest": "/pages/agents.html" },
+    { "src": "/pricing", "dest": "/pages/pricing.html" },
+    { "src": "/portfolio", "dest": "/pages/portfolio.html" },
+    { "src": "/team", "dest": "/pages/team.html" },
+    { "src": "/contact", "dest": "/pages/contact.html" },
+    { "src": "/faq", "dest": "/pages/faq.html" },
+    { "src": "/privacy", "dest": "/pages/privacy.html" },
+    { "src": "/terms", "dest": "/pages/terms.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)\\.html$", "headers": { "Location": "/$1" }, "status": 301 }
   ],
   "headers": [
     {

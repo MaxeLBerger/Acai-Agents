@@ -28,7 +28,7 @@ function build() {
   fs.mkdirSync(DIST_DIR);
   fs.mkdirSync(path.join(DIST_DIR, 'css'));
   fs.mkdirSync(path.join(DIST_DIR, 'js'));
-  fs.mkdirSync(path.join(DIST_DIR, 'pages'));
+  // Pages now go directly to dist/ root for clean URLs
   // fs.mkdirSync(path.join(DIST_DIR, 'assets')); // handling this in copyDir
 
   // 2. Build CSS (using PostCSS via CLI)
@@ -80,12 +80,14 @@ function build() {
   // Index.html
   processHtmlFile(path.join(ROOT_DIR, 'index.html'), 'index.html', false);
 
-  // Pages
+  // Pages - output directly to dist/ root for Vercel cleanUrls to work
+  // This allows /services to automatically serve services.html
   if (fs.existsSync(PAGES_DIR)) {
     const pages = fs.readdirSync(PAGES_DIR);
     pages.forEach((page) => {
       if (page.endsWith('.html')) {
-        processHtmlFile(path.join(PAGES_DIR, page), path.join('pages', page), true);
+        // Output directly to dist/services.html instead of dist/pages/services.html
+        processHtmlFile(path.join(PAGES_DIR, page), page, false);
       }
     });
   }

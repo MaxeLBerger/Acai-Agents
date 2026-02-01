@@ -36,7 +36,9 @@ function build() {
   try {
     // Executing from ROOT_DIR context
     // Processes all CSS files including subdirectories, maintaining structure
-    execSync('npx postcss css/**/*.css --dir dist/css --base css', {
+    // IMPORTANT: Glob pattern MUST be quoted to prevent shell expansion on Linux
+    // Without quotes, bash doesn't expand ** (globstar not enabled by default)
+    execSync('npx postcss "css/**/*.css" --dir dist/css --base css', {
       stdio: 'inherit',
       cwd: ROOT_DIR,
     });

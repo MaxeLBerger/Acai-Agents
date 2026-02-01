@@ -1,36 +1,39 @@
 # Shared Components System
 
-## Übersicht
+## ï¿½bersicht
 
-Das System lädt Navigation und Footer automatisch auf allen Seiten. Änderungen an der Navigation oder dem Footer müssen nur noch an **einer** Stelle vorgenommen werden.
+Das System lï¿½dt Navigation und Footer automatisch auf allen Seiten. ï¿½nderungen
+an der Navigation oder dem Footer mï¿½ssen nur noch an **einer** Stelle
+vorgenommen werden.
 
 ## Dateien
 
-- `js/components/navbar.js` - Enthält die Navigation
-- `js/components/footer.js` - Enthält den Footer  
-- `js/components-loader.js` - Lädt die Components automatisch
+- `js/components/navbar.js` - Enthï¿½lt die Navigation
+- `js/components/footer.js` - Enthï¿½lt den Footer
+- `js/components-loader.js` - Lï¿½dt die Components automatisch
 
 ## Wie es funktioniert
 
 1. Jede HTML-Seite hat Placeholders:
-   - `<div id="navbar-placeholder"></div>` für die Navigation
-   - `<div id="footer-placeholder"></div>` für den Footer
+   - `<div id="navbar-placeholder"></div>` fï¿½r die Navigation
+   - `<div id="footer-placeholder"></div>` fï¿½r den Footer
 
-2. Der Component-Loader lädt automatisch beim Seitenaufruf:
+2. Der Component-Loader lï¿½dt automatisch beim Seitenaufruf:
    - Die korrekte Navigation mit aktivem Link
    - Den Footer mit korrekten Pfaden
 
-## Änderungen vornehmen
+## ï¿½nderungen vornehmen
 
-### Navigation ändern
-Bearbeite `js/components/navbar.js` - Änderungen gelten für **alle** Seiten.
+### Navigation ï¿½ndern
 
-### Footer ändern  
-Bearbeite `js/components/footer.js` - Änderungen gelten für **alle** Seiten.
+Bearbeite `js/components/navbar.js` - ï¿½nderungen gelten fï¿½r **alle** Seiten.
+
+### Footer ï¿½ndern
+
+Bearbeite `js/components/footer.js` - ï¿½nderungen gelten fï¿½r **alle** Seiten.
 
 ## Vorteile
 
- **Einheitlich** - Alle Seiten haben dieselbe Navigation & Footer
- **Wartbar** - Änderungen nur an einer Stelle
- **Automatisch** - Aktiver Link wird automatisch erkannt
- **Pfade** - Relative Pfade werden automatisch angepasst
+**Einheitlich** - Alle Seiten haben dieselbe Navigation & Footer **Wartbar** -
+ï¿½nderungen nur an einer Stelle **Automatisch** - Aktiver Link wird automatisch
+erkannt **Pfade** - Relative Pfade werden automatisch angepasst

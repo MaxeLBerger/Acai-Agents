@@ -7,18 +7,20 @@
     <meta name="format-detection" content="telephone=no" />
     <meta
       name="description"
-      content="AcaiStack Services - Professional Web Development, AI Agents, and Mobile Apps. See what we can build for your business."
+      content="AcaiStack Services - Custom websites and AI agents that actually work. Beautiful websites €1,499-€2,999. AI agents €99-€399/month."
     />
     <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
 
     <title>Services - AcaiStack</title>
 
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/animations.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/gsap-animations.css" />
-    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" />
+    <link rel="stylesheet" href="/css/acaistack-components.css" />
+    <link rel="stylesheet" href="/css/pages/services.css" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -35,200 +37,141 @@
 
     <main id="main-content" class="relative-content page-content">
       <!-- Page Hero -->
-      <section class="page-hero">
+      <section class="page-hero gsap-page-hero">
         <div class="container">
-          <h1 class="page-title">Our <span class="gradient-text">Services</span></h1>
-          <p class="page-subtitle">
-            We build digital products that help businesses grow. From stunning websites to intelligent AI agents.
+          <h1 class="page-title gsap-split-text">
+            <span class="title-line">Two Things We Do</span>
+            <span class="title-line"><span class="gradient-text-animated">Really Well</span></span>
+          </h1>
+          <p class="page-subtitle title-line">
+            Beautiful websites that convert. AI agents that actually work. No fluff.
           </p>
         </div>
       </section>
 
-      <!-- Services Overview -->
+      <!-- Services Grid -->
       <section class="services-overview-section">
         <div class="container">
-          <div class="services-overview-grid">
-            <article class="service-overview-card scroll-reveal">
-              <div class="service-card-image">
-                <img
-                  src="../assets/cleaned_hero_images/websites_cleaned.png"
-                  alt="Website Development"
-                  loading="lazy"
-                />
+          <div class="services-grid-two">
+            <!-- Website Card -->
+            <article class="service-card-premium scroll-reveal">
+              <div class="service-card-premium-header">
+                <h3 class="service-card-premium-title">Custom Websites</h3>
+                <div class="service-card-premium-price">€1,499 – €2,999</div>
+                <p class="service-card-premium-tagline">3-week delivery guarantee</p>
               </div>
-              <div class="service-card-content">
-                <h3>Websites</h3>
-                <p>
-                  Beautiful, high-performance websites that convert visitors into customers. Mobile-responsive,
-                  SEO-optimized, and blazing fast.
-                </p>
-                <ul class="service-features">
-                  <li>Custom Design & Development</li>
-                  <li>SEO Optimization</li>
-                  <li>Mobile-First Approach</li>
-                  <li>Content Management System</li>
-                </ul>
-                <a href="pricing.html" class="service-card-link">View Pricing →</a>
-              </div>
+              <ul class="service-card-premium-features">
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>Mobile-first, conversion-optimized design</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>SEO foundation built-in</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>90+ Lighthouse performance score</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>30 days post-launch support</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>You own everything (code, design, assets)</span>
+                </li>
+              </ul>
+              <a href="/contact" class="service-card-premium-cta">Start Your Website →</a>
             </article>
 
-            <article class="service-overview-card featured scroll-reveal">
-              <div class="service-card-badge">Most Popular</div>
-              <div class="service-card-image">
-                <img src="../assets/cleaned_hero_images/aiagents_cleaned.png" alt="AI Agents" loading="lazy" />
+            <!-- AI Agents Card -->
+            <article class="service-card-premium scroll-reveal">
+              <div class="service-card-premium-header">
+                <h3 class="service-card-premium-title">AI Agents</h3>
+                <div class="service-card-premium-price">€99 – €399/month</div>
+                <p class="service-card-premium-tagline">Custom-built for your workflow</p>
               </div>
-              <div class="service-card-content">
-                <h3>AI Agents</h3>
-                <p>
-                  Intelligent automation that works 24/7. Chat agents, lead qualification, customer support, and process
-                  automation.
-                </p>
-                <ul class="service-features">
-                  <li>24/7 Customer Support</li>
-                  <li>Lead Qualification</li>
-                  <li>Process Automation</li>
-                  <li>Custom AI Solutions</li>
-                </ul>
-                <a href="pricing.html" class="service-card-link">View Pricing →</a>
-              </div>
+              <ul class="service-card-premium-features">
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>Integrates with your existing tools</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>Handles repetitive tasks 24/7</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>Learn and improve over time</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>Full control panel included</span>
+                </li>
+                <li class="service-card-premium-feature">
+                  <span class="service-card-premium-feature-icon"></span>
+                  <span>No lock-in, export anytime</span>
+                </li>
+              </ul>
+              <a href="/agents" class="service-card-premium-cta">Explore Agents →</a>
             </article>
+          </div>
 
-            <article class="service-overview-card scroll-reveal">
-              <div class="service-card-image">
-                <img
-                  src="../assets/cleaned_hero_images/mobile_apps_cleaned.png"
-                  alt="Mobile App Development"
-                  loading="lazy"
-                />
-              </div>
-              <div class="service-card-content">
-                <h3>Mobile Apps</h3>
-                <p>
-                  Native and cross-platform mobile applications for iOS and Android. From concept to App Store launch.
-                </p>
-                <ul class="service-features">
-                  <li>iOS & Android Development</li>
-                  <li>Cross-Platform Solutions</li>
-                  <li>App Store Optimization</li>
-                  <li>Ongoing Maintenance</li>
-                </ul>
-                <a href="contact.html" class="service-card-link">Get Quote →</a>
-              </div>
-            </article>
+          <!-- Alternative pricing note for AI Agents -->
+          <p style="text-align: center; color: var(--color-text-muted); margin-top: 1rem; font-size: 0.9375rem">
+            AI Agents also available one-time: €499 – €1,999
+          </p>
+        </div>
+      </section>
+
+      <!-- How We Work Section -->
+      <section class="how-it-works-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">How We Work</h2>
+            <p class="section-subtitle">Simple, transparent process from first call to launch.</p>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-step scroll-reveal">
+              <div class="process-step-number">1</div>
+              <h3 class="process-step-title">Discovery Call</h3>
+              <p class="process-step-description">30-min video call to understand your needs and goals.</p>
+            </div>
+
+            <div class="process-step scroll-reveal">
+              <div class="process-step-number">2</div>
+              <h3 class="process-step-title">Proposal</h3>
+              <p class="process-step-description">Clear scope, timeline, and fixed price within 48 hours.</p>
+            </div>
+
+            <div class="process-step scroll-reveal">
+              <div class="process-step-number">3</div>
+              <h3 class="process-step-title">Build</h3>
+              <p class="process-step-description">Regular updates — you see progress every week.</p>
+            </div>
+
+            <div class="process-step scroll-reveal">
+              <div class="process-step-number">4</div>
+              <h3 class="process-step-title">Launch & Support</h3>
+              <p class="process-step-description">We handle deployment. 30 days support included.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Website Features Detail -->
-      <section class="services-section">
+      <!-- Guarantee Section -->
+      <section class="guarantee-section">
         <div class="container">
-          <div class="section-header scroll-reveal">
-            <span class="section-badge">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M 2 12 Q 2 8 12 8 Q 22 8 22 12" />
-                <path d="M 2 12 Q 2 16 12 16 Q 22 16 22 12" />
-                <path d="M 12 2 Q 14 6 14 12 Q 14 18 12 22" />
-                <path d="M 12 2 Q 10 6 10 12 Q 10 18 12 22" />
-              </svg>
-              Website Features
-            </span>
-            <h2 class="section-title">What You Get</h2>
-            <p class="section-subtitle">Every website we build comes with these powerful features.</p>
-          </div>
-
-          <div class="services-grid grid grid-cols-3 gap-8">
-            <article class="card service-card scroll-reveal">
-              <div class="card-body">
-                <div class="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
-                    fill="currentColor"
-                  >
-                    <path d="M 13 2 L 3 14 L 9 14 L 11 22 L 21 10 L 15 10 L 13 2 Z" />
-                  </svg>
-                </div>
-                <h3>Blazing Fast</h3>
-                <p>
-                  Lightning-fast load times with optimized code, CDN delivery, and 95+ Lighthouse scores guaranteed.
-                </p>
-                <div class="tech-tags">
-                  <span class="tech-tag">Sub-second Load</span>
-                  <span class="tech-tag">CDN</span>
-                  <span class="tech-tag">Optimized</span>
-                </div>
+          <div class="guarantee-wrapper">
+            <div class="guarantee-badge scroll-reveal">
+              <div class="guarantee-badge-icon"></div>
+              <div class="guarantee-badge-text">
+                <span class="guarantee-badge-title">30-Day Money-Back Guarantee</span>
+                <span class="guarantee-badge-subtitle">Not happy? Full refund, no questions asked.</span>
               </div>
-            </article>
-
-            <article class="card service-card scroll-reveal">
-              <div class="card-body">
-                <div class="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="5" y="2" width="14" height="20" rx="2" />
-                    <path d="M 10 2 L 14 2" stroke-width="1.5" />
-                    <circle cx="12" cy="20" r="1" fill="currentColor" />
-                  </svg>
-                </div>
-                <h3>Mobile Perfect</h3>
-                <p>Responsive design that looks stunning on every device. Mobile-first approach for the modern web.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">Responsive</span>
-                  <span class="tech-tag">Touch-Friendly</span>
-                  <span class="tech-tag">All Devices</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="card service-card scroll-reveal">
-              <div class="card-body">
-                <div class="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="9" cy="9" r="6" />
-                    <path d="M 14 14 L 21 21" />
-                  </svg>
-                </div>
-                <h3>SEO Optimized</h3>
-                <p>Built for search engines from day one. Technical SEO, structured data, and Core Web Vitals ready.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">SEO Ready</span>
-                  <span class="tech-tag">Schema.org</span>
-                  <span class="tech-tag">Core Vitals</span>
-                </div>
-              </div>
-            </article>
+            </div>
           </div>
         </div>
       </section>
@@ -237,9 +180,9 @@
       <section class="cta-section">
         <div class="container">
           <div class="cta-content">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Let's discuss your ideas and create something amazing together.</p>
-            <a href="contact.html" class="btn btn-primary btn-lg">Get Your Free Quote</a>
+            <h2>Ready to Start?</h2>
+            <p>Book a free 30-minute call. No pressure, no sales pitch — just an honest conversation.</p>
+            <a href="/contact" class="btn btn-primary btn-lg">Book Your Free Call</a>
           </div>
         </div>
       </section>
@@ -248,8 +191,9 @@
     <!-- FOOTER (Loaded via components-loader.js) -->
     <div id="footer-placeholder"></div>
 
-    <script src="../js/utils.js" defer></script>
-    <script src="../js/app.js" defer></script>
-    <script src="../js/gsap-animations.js" defer></script>
+    <script type="module" src="/js/components-loader.js"></script>
+    <script src="/js/utils.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/gsap-animations.js" defer></script>
   </body>
 </html>

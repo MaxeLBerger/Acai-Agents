@@ -7,18 +7,20 @@
     <meta name="format-detection" content="telephone=no" />
     <meta
       name="description"
-      content="AcaiStack Pricing - Transparent pricing for web development, AI agents, and mobile apps. No hidden fees."
+      content="AcaiStack Pricing - Simple, honest pricing for websites and AI agents. Fixed prices, no hidden fees."
     />
     <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
 
     <title>Pricing - AcaiStack</title>
 
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/animations.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/gsap-animations.css" />
-    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" />
+    <link rel="stylesheet" href="/css/acaistack-components.css" />
+    <link rel="stylesheet" href="/css/pages/pricing.css" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -34,163 +36,531 @@
     <div id="navbar-placeholder"></div>
 
     <main id="main-content" class="relative-content page-content">
-      <!-- Page Hero -->
-      <section class="page-hero">
+      <!-- Hero Section -->
+      <section class="page-hero gsap-page-hero">
         <div class="container">
-          <h1 class="page-title">Transparent <span class="gradient-text">Pricing</span></h1>
-          <p class="page-subtitle">No hidden fees. One-time investment for a website that works for you.</p>
+          <h1 class="page-title gsap-split-text">
+            <span class="title-line">Simple, Honest</span>
+            <span class="title-line"><span class="gradient-text-animated">Pricing</span></span>
+          </h1>
+          <p class="page-subtitle title-line">Fixed prices. No surprises. No hidden fees.</p>
         </div>
       </section>
 
-      <!-- Pricing Section -->
+      <!-- Website Pricing Section -->
       <section class="pricing-section">
         <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Website Packages</h2>
+            <p class="section-subtitle">One-time investment for a website that works for you</p>
+          </div>
+
           <div class="pricing-grid">
             <!-- Starter Plan -->
             <article class="pricing-card scroll-reveal">
               <div class="pricing-header">
                 <h3 class="pricing-name">Starter</h3>
-                <p class="pricing-description">Perfect for small businesses getting started online.</p>
+                <p class="pricing-target">Perfect for: Solo businesses, personal brands</p>
                 <div class="pricing-price">
-                  <span class="price-amount">$1,499</span>
+                  <span class="price-amount">€1,499</span>
                   <span class="price-term">one-time</span>
                 </div>
               </div>
               <ul class="pricing-features">
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Custom 5-page website
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Up to 5 pages
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Mobile responsive design
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Mobile-responsive design
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Basic SEO optimization
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Basic SEO setup
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Contact form
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Contact form
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>1 month support
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  2-week delivery
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>SSL certificate
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  30 days support
                 </li>
               </ul>
-              <a href="contact.html" class="pricing-cta btn btn-outline">Get Started</a>
+              <a href="/contact" class="pricing-cta btn-outline">Get Started</a>
             </article>
 
             <!-- Professional Plan -->
             <article class="pricing-card featured scroll-reveal">
-              <div class="pricing-badge">Most Popular</div>
+              <div class="pricing-badge">Popular</div>
               <div class="pricing-header">
                 <h3 class="pricing-name">Professional</h3>
-                <p class="pricing-description">For growing businesses that need more power.</p>
+                <p class="pricing-target">Perfect for: Growing businesses</p>
                 <div class="pricing-price">
-                  <span class="price-amount">$2,999</span>
+                  <span class="price-amount">€1,999</span>
                   <span class="price-term">one-time</span>
                 </div>
               </div>
               <ul class="pricing-features">
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Custom 10-page website
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Up to 10 pages
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Advanced responsive
-                  design
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Custom design from scratch
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Full SEO optimization
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Full SEO optimization
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Blog/News section
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Blog/CMS integration
                 </li>
                 <li>
-                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>AI Chat Agent
-                  included
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Analytics setup
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>3 months support
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  3-week delivery
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Analytics dashboard
-                </li>
-                <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Content management
-                  system
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  30 days support
                 </li>
               </ul>
-              <a href="contact.html" class="pricing-cta btn btn-primary">Start Now</a>
+              <a href="/contact" class="pricing-cta btn-primary">Get Started</a>
             </article>
 
-            <!-- Enterprise Plan -->
+            <!-- Premium Plan -->
             <article class="pricing-card scroll-reveal">
               <div class="pricing-header">
-                <h3 class="pricing-name">Enterprise</h3>
-                <p class="pricing-description">Complete solution for established businesses.</p>
+                <h3 class="pricing-name">Premium</h3>
+                <p class="pricing-target">Perfect for: Established businesses</p>
                 <div class="pricing-price">
-                  <span class="price-amount">$5,999</span>
+                  <span class="price-amount">€2,999</span>
                   <span class="price-term">one-time</span>
                 </div>
               </div>
               <ul class="pricing-features">
                 <li>
-                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Unlimited pages
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Unlimited pages
                 </li>
                 <li>
-                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Premium design
-                  & animations
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Premium custom design
                 </li>
                 <li>
-                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>E-commerce
-                  integration
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Advanced SEO + content strategy
                 </li>
                 <li>
-                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Advanced AI
-                  Agents
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  E-commerce ready (up to 50 products)
                 </li>
                 <li>
-                  <svg class="check-icon featured" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Lead
-                  qualification system
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Performance optimization
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>12 months support
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  Priority support
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Custom integrations
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  3-4 week delivery
                 </li>
                 <li>
-                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Performance optimization
+                  <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                  60 days support
                 </li>
               </ul>
-              <a href="contact.html" class="pricing-cta btn btn-outline">Contact Us</a>
+              <a href="/contact" class="pricing-cta btn-outline">Get Started</a>
             </article>
           </div>
+        </div>
+      </section>
 
-          <!-- FAQ Section -->
-          <div class="pricing-faq scroll-reveal">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-              <div class="faq-item">
-                <h4>What's included in the one-time price?</h4>
-                <p>
-                  Everything you need to launch: design, development, testing, deployment, and initial support period.
-                </p>
+      <!-- AI Agent Pricing Section -->
+      <section class="pricing-section" style="background: var(--color-surface)">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">AI Agent Solutions</h2>
+            <p class="section-subtitle">Automate your business with intelligent agents</p>
+          </div>
+
+          <!-- Pricing Toggle -->
+          <div class="pricing-toggle-container scroll-reveal">
+            <span class="pricing-toggle-label active" id="monthly-label">Monthly Plans</span>
+            <button
+              class="pricing-toggle"
+              id="pricing-toggle"
+              aria-label="Toggle between monthly and one-time pricing"
+            ></button>
+            <span class="pricing-toggle-label" id="onetime-label">One-Time Purchase</span>
+          </div>
+
+          <div class="agent-pricing-panels">
+            <!-- Monthly Plans -->
+            <div class="agent-panel active" id="monthly-panel">
+              <div class="pricing-grid">
+                <!-- Starter Monthly -->
+                <article class="pricing-card scroll-reveal">
+                  <div class="pricing-header">
+                    <h3 class="pricing-name">Starter</h3>
+                    <p class="pricing-target">Get started with AI automation</p>
+                    <div class="pricing-price">
+                      <span class="price-amount">€99</span>
+                      <span class="price-term">/month</span>
+                    </div>
+                  </div>
+                  <ul class="pricing-features">
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      1 AI agent
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      1,000 tasks/month
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Email support
+                    </li>
+                  </ul>
+                  <a href="/contact" class="pricing-cta btn-outline">Get Started</a>
+                </article>
+
+                <!-- Pro Monthly -->
+                <article class="pricing-card featured scroll-reveal">
+                  <div class="pricing-badge">Popular</div>
+                  <div class="pricing-header">
+                    <h3 class="pricing-name">Pro</h3>
+                    <p class="pricing-target">Scale your automation</p>
+                    <div class="pricing-price">
+                      <span class="price-amount">€199</span>
+                      <span class="price-term">/month</span>
+                    </div>
+                  </div>
+                  <ul class="pricing-features">
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      3 AI agents
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      10,000 tasks/month
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Priority support
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Custom integrations
+                    </li>
+                  </ul>
+                  <a href="/contact" class="pricing-cta btn-primary">Get Started</a>
+                </article>
+
+                <!-- Business Monthly -->
+                <article class="pricing-card scroll-reveal">
+                  <div class="pricing-header">
+                    <h3 class="pricing-name">Business</h3>
+                    <p class="pricing-target">Enterprise-grade automation</p>
+                    <div class="pricing-price">
+                      <span class="price-amount">€399</span>
+                      <span class="price-term">/month</span>
+                    </div>
+                  </div>
+                  <ul class="pricing-features">
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Unlimited agents
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Unlimited tasks
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Dedicated support
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      White-label option
+                    </li>
+                  </ul>
+                  <a href="/contact" class="pricing-cta btn-outline">Contact Us</a>
+                </article>
               </div>
-              <div class="faq-item">
-                <h4>Do you offer ongoing maintenance?</h4>
-                <p>
-                  Yes! After your initial support period, we offer monthly maintenance packages starting at $99/month.
-                </p>
+            </div>
+
+            <!-- One-Time Purchases -->
+            <div class="agent-panel" id="onetime-panel">
+              <div class="pricing-grid">
+                <!-- Simple Agent -->
+                <article class="pricing-card scroll-reveal">
+                  <div class="pricing-header">
+                    <h3 class="pricing-name">Simple Agent</h3>
+                    <p class="pricing-target">Single-purpose automation</p>
+                    <div class="pricing-price">
+                      <span class="price-amount">€499</span>
+                      <span class="price-term">one-time</span>
+                    </div>
+                  </div>
+                  <ul class="pricing-features">
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      1 focused task
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Basic integration
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      30 days support
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Source code included
+                    </li>
+                  </ul>
+                  <a href="/contact" class="pricing-cta btn-outline">Get Started</a>
+                </article>
+
+                <!-- Advanced Agent -->
+                <article class="pricing-card featured scroll-reveal">
+                  <div class="pricing-badge">Popular</div>
+                  <div class="pricing-header">
+                    <h3 class="pricing-name">Advanced Agent</h3>
+                    <p class="pricing-target">Multi-step workflows</p>
+                    <div class="pricing-price">
+                      <span class="price-amount">€999</span>
+                      <span class="price-term">one-time</span>
+                    </div>
+                  </div>
+                  <ul class="pricing-features">
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Complex workflows
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Multiple integrations
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      API connections
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      60 days support
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Source code included
+                    </li>
+                  </ul>
+                  <a href="/contact" class="pricing-cta btn-primary">Get Started</a>
+                </article>
+
+                <!-- Enterprise Agent -->
+                <article class="pricing-card scroll-reveal">
+                  <div class="pricing-header">
+                    <h3 class="pricing-name">Enterprise Agent</h3>
+                    <p class="pricing-target">Complex automation needs</p>
+                    <div class="pricing-price">
+                      <span class="price-amount">€1,999</span>
+                      <span class="price-term">one-time</span>
+                    </div>
+                  </div>
+                  <ul class="pricing-features">
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Custom architecture
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Enterprise integrations
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Ongoing updates included
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      90 days support
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Training session included
+                    </li>
+                    <li>
+                      <svg class="check-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>
+                      Source code included
+                    </li>
+                  </ul>
+                  <a href="/contact" class="pricing-cta btn-outline">Contact Us</a>
+                </article>
               </div>
-              <div class="faq-item">
-                <h4>How long does a project take?</h4>
-                <p>Starter: 2-3 weeks. Professional: 4-6 weeks. Enterprise: 8-12 weeks depending on complexity.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's Included Section -->
+      <section class="included-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">What's Included</h2>
+            <p class="section-subtitle">Every project comes with these guarantees</p>
+          </div>
+
+          <div class="included-grid">
+            <div class="included-item scroll-reveal">
+              <span class="included-icon"></span>
+              <div class="included-content">
+                <h4>No Hidden Fees</h4>
+                <p>The price you see is the price you pay. No surprise costs, ever.</p>
               </div>
-              <div class="faq-item">
-                <h4>Can I upgrade my plan later?</h4>
-                <p>
-                  Absolutely! You only pay the difference between plans plus any additional customization work needed.
-                </p>
+            </div>
+
+            <div class="included-item scroll-reveal">
+              <span class="included-icon"></span>
+              <div class="included-content">
+                <h4>You Own Everything</h4>
+                <p>Full ownership of your code, design, and content. It's yours.</p>
+              </div>
+            </div>
+
+            <div class="included-item scroll-reveal">
+              <span class="included-icon"></span>
+              <div class="included-content">
+                <h4>30-Day Money-Back Guarantee</h4>
+                <p>Not satisfied? Get a full refund within 30 days. No questions asked.</p>
+              </div>
+            </div>
+
+            <div class="included-item scroll-reveal">
+              <span class="included-icon"></span>
+              <div class="included-content">
+                <h4>No Lock-In Contracts</h4>
+                <p>Cancel anytime. We believe in earning your business, not trapping it.</p>
+              </div>
+            </div>
+
+            <div class="included-item scroll-reveal">
+              <span class="included-icon"></span>
+              <div class="included-content">
+                <h4>Source Code Included</h4>
+                <p>Get complete access to all source files and documentation.</p>
+              </div>
+            </div>
+
+            <div class="included-item scroll-reveal">
+              <span class="included-icon"></span>
+              <div class="included-content">
+                <h4>Free Migration Help</h4>
+                <p>Moving from another provider? We'll help you migrate for free.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Got questions? We have answers.</p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item scroll-reveal">
+              <button class="faq-question" aria-expanded="false">
+                What's included in the one-time website price?
+                <svg class="faq-icon" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Everything you need to launch: custom design, development, mobile optimization, SEO setup, testing,
+                  deployment to your hosting, and the support period included in your plan. You get the complete source
+                  code and full ownership.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-reveal">
+              <button class="faq-question" aria-expanded="false">
+                Do you offer payment plans?
+                <svg class="faq-icon" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Yes! We offer flexible payment options. Typically, we ask for 50% upfront to start the project, and
+                  the remaining 50% upon completion. For larger projects, we can discuss custom payment schedules.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-reveal">
+              <button class="faq-question" aria-expanded="false">
+                What happens after my support period ends?
+                <svg class="faq-icon" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  After your included support period, you can choose to extend with our optional maintenance packages
+                  starting at €49/month, or manage things yourself—you have full access to everything. We're always here
+                  if you need us later.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-reveal">
+              <button class="faq-question" aria-expanded="false">
+                Can I upgrade my plan later?
+                <svg class="faq-icon" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Absolutely! You can upgrade anytime. You'll only pay the difference between your current plan and the
+                  new one, plus any additional customization work needed. We make upgrading seamless.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-reveal">
+              <button class="faq-question" aria-expanded="false">
+                Do you work with clients outside Germany?
+                <svg class="faq-icon" viewBox="0 0 24 24">
+                  <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Yes! While we're based in Bavaria, Germany, we work with clients worldwide. We communicate in English
+                  and German, and all our projects are managed remotely with regular video calls to keep you updated.
+                </div>
               </div>
             </div>
           </div>
@@ -200,10 +570,12 @@
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="container">
-          <div class="cta-content">
-            <h2>Not Sure Which Plan Is Right?</h2>
-            <p>Let's talk about your project and find the perfect solution for your business.</p>
-            <a href="contact.html" class="btn btn-primary btn-lg">Schedule a Free Consultation</a>
+          <div class="cta-content scroll-reveal">
+            <h2 class="cta-title">Still have questions? Let's talk.</h2>
+            <p class="cta-text">
+              Book a free 15-minute call and we'll help you find the perfect solution for your business.
+            </p>
+            <a href="/contact" class="pricing-cta btn-primary btn-lg">Schedule a Free Call</a>
           </div>
         </div>
       </section>
@@ -212,8 +584,59 @@
     <!-- FOOTER (Loaded via components-loader.js) -->
     <div id="footer-placeholder"></div>
 
-    <script src="../js/utils.js" defer></script>
-    <script src="../js/app.js" defer></script>
-    <script src="../js/gsap-animations.js" defer></script>
+    <script type="module" src="/js/components-loader.js"></script>
+    <script src="/js/utils.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/gsap-animations.js" defer></script>
+
+    <script>
+      // Pricing Toggle Functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('pricing-toggle');
+        const monthlyLabel = document.getElementById('monthly-label');
+        const onetimeLabel = document.getElementById('onetime-label');
+        const monthlyPanel = document.getElementById('monthly-panel');
+        const onetimePanel = document.getElementById('onetime-panel');
+
+        toggle.addEventListener('click', function () {
+          toggle.classList.toggle('one-time');
+
+          if (toggle.classList.contains('one-time')) {
+            monthlyLabel.classList.remove('active');
+            onetimeLabel.classList.add('active');
+            monthlyPanel.classList.remove('active');
+            onetimePanel.classList.add('active');
+          } else {
+            monthlyLabel.classList.add('active');
+            onetimeLabel.classList.remove('active');
+            monthlyPanel.classList.add('active');
+            onetimePanel.classList.remove('active');
+          }
+        });
+
+        // FAQ Accordion Functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach((item) => {
+          const question = item.querySelector('.faq-question');
+
+          question.addEventListener('click', function () {
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            faqItems.forEach((otherItem) => {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+              item.classList.add('active');
+              question.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -17,6 +17,54 @@
 'use strict';
 
 /**
+ * Centralized Mouse Tracker
+ * Single throttled mousemove listener for all mouse-following effects
+ * @namespace MouseTracker
+ */
+const MouseTracker = {
+  x: 0,
+  y: 0,
+  normalizedX: 0, // -0.5 to 0.5
+  normalizedY: 0, // -0.5 to 0.5
+  listeners: [],
+  initialized: false,
+
+  init() {
+    if (this.initialized) return;
+
+    let ticking = false;
+    document.addEventListener(
+      'mousemove',
+      (e) => {
+        this.x = e.clientX;
+        this.y = e.clientY;
+        this.normalizedX = e.clientX / window.innerWidth - 0.5;
+        this.normalizedY = e.clientY / window.innerHeight - 0.5;
+
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            this.listeners.forEach((fn) => fn(this.x, this.y, this.normalizedX, this.normalizedY));
+            ticking = false;
+          });
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    this.initialized = true;
+  },
+
+  subscribe(fn) {
+    if (!this.initialized) this.init();
+    this.listeners.push(fn);
+    return () => {
+      this.listeners = this.listeners.filter((l) => l !== fn);
+    };
+  },
+};
+
+/**
  * GSAP Animation Manager
  * Handles all GSAP-powered animations for the AcaiStack website
  * @namespace GSAPAnimationManager
@@ -66,18 +114,28 @@ const GSAPAnimationManager = {
       // Register ScrollTrigger plugin
       gsap.registerPlugin(ScrollTrigger);
 
+      // Configure ScrollTrigger for mobile optimization
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
+
       // Set GSAP defaults for smooth animations
       gsap.defaults({
         ease: 'power3.out',
         duration: 1,
+        overwrite: 'auto',
       });
 
       // Initialize all animation modules
       this.initHeroAnimations();
+      this.initPageHeroAnimations();
       this.initImageSequence();
       this.initScrollAnimations();
       this.initParallaxEffects();
       this.initCounterAnimations();
+      this.initTestimonialsAnimations();
+      this.initHowItWorksAnimations();
+      this.initMicroInteractions();
 
       this.initialized = true;
 
@@ -92,6 +150,7 @@ const GSAPAnimationManager = {
   /**
    * Hero Section Animations
    * Creates an immersive entrance experience (optimized timing)
+   * Now supports hero slider system
    */
   initHeroAnimations() {
     if (this.prefersReducedMotion) {
@@ -99,20 +158,28 @@ const GSAPAnimationManager = {
       return;
     }
 
+    // Target only the active slide's elements, or fall back to direct children
+    const activeSlide =
+      document.querySelector('.hero-slide.active') || document.querySelector('.gsap-hero');
+    if (!activeSlide) return;
+
     const heroTimeline = gsap.timeline({
       defaults: { ease: 'power3.out' },
     });
 
-    // Animate hero badge (faster)
-    heroTimeline.to('.hero-badge', {
-      opacity: 1,
-      y: 0,
-      duration: 0.4,
-    });
+    // Animate hero badge (faster) - only if element exists
+    const heroBadge = document.querySelector('.hero-badge');
+    if (heroBadge) {
+      heroTimeline.to('.hero-badge', {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+      });
+    }
 
-    // Animate title lines with stagger (faster)
+    // Animate title lines with stagger (faster) - only in active slide
     heroTimeline.to(
-      '.title-line',
+      activeSlide.querySelectorAll('.title-line'),
       {
         opacity: 1,
         y: 0,
@@ -125,7 +192,7 @@ const GSAPAnimationManager = {
 
     // Animate subtitle (faster)
     heroTimeline.to(
-      '.hero-subtitle',
+      activeSlide.querySelectorAll('.hero-subtitle'),
       {
         opacity: 1,
         y: 0,
@@ -136,7 +203,7 @@ const GSAPAnimationManager = {
 
     // Animate CTA buttons with stagger (faster)
     heroTimeline.to(
-      '.hero-cta .btn',
+      activeSlide.querySelectorAll('.hero-cta .btn'),
       {
         opacity: 1,
         y: 0,
@@ -147,45 +214,57 @@ const GSAPAnimationManager = {
       '-=0.2'
     );
 
-    // Animate stats (faster)
-    heroTimeline.to(
-      '.stat-item',
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.3,
-        stagger: 0.05,
-      },
-      '-=0.15'
-    );
-
-    // Animate floating images (faster)
-    heroTimeline.to(
-      '.floating-image',
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        stagger: {
-          amount: 0.4,
-          from: 'random',
+    // Animate stats (faster) - only if elements exist
+    const statItems = document.querySelectorAll('.stat-item');
+    if (statItems.length > 0) {
+      heroTimeline.to(
+        '.stat-item',
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.05,
         },
-        ease: 'elastic.out(1, 0.6)',
-      },
-      '-=0.4'
-    );
+        '-=0.15'
+      );
+    }
 
-    // Animate showcase rings (faster)
-    heroTimeline.to(
-      '.showcase-ring',
-      {
-        opacity: 0.3,
-        duration: 0.5,
-        stagger: 0.1,
-      },
-      '-=0.5'
-    );
+    // Animate Portfolio Showcase (NEW)
+    this.initPortfolioShowcaseAnimation(heroTimeline);
+
+    // Animate floating images (faster) - only if elements exist
+    const floatingImages = document.querySelectorAll('.floating-image');
+    if (floatingImages.length > 0) {
+      heroTimeline.to(
+        '.floating-image',
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: {
+            amount: 0.4,
+            from: 'random',
+          },
+          ease: 'elastic.out(1, 0.6)',
+        },
+        '-=0.4'
+      );
+    }
+
+    // Animate showcase rings (faster) - only if elements exist
+    const showcaseRings = document.querySelectorAll('.showcase-ring');
+    if (showcaseRings.length > 0) {
+      heroTimeline.to(
+        '.showcase-ring',
+        {
+          opacity: 0.3,
+          duration: 0.5,
+          stagger: 0.1,
+        },
+        '-=0.5'
+      );
+    }
 
     // Animate scroll indicator (faster)
     heroTimeline.to(
@@ -199,6 +278,348 @@ const GSAPAnimationManager = {
 
     // Continuous floating animation for images
     this.initFloatingAnimation();
+  },
+
+  /**
+   * Page Hero Section Animations
+   * Animates the page headers on subpages with the same style as the main hero
+   */
+  initPageHeroAnimations() {
+    if (this.prefersReducedMotion) {
+      return;
+    }
+
+    // Check if we're on a subpage with a page-hero
+    const pageHero = document.querySelector('.gsap-page-hero');
+    if (!pageHero) {
+      return;
+    }
+
+    // Don't run if the main hero exists (we're on the home page)
+    const mainHero = document.querySelector('.gsap-hero');
+    if (mainHero) {
+      return;
+    }
+
+    const pageHeroTimeline = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+    });
+
+    // Animate title lines with stagger (same as main hero)
+    pageHeroTimeline.to(
+      '.gsap-page-hero .title-line',
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power4.out',
+      },
+      '+=0.1'
+    );
+  },
+
+  /**
+   * Portfolio Showcase Animation
+   * Creates a professional 3D reveal animation for the featured project in the hero
+   * Also handles emblem showcase for AcaiStack slide
+   * @param {gsap.core.Timeline} parentTimeline - The parent timeline to add animations to
+   */
+  initPortfolioShowcaseAnimation(parentTimeline) {
+    // Handle Portfolio Showcase (Imkerei slide)
+    const portfolioShowcase = document.querySelector('.hero-slide.active .hero-portfolio-showcase');
+
+    // Handle Emblem Showcase (AcaiStack slide)
+    const emblemShowcase = document.querySelector('.hero-slide.active .hero-emblem-showcase');
+
+    // Create showcase timeline
+    const showcaseTimeline = gsap.timeline();
+
+    // Animate Emblem Showcase if present
+    if (emblemShowcase) {
+      this.animateEmblemShowcase(showcaseTimeline);
+    }
+
+    // Animate Portfolio Showcase if present
+    if (portfolioShowcase) {
+      portfolioShowcase.classList.add('is-visible');
+      this.animatePortfolioFrame(showcaseTimeline);
+    }
+
+    // Add to parent timeline if provided
+    if (parentTimeline && (emblemShowcase || portfolioShowcase)) {
+      parentTimeline.add(showcaseTimeline, '-=0.6');
+    }
+
+    // Add continuous floating animation
+    if (portfolioShowcase) {
+      gsap.to('.hero-slide.active .portfolio-showcase-frame', {
+        y: -10,
+        rotateY: -3,
+        rotateX: 1,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 2,
+      });
+    }
+
+    if (emblemShowcase) {
+      gsap.to('.hero-slide.active .emblem-frame', {
+        y: -15,
+        rotation: 2,
+        duration: 5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 1,
+      });
+    }
+
+    // Add mouse parallax effect
+    this.initShowcaseParallax();
+  },
+
+  /**
+   * Animate the emblem showcase for AcaiStack slide
+   * @param {gsap.core.Timeline} timeline - The timeline to add animations to
+   */
+  animateEmblemShowcase(timeline) {
+    // Animate emblem with scale and rotation
+    timeline.fromTo(
+      '.hero-slide.active .emblem-frame',
+      {
+        opacity: 0,
+        scale: 0.5,
+        rotation: -15,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 1.2,
+        ease: 'elastic.out(1, 0.5)',
+      }
+    );
+
+    // Animate glow ring
+    timeline.fromTo(
+      '.hero-slide.active .emblem-glow-ring',
+      {
+        opacity: 0,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'power2.out',
+      },
+      '-=0.8'
+    );
+
+    // Animate badge
+    timeline.fromTo(
+      '.hero-slide.active .emblem-badge',
+      {
+        opacity: 0,
+        y: -20,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: 'back.out(2)',
+      },
+      '-=0.5'
+    );
+
+    // Animate glow
+    timeline.fromTo(
+      '.hero-slide.active .portfolio-showcase-glow',
+      {
+        opacity: 0,
+        scale: 0.8,
+      },
+      {
+        opacity: 0.5,
+        scale: 1,
+        duration: 1,
+        ease: 'power2.out',
+      },
+      '-=0.8'
+    );
+  },
+
+  /**
+   * Animate the portfolio frame showcase
+   * @param {gsap.core.Timeline} timeline - The timeline to add animations to
+   */
+  animatePortfolioFrame(timeline) {
+    // Animate the main frame with 3D perspective
+    timeline.fromTo(
+      '.hero-slide.active .portfolio-showcase-frame',
+      {
+        opacity: 0,
+        rotateY: -25,
+        rotateX: 10,
+        y: 60,
+        scale: 0.85,
+      },
+      {
+        opacity: 1,
+        rotateY: -5,
+        rotateX: 2,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: 'power3.out',
+      }
+    );
+
+    // Animate browser dots with stagger
+    timeline.fromTo(
+      '.hero-slide.active .browser-dots .dot',
+      {
+        opacity: 0,
+        scale: 0,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        stagger: 0.1,
+        ease: 'back.out(2)',
+      },
+      '-=0.8'
+    );
+
+    // Animate browser URL
+    timeline.fromTo(
+      '.hero-slide.active .browser-url',
+      {
+        opacity: 0,
+        y: -10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      },
+      '-=0.5'
+    );
+
+    // Reveal the image with a clip-path animation
+    timeline.fromTo(
+      '.hero-slide.active .portfolio-showcase-image',
+      {
+        opacity: 0,
+        scale: 1.2,
+        clipPath: 'inset(100% 0% 0% 0%)',
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        clipPath: 'inset(0% 0% 0% 0%)',
+        duration: 0.8,
+        ease: 'power3.inOut',
+      },
+      '-=0.4'
+    );
+
+    // Animate the shine effect
+    timeline.fromTo(
+      '.hero-slide.active .portfolio-showcase-shine',
+      {
+        x: '-100%',
+      },
+      {
+        x: '200%',
+        duration: 1.2,
+        ease: 'power2.inOut',
+      },
+      '-=0.4'
+    );
+
+    // Animate the featured badge with bounce
+    timeline.fromTo(
+      '.hero-slide.active .portfolio-showcase-badge',
+      {
+        opacity: 0,
+        y: -30,
+        scale: 0.5,
+        rotation: -10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.5)',
+      },
+      '-=0.8'
+    );
+
+    // Animate the glow
+    timeline.fromTo(
+      '.hero-slide.active .portfolio-showcase-glow',
+      {
+        opacity: 0,
+        scale: 0.8,
+      },
+      {
+        opacity: 0.5,
+        scale: 1,
+        duration: 1,
+        ease: 'power2.out',
+      },
+      '-=1'
+    );
+  },
+
+  /**
+   * Showcase Parallax Effect
+   * Adds subtle mouse-following effect to the portfolio and emblem showcases
+   */
+  initShowcaseParallax() {
+    const portfolioShowcase = document.querySelector('.hero-portfolio-showcase');
+    const emblemShowcase = document.querySelector('.hero-emblem-showcase');
+
+    if (!portfolioShowcase && !emblemShowcase) return;
+
+    // Subscribe to centralized mouse tracker
+    MouseTracker.subscribe((x, y, normX, normY) => {
+      const xPos = normX * 20; // Convert to -10 to 10 range
+      const yPos = normY * 20;
+
+      // Parallax for portfolio frame
+      if (portfolioShowcase) {
+        gsap.to('.hero-slide.active .portfolio-showcase-frame', {
+          rotateY: -5 + xPos * 0.5,
+          rotateX: 2 - yPos * 0.3,
+          duration: 0.8,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+      }
+
+      // Parallax for emblem frame
+      if (emblemShowcase) {
+        gsap.to('.hero-slide.active .emblem-frame', {
+          x: xPos * 0.5,
+          y: yPos * 0.3,
+          rotation: xPos * 0.2,
+          duration: 0.8,
+          ease: 'power2.out',
+          overwrite: 'auto',
+        });
+      }
+    });
   },
 
   /**
@@ -219,7 +640,7 @@ const GSAPAnimationManager = {
       // Store speed for mousemove handler
       imageData.push({ element: image, speed });
 
-      // Continuous floating animation
+      // Continuous floating animation (pauses when off-screen for performance)
       gsap.to(image, {
         y: `+=${15 * speed}`,
         rotation: 1 * speed,
@@ -228,6 +649,10 @@ const GSAPAnimationManager = {
         yoyo: true,
         ease: 'sine.inOut',
         delay,
+        scrollTrigger: {
+          trigger: image,
+          toggleActions: 'play pause resume pause',
+        },
       });
     });
 
@@ -300,7 +725,8 @@ const GSAPAnimationManager = {
             progressFill.style.width = `${self.progress * 100}%`;
           }
 
-          // Determine active step based on progress
+          // Determine active step based on progress (4 equal segments)
+          // 0-0.25 = step 0, 0.25-0.5 = step 1, 0.5-0.75 = step 2, 0.75-1 = step 3
           const step = Math.min(Math.floor(self.progress * 4), 3);
 
           // Update frames
@@ -383,52 +809,34 @@ const GSAPAnimationManager = {
       return;
     }
 
-    // Animate service cards
-    gsap.utils.toArray('.service-card').forEach((card, index) => {
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: index * 0.1,
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          end: 'top 50%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-    });
-
-    // Animate portfolio cards
-    gsap.utils.toArray('.portfolio-card').forEach((card, index) => {
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: index * 0.15,
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          end: 'top 50%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-    });
-
-    // Animate team cards
-    gsap.utils.toArray('.team-card').forEach((card, index) => {
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: index * 0.1,
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          end: 'top 50%',
-          toggleActions: 'play none none reverse',
-        },
-      });
+    // Use ScrollTrigger.batch for efficient card animations
+    // Combines service, portfolio, and team cards into one batch observer
+    // Reduces ScrollTrigger instances from 18+ to 1 for better performance
+    ScrollTrigger.batch('.service-card, .portfolio-card, .team-card', {
+      onEnter: (elements) => {
+        gsap.fromTo(
+          elements,
+          { opacity: 0, y: 30, filter: 'blur(8px)' },
+          {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power3.out',
+          }
+        );
+      },
+      onLeaveBack: (elements) => {
+        gsap.to(elements, {
+          opacity: 0,
+          y: 30,
+          filter: 'blur(8px)',
+          duration: 0.4,
+          stagger: 0.05,
+        });
+      },
+      start: 'top 85%',
     });
 
     // Animate section titles
@@ -595,8 +1003,181 @@ const GSAPAnimationManager = {
     });
   },
 
+  /**   * Testimonials Section Animations
+   * Premium stagger reveals with blur effect
+   */
+  initTestimonialsAnimations() {
+    if (this.prefersReducedMotion) return;
+
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    if (!testimonialCards.length) return;
+
+    // Stagger reveal with blur
+    gsap.from(testimonialCards, {
+      y: 60,
+      opacity: 0,
+      filter: 'blur(10px)',
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: {
+        amount: 0.4,
+        from: 'start',
+      },
+      scrollTrigger: {
+        trigger: '.testimonials-grid',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+
+    // Spotlight effect follows cursor
+    testimonialCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
+      });
+    });
+  },
+
   /**
-   * Show all elements without animation (for reduced motion)
+   * How It Works Section Animations
+   * Step-by-step reveal with number pop
+   */
+  initHowItWorksAnimations() {
+    if (this.prefersReducedMotion) return;
+
+    const stepCards = document.querySelectorAll('.step-card');
+    if (!stepCards.length) return;
+
+    // Animate step cards with stagger
+    gsap.from(stepCards, {
+      y: 50,
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.7,
+      ease: 'power3.out',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: '.steps-grid',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+
+    // Animate step numbers with pop effect
+    const stepNumbers = document.querySelectorAll('.step-number');
+    gsap.from(stepNumbers, {
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'back.out(2)',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: '.steps-grid',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+
+    // Animate icons with bounce
+    const stepIcons = document.querySelectorAll('.step-icon');
+    gsap.from(stepIcons, {
+      y: -20,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'bounce.out',
+      stagger: 0.15,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: '.steps-grid',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  },
+
+  /**
+   * Premium Micro-interactions
+   * Magnetic buttons, tilt cards, ripple effects
+   */
+  initMicroInteractions() {
+    if (this.prefersReducedMotion) return;
+
+    // Magnetic button effect
+    const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary');
+    magneticBtns.forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        gsap.to(btn, {
+          x: x * 0.2,
+          y: y * 0.2,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: 'elastic.out(1, 0.4)',
+        });
+      });
+    });
+
+    // Ripple effect position tracking
+    const rippleBtns = document.querySelectorAll('.btn-ripple');
+    rippleBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        btn.style.setProperty('--ripple-x', `${x}px`);
+        btn.style.setProperty('--ripple-y', `${y}px`);
+      });
+    });
+
+    // 3D Tilt effect for cards
+    const tiltCards = document.querySelectorAll('.service-card, .testimonial-card, .step-card');
+    tiltCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        gsap.to(card, {
+          rotateX,
+          rotateY,
+          transformPerspective: 1000,
+          duration: 0.4,
+          ease: 'power2.out',
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+        });
+      });
+    });
+  },
+
+  /**   * Show all elements without animation (for reduced motion)
    */
   showAllElements() {
     const elements = [
@@ -690,53 +1271,11 @@ const SmoothScrollManager = {
 };
 
 /**
- * Magnetic Button Effect
- */
-const MagneticButtonManager = {
-  init() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
-
-    const buttons = document.querySelectorAll('.btn-glow, .btn-primary');
-
-    buttons.forEach((button) => {
-      button.addEventListener('mousemove', (e) => {
-        const rect = button.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        if (typeof gsap !== 'undefined') {
-          gsap.to(button, {
-            x: x * 0.2,
-            y: y * 0.2,
-            duration: 0.3,
-            ease: 'power2.out',
-          });
-        }
-      });
-
-      button.addEventListener('mouseleave', () => {
-        if (typeof gsap !== 'undefined') {
-          gsap.to(button, {
-            x: 0,
-            y: 0,
-            duration: 0.5,
-            ease: 'elastic.out(1, 0.5)',
-          });
-        }
-      });
-    });
-  },
-};
-
-/**
  * Initialize everything when DOM is ready
  */
 document.addEventListener('DOMContentLoaded', () => {
   GSAPAnimationManager.init();
   SmoothScrollManager.init();
-  MagneticButtonManager.init();
 });
 
 /**
@@ -759,6 +1298,5 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
   module.exports = {
     GSAPAnimationManager,
     SmoothScrollManager,
-    MagneticButtonManager,
   };
 }

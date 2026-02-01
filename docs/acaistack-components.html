@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AcaiStack Components - Demo</title>
+
+    <!-- Base styles -->
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/acaistack-components.css" />
+
+    <style>
+      /* Demo page styles */
+      .demo-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 48px 24px;
+      }
+
+      .demo-section {
+        margin-bottom: 64px;
+        padding-bottom: 64px;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .demo-section:last-child {
+        border-bottom: none;
+      }
+
+      .demo-title {
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text);
+        margin: 0 0 8px 0;
+      }
+
+      .demo-description {
+        font-size: var(--font-size-base);
+        color: var(--color-text-secondary);
+        margin: 0 0 32px 0;
+      }
+
+      .demo-code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-text-secondary);
+        margin-top: 24px;
+        margin-bottom: 8px;
+      }
+
+      .agents-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-page">
+      <h1 style="font-size: 48px; font-weight: 600; margin-bottom: 48px; color: var(--color-text)">
+        AcaiStack Components
+      </h1>
+
+      <!-- ============================================
+         1. MONEY-BACK GUARANTEE BADGE
+         ============================================ -->
+      <section class="demo-section">
+        <h2 class="demo-title">1. Money-Back Guarantee Badge</h2>
+        <p class="demo-description">Glass morphism badge with green accent and hover glow effect.</p>
+
+        <div class="guarantee-badge">
+          <span class="guarantee-icon"></span>
+          <div class="guarantee-content">
+            <strong>30-Day Money-Back Guarantee</strong>
+            <p>Not satisfied? Full refund, no questions asked.</p>
+          </div>
+        </div>
+
+        <p class="demo-code-label">HTML:</p>
+        <pre
+          style="
+            background: var(--color-background);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+          "
+        ><code>&lt;div class="guarantee-badge"&gt;
+  &lt;span class="guarantee-icon"&gt;&lt;/span&gt;
+  &lt;div class="guarantee-content"&gt;
+    &lt;strong&gt;30-Day Money-Back Guarantee&lt;/strong&gt;
+    &lt;p&gt;Not satisfied? Full refund, no questions asked.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- ============================================
+         2. AGENT SHOWCASE CARDS
+         ============================================ -->
+      <section class="demo-section">
+        <h2 class="demo-title">2. Agent Showcase Cards</h2>
+        <p class="demo-description">Feature-rich cards with hover animations, pricing, and dual CTAs.</p>
+
+        <div class="agents-grid">
+          <!-- Agent Card 1 -->
+          <div class="agent-card">
+            <div class="agent-card-header">
+              <div class="agent-card-icon"></div>
+              <div class="agent-card-info">
+                <h3 class="agent-card-name">Lead Qualifier Agent</h3>
+                <p class="agent-card-tagline">Automate lead scoring and qualification 24/7</p>
+              </div>
+            </div>
+
+            <ul class="agent-card-features">
+              <li>AI-powered lead scoring</li>
+              <li>CRM integration (Salesforce, HubSpot)</li>
+              <li>Real-time qualification alerts</li>
+              <li>Custom scoring criteria</li>
+            </ul>
+
+            <div class="agent-card-pricing">
+              <span class="agent-card-price">€999</span>
+              <span class="agent-card-price-type">one-time</span>
+            </div>
+
+            <div class="agent-card-actions">
+              <button class="agent-card-btn agent-card-btn--secondary">View Demo</button>
+              <button class="agent-card-btn agent-card-btn--primary">Get Agent</button>
+            </div>
+          </div>
+
+          <!-- Agent Card 2 -->
+          <div class="agent-card">
+            <div class="agent-card-header">
+              <div class="agent-card-icon"></div>
+              <div class="agent-card-info">
+                <h3 class="agent-card-name">Email Outreach Agent</h3>
+                <p class="agent-card-tagline">Personalized cold outreach at scale</p>
+              </div>
+            </div>
+
+            <ul class="agent-card-features">
+              <li>AI-generated personalization</li>
+              <li>A/B testing automation</li>
+              <li>Smart follow-up sequences</li>
+              <li>Deliverability optimization</li>
+            </ul>
+
+            <div class="agent-card-pricing">
+              <span class="agent-card-price">€199</span>
+              <span class="agent-card-price-type">/month</span>
+            </div>
+
+            <div class="agent-card-actions">
+              <button class="agent-card-btn agent-card-btn--secondary">View Demo</button>
+              <button class="agent-card-btn agent-card-btn--primary">Get Agent</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="demo-code-label">HTML:</p>
+        <pre
+          style="
+            background: var(--color-background);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+          "
+        ><code>&lt;div class="agent-card"&gt;
+  &lt;div class="agent-card-header"&gt;
+    &lt;div class="agent-card-icon"&gt;&lt;/div&gt;
+    &lt;div class="agent-card-info"&gt;
+      &lt;h3 class="agent-card-name"&gt;Lead Qualifier Agent&lt;/h3&gt;
+      &lt;p class="agent-card-tagline"&gt;Automate lead scoring 24/7&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;ul class="agent-card-features"&gt;
+    &lt;li&gt;AI-powered lead scoring&lt;/li&gt;
+    &lt;li&gt;CRM integration&lt;/li&gt;
+    &lt;li&gt;Real-time alerts&lt;/li&gt;
+    &lt;li&gt;Custom criteria&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class="agent-card-pricing"&gt;
+    &lt;span class="agent-card-price"&gt;€999&lt;/span&gt;
+    &lt;span class="agent-card-price-type"&gt;one-time&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="agent-card-actions"&gt;
+    &lt;button class="agent-card-btn agent-card-btn--secondary"&gt;View Demo&lt;/button&gt;
+    &lt;button class="agent-card-btn agent-card-btn--primary"&gt;Get Agent&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- ============================================
+         3. PRICING TABLE
+         ============================================ -->
+      <section class="demo-section">
+        <h2 class="demo-title">3. Pricing Table</h2>
+        <p class="demo-description">Responsive 3-tier pricing grid with feature checklists.</p>
+
+        <div class="pricing-grid">
+          <!-- Starter Tier -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <h3 class="pricing-card-name">Starter</h3>
+              <div class="pricing-card-price">
+                <span class="pricing-card-currency">€</span>
+                <span class="pricing-card-amount">1,499</span>
+              </div>
+              <p class="pricing-card-description">Perfect for small businesses</p>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span class="check">✓</span>5 custom pages</li>
+              <li><span class="check">✓</span>Basic SEO optimization</li>
+              <li><span class="check">✓</span>Mobile responsive design</li>
+              <li><span class="check">✓</span>Contact form integration</li>
+              <li><span class="check">✓</span>1 month support</li>
+              <li class="disabled"><span class="check">–</span>AI agent integration</li>
+              <li class="disabled"><span class="check">–</span>Advanced analytics</li>
+            </ul>
+
+            <button class="pricing-cta pricing-cta--outline">Get Started</button>
+          </div>
+
+          <!-- Professional Tier -->
+          <div class="pricing-card pricing-card--popular">
+            <span class="pricing-badge">Most Popular</span>
+            <div class="pricing-card-header">
+              <h3 class="pricing-card-name">Professional</h3>
+              <div class="pricing-card-price">
+                <span class="pricing-card-currency">€</span>
+                <span class="pricing-card-amount">2,499</span>
+              </div>
+              <p class="pricing-card-description">For growing companies</p>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span class="check">✓</span>10 custom pages</li>
+              <li><span class="check">✓</span>Advanced SEO optimization</li>
+              <li><span class="check">✓</span>Mobile responsive design</li>
+              <li><span class="check">✓</span>Contact form + CRM integration</li>
+              <li><span class="check">✓</span>3 months support</li>
+              <li><span class="check">✓</span>1 AI agent integration</li>
+              <li><span class="check">✓</span>Basic analytics dashboard</li>
+            </ul>
+
+            <button class="pricing-cta pricing-cta--primary">Get Started</button>
+          </div>
+
+          <!-- Enterprise Tier -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <h3 class="pricing-card-name">Enterprise</h3>
+              <div class="pricing-card-price">
+                <span class="pricing-card-currency">€</span>
+                <span class="pricing-card-amount">4,999</span>
+              </div>
+              <p class="pricing-card-description">Full-scale solutions</p>
+            </div>
+
+            <ul class="pricing-features">
+              <li><span class="check">✓</span>Unlimited pages</li>
+              <li><span class="check">✓</span>Premium SEO & performance</li>
+              <li><span class="check">✓</span>Mobile responsive design</li>
+              <li><span class="check">✓</span>Full system integrations</li>
+              <li><span class="check">✓</span>12 months priority support</li>
+              <li><span class="check">✓</span>2 AI agent integrations</li>
+              <li><span class="check">✓</span>Advanced analytics suite</li>
+            </ul>
+
+            <button class="pricing-cta pricing-cta--outline">Contact Sales</button>
+          </div>
+        </div>
+
+        <p class="demo-code-label">HTML:</p>
+        <pre
+          style="
+            background: var(--color-background);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+          "
+        ><code>&lt;div class="pricing-grid"&gt;
+  &lt;div class="pricing-card"&gt;
+    &lt;div class="pricing-card-header"&gt;
+      &lt;h3 class="pricing-card-name"&gt;Starter&lt;/h3&gt;
+      &lt;div class="pricing-card-price"&gt;
+        &lt;span class="pricing-card-currency"&gt;€&lt;/span&gt;
+        &lt;span class="pricing-card-amount"&gt;1,499&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ul class="pricing-features"&gt;
+      &lt;li&gt;&lt;span class="check"&gt;✓&lt;/span&gt;Feature here&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;button class="pricing-cta pricing-cta--outline"&gt;Get Started&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class="pricing-card pricing-card--popular"&gt;
+    &lt;span class="pricing-badge"&gt;Most Popular&lt;/span&gt;
+    &lt;!-- ... same structure ... --&gt;
+    &lt;button class="pricing-cta pricing-cta--primary"&gt;Get Started&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- ============================================
+         4. FAQ ACCORDION
+         ============================================ -->
+      <section class="demo-section">
+        <h2 class="demo-title">4. FAQ Accordion</h2>
+        <p class="demo-description">Accessible accordion with smooth animations. Only one item open at a time.</p>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">How long does it take to build my website?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>
+                  Most projects are completed within 2-4 weeks, depending on complexity. Starter packages typically take
+                  2 weeks, while Enterprise solutions may take up to 6 weeks for full implementation including AI agent
+                  integration and custom features.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">What's included in the AI agent integration?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>
+                  Our AI agents include full setup, training on your business data, CRM integration, and ongoing
+                  optimization. You'll get 24/7 automated lead qualification, customer support, or outreach capabilities
+                  depending on which agent you choose.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">Do you offer refunds if I'm not satisfied?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>
+                  Yes! We offer a 30-day money-back guarantee on all our services. If you're not completely satisfied
+                  with the results, we'll provide a full refund—no questions asked. Your success is our priority.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">Can I upgrade my plan later?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>
+                  Absolutely! You can upgrade your plan at any time. We'll credit your previous payment toward the
+                  upgrade cost, so you only pay the difference. Our team will handle the migration seamlessly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="demo-code-label">HTML:</p>
+        <pre
+          style="
+            background: var(--color-background);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+          "
+        ><code>&lt;div class="faq-accordion"&gt;
+  &lt;div class="faq-item"&gt;
+    &lt;button class="faq-question" aria-expanded="false"&gt;
+      &lt;span class="faq-question-text"&gt;Your question here?&lt;/span&gt;
+      &lt;span class="faq-toggle" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="faq-answer"&gt;
+      &lt;div class="faq-answer-content"&gt;
+        &lt;p&gt;Your answer here.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- More items... --&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- ============================================
+         5. ROI CALCULATOR
+         ============================================ -->
+      <section class="demo-section">
+        <h2 class="demo-title">5. ROI Calculator</h2>
+        <p class="demo-description">Interactive calculator with real-time updates showing potential revenue gains.</p>
+
+        <div class="roi-calculator">
+          <div class="roi-calculator-header">
+            <h3 class="roi-calculator-title">Calculate Your ROI</h3>
+            <p class="roi-calculator-subtitle">See how much more revenue you could generate with our AI agents</p>
+          </div>
+
+          <div class="roi-inputs">
+            <div class="roi-input-group">
+              <label class="roi-input-label">Monthly Leads</label>
+              <div class="roi-input-wrapper">
+                <input type="number" class="roi-input" data-roi-leads value="100" min="0" step="10" />
+                <span class="roi-input-suffix">leads/month</span>
+              </div>
+            </div>
+
+            <div class="roi-input-group">
+              <label class="roi-input-label">Current Conversion Rate</label>
+              <div class="roi-input-wrapper">
+                <input type="number" class="roi-input" data-roi-conversion value="5" min="0" max="100" step="0.5" />
+                <span class="roi-input-suffix">% convert</span>
+              </div>
+            </div>
+
+            <div class="roi-input-group">
+              <label class="roi-input-label">Average Deal Value</label>
+              <div class="roi-input-wrapper">
+                <input type="number" class="roi-input" data-roi-deal-value value="2000" min="0" step="100" />
+                <span class="roi-input-suffix">€ per deal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-results-grid">
+              <div class="roi-result-item">
+                <div class="roi-result-label">Current Monthly Revenue</div>
+                <div class="roi-result-value" data-roi-current-revenue>€10,000</div>
+              </div>
+
+              <div class="roi-result-item">
+                <div class="roi-result-label">Projected Revenue</div>
+                <div class="roi-result-value highlight" data-roi-projected-revenue>€13,000</div>
+              </div>
+
+              <div class="roi-result-item roi-savings">
+                <div class="roi-result-label">Additional Monthly Revenue</div>
+                <div class="roi-result-value" data-roi-additional-revenue>+€3,000</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="roi-cta">
+            Get This ROI
+            <span class="roi-cta-arrow">→</span>
+          </button>
+        </div>
+
+        <p class="demo-code-label">HTML:</p>
+        <pre
+          style="
+            background: var(--color-background);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+          "
+        ><code>&lt;div class="roi-calculator"&gt;
+  &lt;div class="roi-calculator-header"&gt;
+    &lt;h3 class="roi-calculator-title"&gt;Calculate Your ROI&lt;/h3&gt;
+    &lt;p class="roi-calculator-subtitle"&gt;See your potential gains&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="roi-inputs"&gt;
+    &lt;div class="roi-input-group"&gt;
+      &lt;label class="roi-input-label"&gt;Monthly Leads&lt;/label&gt;
+      &lt;div class="roi-input-wrapper"&gt;
+        &lt;input type="number" class="roi-input" data-roi-leads value="100"&gt;
+        &lt;span class="roi-input-suffix"&gt;leads/month&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- More inputs... --&gt;
+  &lt;/div&gt;
+
+  &lt;div class="roi-results"&gt;
+    &lt;div class="roi-results-grid"&gt;
+      &lt;div class="roi-result-item"&gt;
+        &lt;div class="roi-result-label"&gt;Current Revenue&lt;/div&gt;
+        &lt;div class="roi-result-value" data-roi-current-revenue&gt;€10,000&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- More result items... --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;button class="roi-cta"&gt;
+    Get This ROI &lt;span class="roi-cta-arrow"&gt;→&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- Usage instructions -->
+      <section class="demo-section" style="border-bottom: none">
+        <h2 class="demo-title">Usage Instructions</h2>
+
+        <div style="background: var(--color-background); padding: 24px; border-radius: 12px; margin-top: 16px">
+          <h4 style="margin: 0 0 16px 0; color: var(--color-text)">1. Include the CSS</h4>
+          <pre
+            style="background: var(--color-surface); padding: 12px; border-radius: 8px; margin-bottom: 24px"
+          ><code>&lt;link rel="stylesheet" href="css/acaistack-components.css"&gt;</code></pre>
+
+          <h4 style="margin: 0 0 16px 0; color: var(--color-text)">2. Include the JavaScript</h4>
+          <pre
+            style="background: var(--color-surface); padding: 12px; border-radius: 8px; margin-bottom: 24px"
+          ><code>&lt;script src="js/acaistack-components.js"&gt;&lt;/script&gt;</code></pre>
+
+          <h4 style="margin: 0 0 16px 0; color: var(--color-text)">3. Listen to Custom Events (Optional)</h4>
+          <pre
+            style="background: var(--color-surface); padding: 12px; border-radius: 8px"
+          ><code>// Agent cards emit events you can listen to
+document.addEventListener('agent-demo-request', (e) => {
+  console.log('Demo requested for:', e.detail.agentName);
+});
+
+document.addEventListener('agent-purchase-request', (e) => {
+  console.log('Purchase requested:', e.detail);
+});
+
+// Pricing cards
+document.addEventListener('pricing-select', (e) => {
+  console.log('Plan selected:', e.detail.tierName);
+});
+
+// Re-initialize after dynamic content load
+window.AcaiStack.init();</code></pre>
+        </div>
+      </section>
+    </div>
+
+    <!-- Include the JS -->
+    <script src="../js/acaistack-components.js"></script>
+  </body>
+</html>

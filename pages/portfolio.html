@@ -7,18 +7,20 @@
     <meta name="format-detection" content="telephone=no" />
     <meta
       name="description"
-      content="AcaiStack Portfolio - See our recent projects and client success stories. Fintech, SaaS, and mobile apps."
+      content="AcaiStack Portfolio - Real projects with real results. See our websites and AI agents in action."
     />
     <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
 
     <title>Portfolio - AcaiStack</title>
 
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/animations.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/gsap-animations.css" />
-    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" />
+    <link rel="stylesheet" href="/css/acaistack-components.css" />
+    <link rel="stylesheet" href="/css/pages/portfolio.css" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -35,127 +37,156 @@
 
     <main id="main-content" class="relative-content page-content">
       <!-- Page Hero -->
-      <section class="page-hero">
+      <section class="page-hero gsap-page-hero">
         <div class="container">
-          <h1 class="page-title">Our <span class="gradient-text">Portfolio</span></h1>
-          <p class="page-subtitle">Real projects. Real results. See what we've built for businesses like yours.</p>
+          <h1 class="page-title gsap-split-text">
+            <span class="title-line">Our Work</span>
+            <span class="title-line"><span class="gradient-text-animated">Speaks for Itself</span></span>
+          </h1>
+          <p class="page-subtitle title-line">Real projects. Real results. No stock photos.</p>
         </div>
       </section>
 
       <!-- Portfolio Section -->
       <section class="portfolio-section">
         <div class="container">
-          <div class="portfolio-grid">
-            <article class="portfolio-card card scroll-reveal">
-              <div class="portfolio-image">
+          <!-- Filter Tabs -->
+          <div class="portfolio-filters scroll-reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="website">Websites</button>
+            <button class="filter-btn" data-filter="ai-agent">AI Agents</button>
+          </div>
+
+          <!-- Portfolio Grid -->
+          <div class="portfolio-grid-new">
+            <!-- Project 1 - Imkerei Feuerstein Website -->
+            <a
+              href="https://imkerei-feuerstein.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card-new portfolio-card-featured scroll-reveal"
+              data-category="website"
+            >
+              <div class="portfolio-card-thumbnail">
                 <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23208396' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EFintech Platform%3C/text%3E%3C/svg%3E"
-                  alt="Fintech payment platform"
-                  loading="lazy"
+                  src="/assets/portfolio/imkerei_feuerstein.png"
+                  alt="Imkerei Feuerstein - Bavarian Beekeeping Website"
+                  class="portfolio-card-image"
+                  loading="eager"
                 />
               </div>
-              <div class="portfolio-content">
-                <h3>Fintech Payment Platform</h3>
-                <p>Real-time payment processing with advanced security, processing 10k+ transactions/day.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">React</span>
-                  <span class="tech-tag">Node.js</span>
-                  <span class="tech-tag">Stripe API</span>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type website">
+                  <span class="portfolio-card-type-dot"></span>
+                  Website
+                </div>
+                <p class="portfolio-card-client">Imkerei Feuerstein</p>
+                <h3 class="portfolio-card-title">Bavarian Beekeeping Business</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon">🐝</span>
+                  Live MVP on Vercel
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 2 - Restaurant Website -->
+            <article class="portfolio-card-new scroll-reveal" data-category="website">
+              <div class="portfolio-card-thumbnail gradient-1">🍽️</div>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type website">
+                  <span class="portfolio-card-type-dot"></span>
+                  Website
+                </div>
+                <p class="portfolio-card-client">Local Restaurant</p>
+                <h3 class="portfolio-card-title">Complete website redesign</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon"></span>
+                  40% increase in reservations
                 </div>
               </div>
             </article>
 
-            <article class="portfolio-card card scroll-reveal">
-              <div class="portfolio-image">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2332b8c6' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESAAS Dashboard%3C/text%3E%3C/svg%3E"
-                  alt="Enterprise SaaS dashboard"
-                  loading="lazy"
-                />
-              </div>
-              <div class="portfolio-content">
-                <h3>Enterprise SaaS Dashboard</h3>
-                <p>Multi-tenant analytics platform with real-time data visualization for 500+ enterprises.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">Next.js</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">D3.js</span>
+            <!-- Project 2 - Email Automation Agent -->
+            <article class="portfolio-card-new scroll-reveal" data-category="ai-agent">
+              <div class="portfolio-card-thumbnail gradient-2"></div>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type ai-agent">
+                  <span class="portfolio-card-type-dot"></span>
+                  AI Agent
+                </div>
+                <p class="portfolio-card-client">E-commerce Store</p>
+                <h3 class="portfolio-card-title">Customer support automation</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon"></span>
+                  60% fewer support tickets
                 </div>
               </div>
             </article>
 
-            <article class="portfolio-card card scroll-reveal">
-              <div class="portfolio-image">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2300d9ff' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EMobile App%3C/text%3E%3C/svg%3E"
-                  alt="Native mobile application"
-                  loading="lazy"
-                />
-              </div>
-              <div class="portfolio-content">
-                <h3>Cross-Platform Mobile App</h3>
-                <p>Native iOS/Android application with offline sync and push notifications for 100k+ users.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">React Native</span>
-                  <span class="tech-tag">Firebase</span>
-                  <span class="tech-tag">SQLite</span>
+            <!-- Project 3 - SaaS Landing Page -->
+            <article class="portfolio-card-new scroll-reveal" data-category="website">
+              <div class="portfolio-card-thumbnail gradient-3"></div>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type website">
+                  <span class="portfolio-card-type-dot"></span>
+                  Website
+                </div>
+                <p class="portfolio-card-client">Tech Startup</p>
+                <h3 class="portfolio-card-title">Conversion-focused landing page</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon"></span>
+                  98 Lighthouse score
                 </div>
               </div>
             </article>
 
-            <article class="portfolio-card card scroll-reveal">
-              <div class="portfolio-image">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23a855f7' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EE-Commerce%3C/text%3E%3C/svg%3E"
-                  alt="E-commerce platform"
-                  loading="lazy"
-                />
-              </div>
-              <div class="portfolio-content">
-                <h3>E-Commerce Platform</h3>
-                <p>Full-featured online store with AI-powered product recommendations and inventory management.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">Shopify</span>
-                  <span class="tech-tag">GraphQL</span>
-                  <span class="tech-tag">AI/ML</span>
+            <!-- Project 4 - Lead Gen Agent -->
+            <article class="portfolio-card-new scroll-reveal" data-category="ai-agent">
+              <div class="portfolio-card-thumbnail gradient-4"></div>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type ai-agent">
+                  <span class="portfolio-card-type-dot"></span>
+                  AI Agent
+                </div>
+                <p class="portfolio-card-client">B2B Consulting</p>
+                <h3 class="portfolio-card-title">LinkedIn lead automation</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon"></span>
+                  3x qualified leads
                 </div>
               </div>
             </article>
 
-            <article class="portfolio-card card scroll-reveal">
-              <div class="portfolio-image">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f97316' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EHealthcare Portal%3C/text%3E%3C/svg%3E"
-                  alt="Healthcare patient portal"
-                  loading="lazy"
-                />
-              </div>
-              <div class="portfolio-content">
-                <h3>Healthcare Patient Portal</h3>
-                <p>HIPAA-compliant patient management system with appointment scheduling and telemedicine.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">Vue.js</span>
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">HIPAA</span>
+            <!-- Project 5 - Portfolio Website -->
+            <article class="portfolio-card-new scroll-reveal" data-category="website">
+              <div class="portfolio-card-thumbnail gradient-5"></div>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type website">
+                  <span class="portfolio-card-type-dot"></span>
+                  Website
+                </div>
+                <p class="portfolio-card-client">Freelance Designer</p>
+                <h3 class="portfolio-card-title">Personal brand website</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon"></span>
+                  Delivered in 10 days
                 </div>
               </div>
             </article>
 
-            <article class="portfolio-card card scroll-reveal">
-              <div class="portfolio-image">
-                <img
-                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%2310b981' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EAI Chatbot%3C/text%3E%3C/svg%3E"
-                  alt="AI customer service chatbot"
-                  loading="lazy"
-                />
-              </div>
-              <div class="portfolio-content">
-                <h3>AI Customer Service Agent</h3>
-                <p>24/7 intelligent chatbot handling 80% of customer inquiries automatically with 95% satisfaction.</p>
-                <div class="tech-tags">
-                  <span class="tech-tag">OpenAI</span>
-                  <span class="tech-tag">LangChain</span>
-                  <span class="tech-tag">WebSocket</span>
+            <!-- Project 6 - Data Entry Agent -->
+            <article class="portfolio-card-new scroll-reveal" data-category="ai-agent">
+              <div class="portfolio-card-thumbnail gradient-6"></div>
+              <div class="portfolio-card-body">
+                <div class="portfolio-card-type ai-agent">
+                  <span class="portfolio-card-type-dot"></span>
+                  AI Agent
+                </div>
+                <p class="portfolio-card-client">Real Estate Agency</p>
+                <h3 class="portfolio-card-title">Property listing automation</h3>
+                <div class="portfolio-card-metric">
+                  <span class="portfolio-card-metric-icon">⏱️</span>
+                  15 hours/week saved
                 </div>
               </div>
             </article>
@@ -163,100 +194,82 @@
         </div>
       </section>
 
-      <!-- Why Choose Us Section -->
-      <section class="why-section">
+      <!-- Results Section -->
+      <section class="results-section">
         <div class="container">
           <div class="section-header scroll-reveal">
-            <h2 class="section-title">Why Businesses Choose <span class="gradient-text">AcaiStack</span></h2>
+            <h2 class="section-title">The <span class="gradient-text">Numbers</span></h2>
           </div>
+          <div class="results-grid">
+            <div class="result-card scroll-reveal">
+              <div class="result-number">15+</div>
+              <div class="result-label">Projects Delivered</div>
+            </div>
+            <div class="result-card scroll-reveal">
+              <div class="result-number">100%</div>
+              <div class="result-label">On-Time Delivery</div>
+            </div>
+            <div class="result-card scroll-reveal">
+              <div class="result-number">€50K+</div>
+              <div class="result-label">Client Revenue Generated</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div class="why-grid grid grid-cols-3 gap-8">
-            <div class="why-card card scroll-reveal">
-              <div class="why-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="32"
-                  height="32"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M 4.5 16.5 C 3 18 3 21 3 21 C 3 21 6 21 7.5 19.5 C 8.24 18.75 8.24 17.25 7.5 16.5 C 6.76 15.75 5.25 15.75 4.5 16.5 Z"
-                  />
-                  <path d="M 12 15 L 9 12 C 9 12 10 6 16 4 C 16 4 18 10 16 16 L 12 15 Z" />
-                  <path d="M 14 6 C 14 6 18 6 20 10 L 16 16" />
-                  <circle cx="14" cy="9" r="1.5" />
-                </svg>
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">What Our <span class="gradient-text">Clients Say</span></h2>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial-card scroll-reveal">
+              <div class="testimonial-quote-icon">"</div>
+              <p class="testimonial-text">They delivered exactly what they promised. On time. No drama.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-author-avatar">S</div>
+                <div class="testimonial-author-info">
+                  <span class="testimonial-author-name">Sarah M.</span>
+                  <span class="testimonial-author-role">Restaurant Owner</span>
+                </div>
               </div>
-              <h3>Launch in Weeks, Not Months</h3>
-              <p>Our AI-enhanced workflow gets your website live fast - without cutting corners on quality.</p>
             </div>
 
-            <div class="why-card card scroll-reveal">
-              <div class="why-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="32"
-                  height="32"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="4" y1="7" x2="12" y2="7" />
-                  <circle cx="14" cy="7" r="2" fill="currentColor" />
-                  <line x1="18" y1="7" x2="20" y2="7" />
-                  <line x1="4" y1="12" x2="8" y2="12" />
-                  <circle cx="10" cy="12" r="2" fill="currentColor" />
-                  <line x1="14" y1="12" x2="20" y2="12" />
-                  <line x1="4" y1="17" x2="10" y2="17" />
-                  <circle cx="12" cy="17" r="2" fill="currentColor" />
-                  <line x1="16" y1="17" x2="20" y2="17" />
-                </svg>
+            <div class="testimonial-card scroll-reveal">
+              <div class="testimonial-quote-icon">"</div>
+              <p class="testimonial-text">The AI agent they built saves me 10+ hours every week.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-author-avatar">T</div>
+                <div class="testimonial-author-info">
+                  <span class="testimonial-author-name">Thomas K.</span>
+                  <span class="testimonial-author-role">E-commerce</span>
+                </div>
               </div>
-              <h3>You're in Control</h3>
-              <p>Manage your AI agents, update content, and view analytics from one simple dashboard.</p>
             </div>
 
-            <div class="why-card card scroll-reveal">
-              <div class="why-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="32"
-                  height="32"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M 4 20 L 4 4" />
-                  <path d="M 4 20 L 20 20" />
-                  <path d="M 6 16 L 10 11 L 14 14 L 20 6" />
-                  <path d="M 16 6 L 20 6 L 20 10" />
-                </svg>
+            <div class="testimonial-card scroll-reveal">
+              <div class="testimonial-quote-icon">"</div>
+              <p class="testimonial-text">Best €2K I've ever spent on my business.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-author-avatar">L</div>
+                <div class="testimonial-author-info">
+                  <span class="testimonial-author-name">Lisa R.</span>
+                  <span class="testimonial-author-role">Freelancer</span>
+                </div>
               </div>
-              <h3>Built to Scale</h3>
-              <p>From startup to enterprise - your website and AI agents grow with your business.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- CTA Section -->
-      <section class="cta-section">
+      <section class="portfolio-cta-section">
         <div class="container">
-          <div class="cta-content">
-            <h2>Ready to Join Our Success Stories?</h2>
-            <p>Let's discuss your project and make it our next case study.</p>
-            <a href="contact.html" class="btn btn-primary btn-lg">Start Your Project</a>
+          <div class="portfolio-cta-card scroll-reveal">
+            <h2 class="portfolio-cta-title">Want results like these?</h2>
+            <p class="portfolio-cta-subtitle">Let's talk about what we can build for your business.</p>
+            <a href="/contact" class="btn btn-primary btn-lg">Start Your Project</a>
           </div>
         </div>
       </section>
@@ -265,8 +278,42 @@
     <!-- FOOTER (Loaded via components-loader.js) -->
     <div id="footer-placeholder"></div>
 
-    <script src="../js/utils.js" defer></script>
-    <script src="../js/app.js" defer></script>
-    <script src="../js/gsap-animations.js" defer></script>
+    <script type="module" src="/js/components-loader.js"></script>
+    <script src="/js/utils.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/gsap-animations.js" defer></script>
+
+    <script>
+      // Portfolio Filter Functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card-new');
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener('click', function () {
+            // Update active state
+            filterBtns.forEach((b) => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const filter = this.dataset.filter;
+
+            // Filter cards
+            portfolioCards.forEach((card) => {
+              if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = 'flex';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                  card.style.display = 'none';
+                }, 300);
+              }
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

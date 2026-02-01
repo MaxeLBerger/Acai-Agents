@@ -7,9 +7,23 @@ applyTo: '**'
 ## Project Overview
 
 This is the official website for **AcaiStack** (repo: **Acai Agents**) - an
-AI-Powered Software Development Agency. The website is built with vanilla HTML,
-CSS, JavaScript, and GSAP with a focus on security, accessibility, performance,
-and immersive animations.
+AI-Powered Software Development Agency based in Bavaria, Germany. The website is
+built with vanilla HTML, CSS, JavaScript, and GSAP with a focus on security,
+accessibility, performance, and immersive animations.
+
+**Business Details:**
+
+- **Team**: 6 members in Bavaria, Germany
+  - Maximilian H. (Founder & CEO, Frontend)
+  - Alexander H. (Co-Founder, Backend)
+  - Moritz H. (Co-Founder, Full Stack)
+  - Pharrel S. (Junior Developer)
+  - Simon W. (Marketing Lead)
+  - Sophie H. (UI/UX Designer)
+- **Products**:
+  - Custom Websites: €1,499 - €2,999 (3-week delivery)
+  - AI Agents: €99-399/month or €499-1,999 one-time
+- **Positioning**: Honest startup, fixed pricing, no hidden fees
 
 ## Language Requirements
 
@@ -37,18 +51,29 @@ and immersive animations.
 Acai-Agents/
 ├── index.html              # Entry point (Landing page with hero)
 ├── pages/
-│   ├── dashboard.html     # Main Dashboard page
-│   ├── services.html      # Services & Solutions
-│   ├── pricing.html       # Pricing Plans
-│   ├── portfolio.html     # Case Studies/Portfolio
-│   ├── team.html          # Team & Company Info
+│   ├── services.html      # Services & Solutions (2 main offerings)
+│   ├── agents.html        # AI Agent marketplace (6 agents)
+│   ├── pricing.html       # Pricing Plans (websites + agents)
+│   ├── portfolio.html     # Case Studies/Portfolio (6 projects)
+│   ├── team.html          # Team & Company Info (6 members)
+│   ├── faq.html           # FAQ page (15 questions)
+│   ├── privacy.html       # Privacy Policy (legal page)
+│   ├── terms.html         # Terms of Service (legal page)
 │   └── contact.html       # Contact Form
 ├── css/
-│   ├── base.css           # Foundation, variables, utilities
+│   ├── base.css           # Foundation, variables, utilities (SINGLE SOURCE OF TRUTH)
 │   ├── components.css     # Reusable UI components
 │   ├── animations.css     # CSS-based animations
 │   ├── layout.css         # Page structure and grids
 │   └── gsap-animations.css # GSAP-specific styles
+│   └── pages/             # Page-specific styles (extracted from inline)
+│       ├── pricing.css    # Pricing page styles
+│       ├── portfolio.css  # Portfolio page styles
+│       ├── team.css       # Team page styles
+│       ├── contact.css    # Contact page styles
+│       ├── services.css   # Services page styles
+│       ├── faq.css        # FAQ page styles
+│       └── legal.css      # Privacy & Terms shared styles
 ├── js/
 │   ├── components/        # Centralized shared components
 │   │   ├── navbar.js      # Navigation bar (single source of truth)
@@ -60,6 +85,8 @@ Acai-Agents/
 ├── assets/                # Images, icons, fonts
 ├── scripts/               # Build and deployment scripts
 │   └── build.js           # Production build (ESM-based)
+├── docs/                  # Documentation
+│   └── REFACTORING-PLAN.md # Code quality improvements tracking
 ├── .vscode/               # VS Code workspace settings
 ├── .github/               # GitHub templates and workflows
 │   ├── workflows/         # CI/CD automation
@@ -129,6 +156,11 @@ HTML across pages.**
 3.  **Clean up ScrollTriggers** - Ensure triggers are refreshed or killed on
     page transitions if applicable (SPA behavior), though this is MPA.
 4.  **Use GSAPAnimationManager** - Keep animation logic centralized.
+5.  **Page Hero Animations** - All subpages use the same hero animation pattern:
+    - Section: `class="page-hero gsap-page-hero"`
+    - H1: `class="page-title gsap-split-text"` with nested `title-line` spans
+    - Emphasized text: `class="gradient-text-animated"` for animated gradient
+    - Subtitle: `class="page-subtitle title-line"` for staggered animation
 
 ### CSS
 

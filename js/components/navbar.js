@@ -4,14 +4,12 @@
  */
 
 export function getNavbar(activePage = 'home') {
-  const isSubpage = activePage !== 'home';
-  const pathPrefix = isSubpage ? '../' : '';
-  
+  // Use clean URLs (Vercel rewrites handle the actual file serving)
   return `
     <header class="navbar" role="banner">
       <div class="navbar-content container">
-        <a href="${pathPrefix}" class="navbar-brand">
-          <img src="${pathPrefix}assets/acai_stack_logo_clean.png" alt="AcaiStack Logo" class="brand-logo" />
+        <a href="/" class="navbar-brand">
+          <img src="/assets/favicon.png" alt="AcaiStack Logo" class="brand-logo" />
           <span class="brand-text">AcaiStack</span>
         </a>
 
@@ -30,11 +28,12 @@ export function getNavbar(activePage = 'home') {
 
         <nav role="navigation" aria-label="Main navigation">
           <ul id="navbarMenu" class="navbar-menu">
-            <li><a href="${pathPrefix}" class="navbar-link ${activePage === 'home' ? 'active' : ''}">Home</a></li>
-            <li><a href="${pathPrefix}pages/services.html" class="navbar-link ${activePage === 'services' ? 'active' : ''}">Services</a></li>
-            <li><a href="${pathPrefix}pages/pricing.html" class="navbar-link ${activePage === 'pricing' ? 'active' : ''}">Pricing</a></li>
-            <li><a href="${pathPrefix}pages/portfolio.html" class="navbar-link ${activePage === 'portfolio' ? 'active' : ''}">Portfolio</a></li>
-            <li><a href="${pathPrefix}pages/team.html" class="navbar-link ${activePage === 'team' ? 'active' : ''}">Team</a></li>
+            <li><a href="/" class="navbar-link ${activePage === 'home' ? 'active' : ''}">Home</a></li>
+            <li><a href="/services" class="navbar-link ${activePage === 'services' ? 'active' : ''}">Services</a></li>
+            <li><a href="/agents" class="navbar-link ${activePage === 'agents' ? 'active' : ''}">Agents</a></li>
+            <li><a href="/pricing" class="navbar-link ${activePage === 'pricing' ? 'active' : ''}">Pricing</a></li>
+            <li><a href="/portfolio" class="navbar-link ${activePage === 'portfolio' ? 'active' : ''}">Portfolio</a></li>
+            <li><a href="/team" class="navbar-link ${activePage === 'team' ? 'active' : ''}">Team</a></li>
             <li>
               <button
                 id="bwModeToggle"
@@ -77,7 +76,7 @@ export function getNavbar(activePage = 'home') {
                 </svg>
               </button>
             </li>
-            <li><a href="${pathPrefix}pages/contact.html" class="navbar-cta">Get Started</a></li>
+            <li><a href="/contact" class="navbar-cta">Get Started</a></li>
           </ul>
         </nav>
       </div>

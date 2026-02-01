@@ -1,0 +1,76 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/services", "dest": "/pages/services.html" },
+    { "src": "/agents", "dest": "/pages/agents.html" },
+    { "src": "/pricing", "dest": "/pages/pricing.html" },
+    { "src": "/portfolio", "dest": "/pages/portfolio.html" },
+    { "src": "/team", "dest": "/pages/team.html" },
+    { "src": "/contact", "dest": "/pages/contact.html" },
+    { "src": "/faq", "dest": "/pages/faq.html" },
+    { "src": "/privacy", "dest": "/pages/privacy.html" },
+    { "src": "/terms", "dest": "/pages/terms.html" }
+  ],
+  "headers": [
+    {
+      "source": "/css/(.*).css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css; charset=utf-8"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/js/(.*).js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/javascript; charset=utf-8"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

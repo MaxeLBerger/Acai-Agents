@@ -7,18 +7,19 @@
     <meta name="format-detection" content="telephone=no" />
     <meta
       name="description"
-      content="Contact AcaiStack - Get your free consultation for web development, AI agents, and mobile apps."
+      content="Contact AcaiStack - Let's have an honest conversation about your project. No sales pitch, just real solutions."
     />
-    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
 
     <title>Contact - AcaiStack</title>
 
-    <link rel="stylesheet" href="../css/base.css" />
-    <link rel="stylesheet" href="../css/components.css" />
-    <link rel="stylesheet" href="../css/animations.css" />
-    <link rel="stylesheet" href="../css/layout.css" />
-    <link rel="stylesheet" href="../css/gsap-animations.css" />
-    <link rel="icon" type="image/png" href="../assets/logo_small.png" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" />
+    <link rel="stylesheet" href="/css/acaistack-components.css" />
+    <link rel="stylesheet" href="/css/pages/contact.css" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -34,170 +35,198 @@
     <div id="navbar-placeholder"></div>
 
     <main id="main-content" class="relative-content page-content">
-      <!-- Page Hero -->
-      <section class="page-hero">
+      <!-- Hero Section -->
+      <section class="page-hero gsap-page-hero">
         <div class="container">
-          <h1 class="page-title">Get In <span class="gradient-text">Touch</span></h1>
-          <p class="page-subtitle">
-            Tell us about your project. We'll show you how a custom website + AI agents can transform your business.
-          </p>
+          <h1 class="page-title gsap-split-text">
+            <span class="title-line"><span class="gradient-text-animated">Let's Talk</span></span>
+          </h1>
+          <p class="page-subtitle title-line">No sales pitch. Just an honest conversation about your project.</p>
         </div>
       </section>
 
-      <!-- Contact Section -->
+      <!-- Contact Section - Two Column Layout -->
       <section class="contact-section">
         <div class="container">
-          <div class="contact-grid grid grid-cols-2 gap-8">
-            <div class="contact-info scroll-reveal">
-              <h3>Ready to get started?</h3>
-              <p>
-                Fill out the form and our team will get back to you within 24 hours with a custom proposal for your
-                project.
-              </p>
+          <div class="contact-grid">
+            <!-- Left Column - Contact Form -->
+            <div class="contact-form-card scroll-reveal">
+              <form id="contactForm" action="#" method="POST">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name" class="form-label required">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-input"
+                      placeholder="Your name"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
 
-              <div class="contact-details">
-                <div class="detail-item">
-                  <h4>Email</h4>
-                  <a href="mailto:hello@acaistack.dev">hello@acaistack.dev</a>
+                  <div class="form-group">
+                    <label for="email" class="form-label required">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      placeholder="you@example.com"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
                 </div>
-                <div class="detail-item">
-                  <h4>Response Time</h4>
-                  <p>Within 24 hours</p>
-                </div>
-                <div class="detail-item">
-                  <h4>Location</h4>
-                  <p>Remote First | Worldwide</p>
-                </div>
-              </div>
 
-              <div class="contact-benefits">
-                <h4>What You'll Get</h4>
-                <ul>
-                  <li>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span>Free project consultation</span>
-                  </li>
-                  <li>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span>Custom proposal tailored to your needs</span>
-                  </li>
-                  <li>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span>Timeline and budget estimates</span>
-                  </li>
-                  <li>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    <span>AI integration recommendations</span>
-                  </li>
-                </ul>
-              </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="projectType" class="form-label">Project Type</label>
+                    <select id="projectType" name="projectType" class="form-select">
+                      <option value="">Select project type...</option>
+                      <option value="website">Website</option>
+                      <option value="ai-agent">AI Agent</option>
+                      <option value="both">Both</option>
+                      <option value="not-sure">Not sure yet</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="budget" class="form-label">Budget Range</label>
+                    <select id="budget" name="budget" class="form-select">
+                      <option value="">Select budget...</option>
+                      <option value="under-1000">Under €1,000</option>
+                      <option value="1000-2000">€1,000 - €2,000</option>
+                      <option value="2000-5000">€2,000 - €5,000</option>
+                      <option value="5000-plus">€5,000+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-label required">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-textarea"
+                    placeholder="Tell us about your project..."
+                    required
+                    aria-required="true"
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="form-submit-btn">Send Message</button>
+                <p class="form-note">We respond within 24 hours.</p>
+              </form>
             </div>
 
-            <form id="contactForm" class="contact-form card scroll-reveal" method="POST">
-              <div class="form-group">
-                <label for="name" class="form-label required">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-input"
-                  required
-                  aria-required="true"
-                  placeholder="Your full name"
-                />
+            <!-- Right Column - Contact Info Cards -->
+            <div class="contact-info-column">
+              <!-- Card 1 - Book a Call -->
+              <div class="contact-info-card scroll-reveal">
+                <div class="contact-info-card-header">
+                  <span class="contact-info-icon"></span>
+                  <span class="contact-info-title">Book a Free Call</span>
+                </div>
+                <p class="contact-info-text">30 minutes, no commitment.</p>
+                <p class="contact-info-subtext">Let's discuss your project.</p>
+                <a href="#" class="contact-info-cta">
+                  Schedule Now
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
 
-              <div class="form-group">
-                <label for="email" class="form-label required">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-input"
-                  required
-                  aria-required="true"
-                  placeholder="your@email.com"
-                />
+              <!-- Card 2 - Email Us -->
+              <div class="contact-info-card scroll-reveal">
+                <div class="contact-info-card-header">
+                  <span class="contact-info-icon">✉️</span>
+                  <span class="contact-info-title">Email Us Directly</span>
+                </div>
+                <p class="contact-info-text">
+                  <a href="mailto:hello@acaistack.dev" style="color: var(--color-primary); text-decoration: none"
+                    >hello@acaistack.dev</a
+                  >
+                </p>
+                <p class="contact-info-subtext">We respond within 24 hours</p>
               </div>
 
-              <div class="form-group">
-                <label for="company" class="form-label">Company</label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  class="form-input"
-                  placeholder="Your company name (optional)"
-                />
+              <!-- Card 3 - Location -->
+              <div class="contact-info-card scroll-reveal">
+                <div class="contact-info-card-header">
+                  <span class="contact-info-icon"></span>
+                  <span class="contact-info-title">Based in Bavaria</span>
+                </div>
+                <p class="contact-info-text">Germany 🇩🇪</p>
+                <p class="contact-info-subtext">Working with clients worldwide</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div class="form-group">
-                <label for="service" class="form-label">Service Interest</label>
-                <select id="service" name="service" class="form-input">
-                  <option value="">Select a service...</option>
-                  <option value="website">Website Development</option>
-                  <option value="ai-agents">AI Agents</option>
-                  <option value="mobile-app">Mobile App</option>
-                  <option value="full-package">Full Package (Website + AI)</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+      <!-- What to Expect Section -->
+      <section class="expect-section">
+        <div class="container">
+          <h2 class="expect-section-title scroll-reveal">What to Expect</h2>
+          <div class="expect-timeline">
+            <div class="expect-step scroll-reveal">
+              <div class="expect-step-number">1</div>
+              <h3 class="expect-step-title">You reach out</h3>
+              <p class="expect-step-text">Submit the form or book a call</p>
+            </div>
 
-              <div class="form-group">
-                <label for="message" class="form-label required">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="form-textarea"
-                  required
-                  aria-required="true"
-                  placeholder="Tell us about your project, goals, and timeline..."
-                ></textarea>
-              </div>
+            <div class="expect-step scroll-reveal">
+              <div class="expect-step-number">2</div>
+              <h3 class="expect-step-title">We respond within 24h</h3>
+              <p class="expect-step-text">Quick acknowledgment + initial questions</p>
+            </div>
 
-              <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Get My Free Consultation</button>
-              <p class="form-disclaimer">We respect your privacy. Your information will never be shared.</p>
-            </form>
+            <div class="expect-step scroll-reveal">
+              <div class="expect-step-number">3</div>
+              <h3 class="expect-step-title">Discovery call</h3>
+              <p class="expect-step-text">30-min video call to understand your needs</p>
+            </div>
+
+            <div class="expect-step scroll-reveal">
+              <div class="expect-step-number">4</div>
+              <h3 class="expect-step-title">Proposal in 48h</h3>
+              <p class="expect-step-text">Clear scope, timeline, and fixed price</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Signals Section -->
+      <section class="trust-section">
+        <div class="container">
+          <div class="trust-grid">
+            <div class="trust-item scroll-reveal">
+              <div class="trust-icon"></div>
+              <p class="trust-text">30-Day Money-Back Guarantee</p>
+            </div>
+
+            <div class="trust-item scroll-reveal">
+              <div class="trust-icon"></div>
+              <p class="trust-text">Fixed Pricing - No Surprises</p>
+            </div>
+
+            <div class="trust-item scroll-reveal">
+              <div class="trust-icon"></div>
+              <p class="trust-text">We Speak English & German</p>
+            </div>
           </div>
         </div>
       </section>
@@ -206,8 +235,9 @@
     <!-- FOOTER (Loaded via components-loader.js) -->
     <div id="footer-placeholder"></div>
 
-    <script src="../js/utils.js" defer></script>
-    <script src="../js/app.js" defer></script>
-    <script src="../js/gsap-animations.js" defer></script>
+    <script type="module" src="/js/components-loader.js"></script>
+    <script src="/js/utils.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/gsap-animations.js" defer></script>
   </body>
 </html>

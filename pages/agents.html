@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="description"
+      content="AcaiStack AI Agent Marketplace - Pre-built AI agents ready to deploy. Email automation, appointment booking, customer support, and more."
+    />
+    <meta name="csrf-token" content="acaistack-csrf-token-placeholder" />
+
+    <title>AI Agent Marketplace - AcaiStack</title>
+
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" />
+    <link rel="stylesheet" href="/css/acaistack-components.css" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  </head>
+  <body>
+    <div class="hero-grid"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- HEADER NAVIGATION (Loaded via components-loader.js) -->
+    <div id="navbar-placeholder"></div>
+
+    <main id="main-content" class="relative-content page-content">
+      <!-- Page Hero -->
+      <section class="page-hero gsap-page-hero">
+        <div class="container">
+          <h1 class="page-title gsap-split-text">
+            <span class="title-line">Pre-Built AI Agents</span>
+            <span class="title-line"><span class="gradient-text-animated">Ready to Deploy</span></span>
+          </h1>
+          <p class="page-subtitle title-line">
+            Battle-tested AI agents you can plug into your business today. No development time, no guesswork.
+          </p>
+        </div>
+      </section>
+
+      <!-- Agent Cards Grid -->
+      <section class="agents-marketplace-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Choose Your <span class="gradient-text">AI Agent</span></h2>
+            <p class="section-subtitle">
+              Each agent is fully configured and ready to work for your business within 48 hours.
+            </p>
+          </div>
+
+          <div class="agents-grid">
+            <!-- Email Automation Agent -->
+            <article class="agent-card scroll-reveal">
+              <div class="agent-card-header">
+                <div class="agent-card-icon"></div>
+                <div class="agent-card-info">
+                  <h3 class="agent-card-name">Email Automation Agent</h3>
+                  <p class="agent-card-tagline">Never miss an important email again</p>
+                </div>
+              </div>
+              <ul class="agent-card-features">
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Sorts and prioritizes emails
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Drafts personalized responses
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Schedules follow-ups automatically
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Integrates with Gmail/Outlook
+                </li>
+              </ul>
+              <div class="agent-card-pricing">
+                <div class="agent-card-price">€99<span class="agent-card-price-period">/month</span></div>
+                <p class="agent-card-price-note">or €499 one-time setup</p>
+              </div>
+              <div class="agent-card-buttons">
+                <a href="/contact?agent=email" class="agent-card-btn agent-card-btn-primary">Get Started</a>
+                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+              </div>
+            </article>
+
+            <!-- Appointment Booking Agent -->
+            <article class="agent-card scroll-reveal">
+              <div class="agent-card-header">
+                <div class="agent-card-icon"></div>
+                <div class="agent-card-info">
+                  <h3 class="agent-card-name">Appointment Booking Agent</h3>
+                  <p class="agent-card-tagline">Your 24/7 scheduling assistant</p>
+                </div>
+              </div>
+              <ul class="agent-card-features">
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  24/7 booking via chat/email/voice
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Syncs with your calendars
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Sends automatic reminders
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Handles rescheduling gracefully
+                </li>
+              </ul>
+              <div class="agent-card-pricing">
+                <div class="agent-card-price">€149<span class="agent-card-price-period">/month</span></div>
+                <p class="agent-card-price-note">or €799 one-time setup</p>
+              </div>
+              <div class="agent-card-buttons">
+                <a href="/contact?agent=booking" class="agent-card-btn agent-card-btn-primary">Get Started</a>
+                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+              </div>
+            </article>
+
+            <!-- Customer Support Agent -->
+            <article class="agent-card scroll-reveal">
+              <div class="agent-card-header">
+                <div class="agent-card-icon"></div>
+                <div class="agent-card-info">
+                  <h3 class="agent-card-name">Customer Support Agent</h3>
+                  <p class="agent-card-tagline">Instant answers, happy customers</p>
+                </div>
+              </div>
+              <ul class="agent-card-features">
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Resolves 80% of common questions
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Learns from your knowledge base
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Escalates complex issues smartly
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Works on website/WhatsApp/Slack
+                </li>
+              </ul>
+              <div class="agent-card-pricing">
+                <div class="agent-card-price">€199<span class="agent-card-price-period">/month</span></div>
+                <p class="agent-card-price-note">or €999 one-time setup</p>
+              </div>
+              <div class="agent-card-buttons">
+                <a href="/contact?agent=support" class="agent-card-btn agent-card-btn-primary">Get Started</a>
+                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+              </div>
+            </article>
+
+            <!-- Sales Qualification Agent -->
+            <article class="agent-card scroll-reveal">
+              <div class="agent-card-header">
+                <div class="agent-card-icon"></div>
+                <div class="agent-card-info">
+                  <h3 class="agent-card-name">Sales Qualification Agent</h3>
+                  <p class="agent-card-tagline">Turn visitors into qualified leads</p>
+                </div>
+              </div>
+              <ul class="agent-card-features">
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Engages visitors with smart questions
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Scores leads by fit and intent
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Books qualified calls automatically
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Syncs directly to your CRM
+                </li>
+              </ul>
+              <div class="agent-card-pricing">
+                <div class="agent-card-price">€299<span class="agent-card-price-period">/month</span></div>
+                <p class="agent-card-price-note">or €1,499 one-time setup</p>
+              </div>
+              <div class="agent-card-buttons">
+                <a href="/contact?agent=sales" class="agent-card-btn agent-card-btn-primary">Get Started</a>
+                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+              </div>
+            </article>
+
+            <!-- Call Center Agent -->
+            <article class="agent-card scroll-reveal">
+              <div class="agent-card-header">
+                <div class="agent-card-icon"></div>
+                <div class="agent-card-info">
+                  <h3 class="agent-card-name">Call Center Agent</h3>
+                  <p class="agent-card-tagline">AI-powered phone support</p>
+                </div>
+              </div>
+              <ul class="agent-card-features">
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Natural voice answering
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Handles FAQs and smart routing
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Transfers to humans seamlessly
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Call transcripts and analytics
+                </li>
+              </ul>
+              <div class="agent-card-pricing">
+                <div class="agent-card-price">€399<span class="agent-card-price-period">/month</span></div>
+                <p class="agent-card-price-note">or €1,999 one-time setup</p>
+              </div>
+              <div class="agent-card-buttons">
+                <a href="/contact?agent=callcenter" class="agent-card-btn agent-card-btn-primary">Get Started</a>
+                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+              </div>
+            </article>
+
+            <!-- Cold Outreach Agent -->
+            <article class="agent-card scroll-reveal">
+              <div class="agent-card-header">
+                <div class="agent-card-icon"></div>
+                <div class="agent-card-info">
+                  <h3 class="agent-card-name">Cold Outreach Agent</h3>
+                  <p class="agent-card-tagline">Scale your outreach, keep it personal</p>
+                </div>
+              </div>
+              <ul class="agent-card-features">
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Researches and personalizes messages
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Sends emails/LinkedIn at scale
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Automatic follow-up sequences
+                </li>
+                <li class="agent-card-feature">
+                  <span class="agent-card-feature-icon"></span>
+                  Books meetings directly
+                </li>
+              </ul>
+              <div class="agent-card-pricing">
+                <div class="agent-card-price">€249<span class="agent-card-price-period">/month</span></div>
+                <p class="agent-card-price-note">or €1,299 one-time setup</p>
+              </div>
+              <div class="agent-card-buttons">
+                <a href="/contact?agent=outreach" class="agent-card-btn agent-card-btn-primary">Get Started</a>
+                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROI Calculator Section -->
+      <section class="roi-section">
+        <div class="container">
+          <div class="roi-calculator scroll-reveal">
+            <h2 class="roi-calculator-title">Calculate Your ROI</h2>
+            <p class="roi-calculator-subtitle">See how much time and money AI agents can save your business</p>
+
+            <div class="roi-calculator-inputs">
+              <div class="roi-input-group">
+                <label class="roi-input-label">
+                  Hours spent on repetitive tasks per week
+                  <span class="roi-input-value" id="hours-value">20 hours</span>
+                </label>
+                <input type="range" class="roi-input-slider" id="hours-slider" min="5" max="60" value="20" />
+              </div>
+
+              <div class="roi-input-group">
+                <label class="roi-input-label">
+                  Average hourly cost of your team
+                  <span class="roi-input-value" id="cost-value">€35/hour</span>
+                </label>
+                <input type="range" class="roi-input-slider" id="cost-slider" min="15" max="100" value="35" />
+              </div>
+            </div>
+
+            <div class="roi-calculator-results">
+              <div class="roi-results-grid">
+                <div class="roi-result-item">
+                  <p class="roi-result-label">Monthly Time Saved</p>
+                  <p class="roi-result-value" id="time-saved">80 hours</p>
+                </div>
+                <div class="roi-result-item">
+                  <p class="roi-result-label">Monthly Cost Savings</p>
+                  <p class="roi-result-value highlight" id="cost-savings">€2,800</p>
+                </div>
+                <div class="roi-result-item">
+                  <p class="roi-result-label">Annual Savings</p>
+                  <p class="roi-result-value" id="annual-savings">€33,600</p>
+                </div>
+                <div class="roi-result-item">
+                  <p class="roi-result-label">ROI in First Year</p>
+                  <p class="roi-result-value highlight" id="roi-percent">1,400%</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="/contact" class="roi-calculator-cta">Get Your Custom ROI Analysis</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="how-it-works-section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+            <p class="section-subtitle">Get your AI agent up and running in 3 simple steps</p>
+          </div>
+
+          <div class="how-it-works-grid">
+            <article class="how-it-works-step scroll-reveal">
+              <div class="step-number">1</div>
+              <h3 class="step-title">Choose Your Agent</h3>
+              <p class="step-description">
+                Select the AI agent that fits your business needs. Not sure? We'll help you decide.
+              </p>
+            </article>
+
+            <article class="how-it-works-step scroll-reveal">
+              <div class="step-number">2</div>
+              <h3 class="step-title">We Configure</h3>
+              <p class="step-description">
+                Our team customizes the agent with your branding, workflows, and integrations.
+              </p>
+            </article>
+
+            <article class="how-it-works-step scroll-reveal">
+              <div class="step-number">3</div>
+              <h3 class="step-title">Go Live</h3>
+              <p class="step-description">
+                Your agent starts working within 48 hours. We handle training and optimization.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Custom Agent CTA Section -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content scroll-reveal">
+            <h2>Need Something Custom?</h2>
+            <p>
+              Don't see exactly what you need? We build custom AI agents tailored to your unique business processes.
+            </p>
+            <a href="/contact?type=custom-agent" class="btn btn-primary btn-lg">Let's Build Your Custom Agent</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (Loaded via components-loader.js) -->
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="/js/components-loader.js"></script>
+    <script src="/js/utils.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/gsap-animations.js" defer></script>
+    <script src="/js/acaistack-components.js" defer></script>
+
+    <!-- ROI Calculator Logic -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const hoursSlider = document.getElementById('hours-slider');
+        const costSlider = document.getElementById('cost-slider');
+        const hoursValue = document.getElementById('hours-value');
+        const costValue = document.getElementById('cost-value');
+        const timeSaved = document.getElementById('time-saved');
+        const costSavings = document.getElementById('cost-savings');
+        const annualSavings = document.getElementById('annual-savings');
+        const roiPercent = document.getElementById('roi-percent');
+
+        function calculateROI() {
+          const hours = parseInt(hoursSlider.value);
+          const cost = parseInt(costSlider.value);
+
+          // Assume 80% automation rate and 4.33 weeks per month
+          const automationRate = 0.8;
+          const weeksPerMonth = 4.33;
+          const avgAgentCost = 200; // Average monthly agent cost
+
+          const monthlyHoursSaved = Math.round(hours * weeksPerMonth * automationRate);
+          const monthlySavings = Math.round(monthlyHoursSaved * cost);
+          const yearlySavings = monthlySavings * 12;
+          const yearlyAgentCost = avgAgentCost * 12;
+          const roi = Math.round(((yearlySavings - yearlyAgentCost) / yearlyAgentCost) * 100);
+
+          hoursValue.textContent = hours + ' hours';
+          costValue.textContent = '€' + cost + '/hour';
+          timeSaved.textContent = monthlyHoursSaved + ' hours';
+          costSavings.textContent = '€' + monthlySavings.toLocaleString();
+          annualSavings.textContent = '€' + yearlySavings.toLocaleString();
+          roiPercent.textContent = roi + '%';
+        }
+
+        hoursSlider.addEventListener('input', calculateROI);
+        costSlider.addEventListener('input', calculateROI);
+
+        // Initial calculation
+        calculateROI();
+      });
+    </script>
+  </body>
+</html>

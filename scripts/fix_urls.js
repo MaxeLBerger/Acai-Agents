@@ -11,14 +11,16 @@ const files = [
   'pages/portfolio.html',
   'pages/pricing.html',
   'pages/services.html',
-  'pages/team.html'
+  'pages/team.html',
 ];
 
-files.forEach(file => {
+files.forEach((file) => {
   const p = path.join(root, file);
   if (fs.existsSync(p)) {
     let c = fs.readFileSync(p, 'utf8');
-    let nc = c.replace(/href="index\.html"/g, 'href="/"').replace(/href="\.\.\/index\.html"/g, 'href="/"');
+    let nc = c
+      .replace(/href="index\.html"/g, 'href="/"')
+      .replace(/href="\.\.\/index\.html"/g, 'href="/"');
     if (c !== nc) {
       fs.writeFileSync(p, nc);
       console.log('Fixed: ' + file);

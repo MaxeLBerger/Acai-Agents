@@ -94,6 +94,8 @@
   --font-size-2xl: 20px;
   --font-size-3xl: 24px;
   --font-size-4xl: 30px;
+  --font-size-5xl: 36px;
+  --font-size-6xl: 48px;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 550;
@@ -111,10 +113,19 @@
   --space-8: 8px;
   --space-10: 10px;
   --space-12: 12px;
+  --space-14: 14px;
   --space-16: 16px;
   --space-20: 20px;
   --space-24: 24px;
   --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-112: 112px;
+  --space-128: 128px;
 
   /* Border Radius */
   --radius-sm: 6px;
@@ -291,6 +302,422 @@
   --color-error-rgb: var(--color-red-500-rgb);
   --color-warning-rgb: var(--color-orange-500-rgb);
   --color-info-rgb: var(--color-slate-500-rgb);
+}
+
+/* ==========================================================================
+   PROJECT THEME SYSTEM
+   Dynamic color theming based on featured project
+   All UI elements use these variables for consistent theme switching
+   ========================================================================== */
+
+:root {
+  /* Theme transition duration - smooth color morphing */
+  --theme-transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Default Theme Colors (AcaiStack - Teal/Blue/Purple) */
+  --theme-primary: 6, 182, 212;
+  --theme-secondary: 139, 92, 246;
+  --theme-accent: 59, 130, 246;
+  --theme-gradient-start: #22d3ee;
+  --theme-gradient-mid: #3b82f6;
+  --theme-gradient-end: #a855f7;
+  --theme-glow: rgba(6, 182, 212, 0.3);
+  --theme-glow-strong: rgba(6, 182, 212, 0.5);
+  --theme-glow-subtle: rgba(6, 182, 212, 0.15);
+}
+
+/* ==========================================================================
+   PROJECT THEMES - Add new projects here
+   Each project defines its complete color palette
+   ========================================================================== */
+
+/* AcaiStack Theme (Default - Teal/Blue/Purple) */
+[data-project-theme="acaistack"] {
+  --theme-primary: 6, 182, 212;
+  --theme-secondary: 139, 92, 246;
+  --theme-accent: 59, 130, 246;
+  --theme-gradient-start: #22d3ee;
+  --theme-gradient-mid: #3b82f6;
+  --theme-gradient-end: #a855f7;
+  --theme-glow: rgba(6, 182, 212, 0.3);
+  --theme-glow-strong: rgba(6, 182, 212, 0.5);
+  --theme-glow-subtle: rgba(6, 182, 212, 0.15);
+
+  /* Override base color system */
+  --color-primary: rgb(6, 182, 212);
+  --color-primary-hover: rgb(8, 145, 178);
+  --color-primary-active: rgb(14, 116, 144);
+  --color-teal-500-rgb: 6, 182, 212;
+  --color-focus-ring: rgba(6, 182, 212, 0.4);
+}
+
+/* Imkerei Feuerstein Theme (Gold/Amber/Orange) */
+[data-project-theme="imkerei"] {
+  --theme-primary: 245, 158, 11;
+  --theme-secondary: 217, 119, 6;
+  --theme-accent: 251, 191, 36;
+  --theme-gradient-start: #fbbf24;
+  --theme-gradient-mid: #f59e0b;
+  --theme-gradient-end: #d97706;
+  --theme-glow: rgba(245, 158, 11, 0.3);
+  --theme-glow-strong: rgba(245, 158, 11, 0.5);
+  --theme-glow-subtle: rgba(245, 158, 11, 0.15);
+
+  /* Override base color system - THIS IS KEY for full theme switch */
+  --color-primary: rgb(245, 158, 11);
+  --color-primary-hover: rgb(217, 119, 6);
+  --color-primary-active: rgb(180, 83, 9);
+  --color-teal-500: rgb(245, 158, 11);
+  --color-teal-500-rgb: 245, 158, 11;
+  --color-teal-300: rgb(251, 191, 36);
+  --color-teal-300-rgb: 251, 191, 36;
+  --color-focus-ring: rgba(245, 158, 11, 0.4);
+  --color-success: rgb(245, 158, 11);
+  --color-success-rgb: 245, 158, 11;
+}
+
+/* Project 3: Placeholder Theme (Green/Emerald) - Replace with real project colors */
+[data-project-theme="project3"] {
+  --theme-primary: 16, 185, 129;
+  --theme-secondary: 5, 150, 105;
+  --theme-accent: 52, 211, 153;
+  --theme-gradient-start: #34d399;
+  --theme-gradient-mid: #10b981;
+  --theme-gradient-end: #059669;
+  --theme-glow: rgba(16, 185, 129, 0.3);
+  --theme-glow-strong: rgba(16, 185, 129, 0.5);
+  --theme-glow-subtle: rgba(16, 185, 129, 0.15);
+
+  /* Override base color system */
+  --color-primary: rgb(16, 185, 129);
+  --color-primary-hover: rgb(5, 150, 105);
+  --color-primary-active: rgb(4, 120, 87);
+  --color-teal-500: rgb(16, 185, 129);
+  --color-teal-500-rgb: 16, 185, 129;
+  --color-teal-300: rgb(52, 211, 153);
+  --color-teal-300-rgb: 52, 211, 153;
+  --color-focus-ring: rgba(16, 185, 129, 0.4);
+  --color-success: rgb(16, 185, 129);
+  --color-success-rgb: 16, 185, 129;
+}
+
+/* Project 4: Placeholder Theme (Purple/Violet) - Replace with real project colors */
+[data-project-theme="project4"] {
+  --theme-primary: 139, 92, 246;
+  --theme-secondary: 124, 58, 237;
+  --theme-accent: 167, 139, 250;
+  --theme-gradient-start: #a78bfa;
+  --theme-gradient-mid: #8b5cf6;
+  --theme-gradient-end: #7c3aed;
+  --theme-glow: rgba(139, 92, 246, 0.3);
+  --theme-glow-strong: rgba(139, 92, 246, 0.5);
+  --theme-glow-subtle: rgba(139, 92, 246, 0.15);
+
+  /* Override base color system */
+  --color-primary: rgb(139, 92, 246);
+  --color-primary-hover: rgb(124, 58, 237);
+  --color-primary-active: rgb(109, 40, 217);
+  --color-teal-500: rgb(139, 92, 246);
+  --color-teal-500-rgb: 139, 92, 246;
+  --color-teal-300: rgb(167, 139, 250);
+  --color-teal-300-rgb: 167, 139, 250;
+  --color-focus-ring: rgba(139, 92, 246, 0.4);
+  --color-success: rgb(139, 92, 246);
+  --color-success-rgb: 139, 92, 246;
+}
+
+/* ==========================================================================
+   HOW TO ADD A NEW PROJECT THEME:
+   1. Copy one of the theme blocks above
+   2. Change the selector: [data-project-theme="your-project-id"]
+   3. Update all color values to match the project's brand
+   4. Add project to JS: ProjectThemeSliderManager.projects
+   5. Add slide HTML in index.html
+   ========================================================================== */
+
+/* ==========================================================================
+   THEME-AWARE GLOBAL ELEMENTS
+   These elements respond to theme changes across the entire site
+   ========================================================================== */
+
+/* Global transition for all theme-aware properties */
+body,
+html,
+.navbar,
+.navbar-cta,
+.navbar-link,
+.navbar-link.active,
+.footer,
+.trust-bar,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-glow,
+.hero-orb,
+.glow-orb,
+.scroll-indicator,
+.gradient-text,
+.gradient-text-animated,
+.portfolio-showcase-glow,
+.emblem-glow,
+.card,
+.service-card,
+.feature-card,
+.testimonial-card,
+.service-icon,
+.service-icon svg,
+.tech-tag,
+.section-badge,
+.cta-email-link {
+  transition:
+    background var(--theme-transition),
+    background-color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    color var(--theme-transition),
+    stroke var(--theme-transition),
+    fill var(--theme-transition);
+}
+
+/* ==========================================================================
+   THEME-AWARE NAVBAR
+   ========================================================================== */
+
+/* Navbar border glow */
+[data-project-theme] .navbar {
+  border-bottom-color: rgba(var(--theme-primary), 0.15);
+}
+
+/* Navbar active link */
+[data-project-theme] .navbar-link.active {
+  color: rgb(var(--theme-primary));
+}
+
+/* Navbar CTA / Get Started button */
+[data-project-theme] .navbar .btn-primary,
+[data-project-theme] .navbar-cta {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-secondary))
+  ) !important;
+  box-shadow: 0 4px 15px rgba(var(--theme-primary), 0.3);
+}
+
+[data-project-theme] .navbar .btn-primary:hover,
+[data-project-theme] .navbar-cta:hover {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-secondary)),
+    rgb(var(--theme-primary))
+  ) !important;
+  box-shadow: 0 6px 25px rgba(var(--theme-primary), 0.4);
+}
+
+/* Logo glow on hover */
+[data-project-theme] .navbar-brand:hover .brand-logo {
+  filter: brightness(1.1) drop-shadow(0 0 8px rgba(var(--theme-primary), 0.5));
+}
+
+/* ==========================================================================
+   THEME-AWARE BUTTONS
+   ========================================================================== */
+
+/* Primary buttons */
+[data-project-theme] .btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-secondary))
+  ) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(var(--theme-primary), 0.25);
+}
+
+[data-project-theme] .btn-primary:hover {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-secondary)),
+    rgb(var(--theme-primary))
+  ) !important;
+  box-shadow: 0 8px 30px rgba(var(--theme-primary), 0.4);
+  transform: translateY(-2px);
+}
+
+/* Glow button effect */
+[data-project-theme] .btn-glow::before {
+  background: linear-gradient(
+    135deg,
+    var(--theme-gradient-start),
+    var(--theme-gradient-mid),
+    var(--theme-gradient-end),
+    var(--theme-gradient-start)
+  );
+}
+
+/* Outline/Secondary buttons */
+[data-project-theme] .btn-outline,
+[data-project-theme] .btn-secondary {
+  border-color: rgba(var(--theme-primary), 0.3);
+  color: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .btn-outline:hover,
+[data-project-theme] .btn-secondary:hover {
+  border-color: rgba(var(--theme-primary), 0.6);
+  background: rgba(var(--theme-primary), 0.1);
+}
+
+/* ==========================================================================
+   THEME-AWARE GRADIENT TEXT
+   ========================================================================== */
+
+/* Animated gradient text - keeps animation + uses theme colors */
+[data-project-theme] .gradient-text-animated {
+  background: linear-gradient(
+    135deg,
+    var(--theme-gradient-start) 0%,
+    var(--theme-gradient-mid) 50%,
+    var(--theme-gradient-end) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 5s ease infinite;
+  transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Static gradient text */
+[data-project-theme] .gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--theme-gradient-start) 0%,
+    var(--theme-gradient-mid) 50%,
+    var(--theme-gradient-end) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   THEME-AWARE SCROLL INDICATOR
+   ========================================================================== */
+
+[data-project-theme] .scroll-indicator {
+  color: rgba(var(--theme-primary), 0.7);
+}
+
+[data-project-theme] .scroll-indicator svg {
+  stroke: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE TRUST BAR
+   ========================================================================== */
+
+[data-project-theme] .trust-bar {
+  border-top-color: rgba(var(--theme-primary), 0.1);
+  border-bottom-color: rgba(var(--theme-primary), 0.1);
+}
+
+[data-project-theme] .trust-bar__icon {
+  color: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE FOCUS STATES
+   ========================================================================== */
+
+[data-project-theme] *:focus-visible {
+  outline-color: rgb(var(--theme-primary));
+  box-shadow: 0 0 0 3px rgba(var(--theme-primary), 0.3);
+}
+
+/* ==========================================================================
+   THEME-AWARE CARDS & FEATURES
+   ========================================================================== */
+
+[data-project-theme] .card:hover,
+[data-project-theme] .feature-card:hover {
+  border-color: rgba(var(--theme-primary), 0.3);
+  box-shadow: 0 20px 40px rgba(var(--theme-primary), 0.15);
+}
+
+[data-project-theme] .feature-icon {
+  color: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE SERVICE ICONS & CARDS
+   ========================================================================== */
+
+[data-project-theme] .service-icon {
+  color: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .service-icon svg {
+  stroke: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .service-card:hover {
+  border-color: rgba(var(--theme-primary), 0.3);
+  box-shadow: 0 20px 40px rgba(var(--theme-primary), 0.1);
+}
+
+/* ==========================================================================
+   THEME-AWARE SECTION ELEMENTS
+   ========================================================================== */
+
+[data-project-theme] .section-badge {
+  background: rgba(var(--theme-primary), 0.1);
+  color: rgb(var(--theme-primary));
+  border-color: rgba(var(--theme-primary), 0.2);
+}
+
+[data-project-theme] .tech-tag {
+  border-color: rgba(var(--theme-primary), 0.3);
+  color: rgba(var(--theme-primary), 0.9);
+}
+
+[data-project-theme] .tech-tag:hover {
+  background: rgba(var(--theme-primary), 0.1);
+  border-color: rgba(var(--theme-primary), 0.5);
+}
+
+/* ==========================================================================
+   THEME-AWARE LINKS & CTA
+   ========================================================================== */
+
+[data-project-theme] .cta-email-link {
+  color: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .cta-email-link:hover {
+  color: rgb(var(--theme-secondary));
+}
+
+[data-project-theme] a:not(.btn):not(.navbar-link):not(.footer-link):hover {
+  color: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE FOOTER
+   ========================================================================== */
+
+[data-project-theme] .footer {
+  border-top-color: rgba(var(--theme-primary), 0.1);
+}
+
+[data-project-theme] .footer a:hover {
+  color: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .footer-social a:hover {
+  background: rgba(var(--theme-primary), 0.15);
+  color: rgb(var(--theme-primary));
 }
 
 /* Base styles */
@@ -744,13 +1171,6 @@ body {
    ═════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Extended spacing scale for compatibility */
-  --space-3: 12px;
-  --space-5: 20px;
-  --space-7: 32px;
-  --space-9: 48px;
-  --space-10: 64px;
-
   /* Extended font sizes for hero elements */
   --font-size-5xl: 48px;
   --font-size-6xl: 64px;
@@ -762,10 +1182,6 @@ body {
 
   /* Extended shadows */
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
-
-  /* Extended spacing scale (keep existing patterns) */
-  --space-1: var(--space-4);
-  --space-2: var(--space-8);
 }
 
 /* ═════════════════════════════════════════════════════════════════════════
@@ -1018,12 +1434,18 @@ pre code {
   position: fixed;
 }
 
-/* GRADIENT TEXT */
+/* GRADIENT TEXT - Uses theme variables for dynamic color switching */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--theme-gradient-start, var(--color-primary)) 0%,
+    var(--theme-gradient-mid, var(--color-primary-hover)) 50%,
+    var(--theme-gradient-end, var(--color-primary)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: background var(--theme-transition, 0.6s);
 }
 
 /* ═════════════════════════════════════════════════════════════════════════

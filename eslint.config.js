@@ -127,6 +127,14 @@ export default [
     },
   },
 
+  // ESM modules (components and loader)
+  {
+    files: ['js/components-loader.js', 'js/components/**/*.js', 'js/acaistack-components.js'],
+    languageOptions: {
+      sourceType: 'module',
+    },
+  },
+
   // Special rules for utils.js and gsap-animations.js - allow redeclaring browser built-ins
   {
     files: ['**/js/utils.js', '**/js/gsap-animations.js'],

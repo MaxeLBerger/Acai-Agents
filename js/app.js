@@ -667,6 +667,83 @@ const ProjectThemeSliderManager = {
     if (this.heroSection) {
       this.heroSection.dataset.projectTheme = project.theme;
     }
+
+    // Sync stack images with theme color
+    this.updateStackImages(project.theme);
+  },
+
+  /**
+   * Update stack images to match current theme
+   * Maps project themes to image color sets and swaps sources with animation
+   * 
+   * @param {string} theme - The theme identifier (acaistack, imkerei, project3, project4)
+   * @returns {void}
+   * 
+   * Theme to color mapping:
+   * - acaistack → blue (teal/cyan accent)
+   * - imkerei → yellow (amber/gold accent)  
+   * - project3 → green (emerald accent)
+   * - project4 → purple (violet accent)
+   */
+  updateStackImages(theme) {
+    const themeToColor = {
+      acaistack: 'blue',    // Teal/Blue theme
+      imkerei: 'yellow',    // Amber/Gold theme
+      project3: 'green',    // Green theme
+      project4: 'purple',   // Purple theme
+    };
+
+    const colorKey = themeToColor[theme] || 'blue';
+    const visualStack = document.querySelector('.visual-stack');
+    const stackImages = document.querySelectorAll('.stack-image img');
+
+    if (!stackImages.length) return;
+
+    // Update data attribute for CSS styling
+    if (visualStack) {
+      visualStack.dataset.currentTheme = colorKey;
+    }
+
+    // Swap image sources with smooth transition
+    stackImages.forEach((img) => {
+      const newSrc = img.dataset[colorKey];
+      if (newSrc && img.src !== newSrc) {
+        // Fade out, swap, fade in with proper cleanup
+        if (typeof gsap !== 'undefined') {
+          // Kill any existing tweens to prevent animation stacking
+          gsap.killTweensOf(img);
+          
+          gsap.to(img, {
+            opacity: 0.5,
+            duration: 0.2,
+            ease: 'power2.out',
+            onComplete: () => {
+              // Handle image load success
+              const handleLoad = () => {
+                gsap.to(img, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+                img.removeEventListener('load', handleLoad);
+                img.removeEventListener('error', handleError);
+              };
+              
+              // Handle image load failure gracefully
+              const handleError = () => {
+                Logger.warn(`Failed to load stack image: ${newSrc}`);
+                gsap.to(img, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+                img.removeEventListener('load', handleLoad);
+                img.removeEventListener('error', handleError);
+              };
+              
+              img.addEventListener('load', handleLoad);
+              img.addEventListener('error', handleError);
+              img.src = newSrc;
+            },
+          });
+        } else {
+          // Fallback for when GSAP is not available
+          img.src = newSrc;
+        }
+      }
+    });
   },
 
   /**

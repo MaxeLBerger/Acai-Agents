@@ -135,6 +135,13 @@
   animation: pulse-glow 10s ease-in-out infinite;
 }
 
+/* Subtle hero orbs for subpages - reduced intensity */
+.hero-orb--subtle {
+  opacity: 0.15;
+  filter: blur(120px);
+  animation-duration: 30s;
+}
+
 @keyframes float-slow {
   0%,
   100% {

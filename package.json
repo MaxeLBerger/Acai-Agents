@@ -30,8 +30,9 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
-    "dev": "npx live-server --port=3000 --host=localhost",
-    "start": "npx live-server --port=3000 --host=localhost",
+    "dev": "node scripts/dev-server.js",
+    "dev:live": "npx live-server --port=3000 --host=localhost",
+    "start": "node scripts/dev-server.js",
     "lint": "npx eslint js/**/*.js",
     "lint:fix": "npx eslint js/**/*.js --fix",
     "format": "npx prettier --write \"**/*.{js,css,html,md,json}\"",

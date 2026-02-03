@@ -1659,82 +1659,189 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 1000px;
 }
 
 .visual-stack {
   position: relative;
   width: 100%;
-  max-width: 450px;
-  height: 400px;
+  max-width: 480px;
+  height: 420px;
+  transform-style: preserve-3d;
 }
 
 .stack-image {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-xl, 16px);
   opacity: 0;
-  transform: translateY(50px) scale(0.95);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(60px) scale(0.92);
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.6s ease-out,
+    box-shadow 0.6s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-surface);
+  will-change: transform, opacity;
+}
+
+/* Theme-based glow colors for stack images - Uses global theme variables */
+[data-project-theme] .stack-image {
+  --stack-glow-color: rgba(var(--theme-primary), 0.4);
+  --stack-border-color: rgba(var(--theme-primary), 0.5);
+}
+
+/* Data attribute overrides for specific color sets (synced with hero) */
+/* Blue/Teal Theme (AcaiStack) */
+.visual-stack[data-current-theme="blue"] .stack-image {
+  --stack-glow-color: rgba(6, 182, 212, 0.4);
+  --stack-border-color: rgba(6, 182, 212, 0.5);
+}
+
+/* Yellow/Amber Theme (Imkerei) */
+.visual-stack[data-current-theme="yellow"] .stack-image {
+  --stack-glow-color: rgba(245, 158, 11, 0.4);
+  --stack-border-color: rgba(245, 158, 11, 0.5);
+}
+
+/* Green Theme (Your Project) */
+.visual-stack[data-current-theme="green"] .stack-image {
+  --stack-glow-color: rgba(16, 185, 129, 0.4);
+  --stack-border-color: rgba(16, 185, 129, 0.5);
+}
+
+/* Purple Theme (Next Client) */
+.visual-stack[data-current-theme="purple"] .stack-image {
+  --stack-glow-color: rgba(139, 92, 246, 0.4);
+  --stack-border-color: rgba(139, 92, 246, 0.5);
+}
+
+.stack-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl, 16px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stack-image.active {
   opacity: 1;
   transform: translateY(0) scale(1);
   z-index: 10;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 60px -15px var(--stack-glow-color),
+    inset 0 0 0 1px var(--stack-border-color);
+}
+
+.stack-image.active img {
+  transform: scale(1.02);
 }
 
 .stack-image.prev {
-  opacity: 0.3;
-  transform: translateY(-20px) scale(0.9) rotateX(10deg);
-  filter: blur(2px);
+  opacity: 0.15;
+  transform: translateY(-40px) scale(0.85) rotateX(8deg);
+  filter: blur(4px) brightness(0.7);
+  z-index: 5;
 }
 
 .stack-image.next {
-  opacity: 0.3;
-  transform: translateY(40px) scale(0.9);
-  filter: blur(2px);
-}
-
-/* Stack Image Gradient Backgrounds */
-.stack-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.stack-image:nth-child(1) {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
-}
-
-.stack-image:nth-child(2) {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
-}
-
-.stack-image:nth-child(3) {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(6, 182, 212, 0.2));
-}
-
-.stack-image:nth-child(4) {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.2));
-}
-
-.stack-image-content {
-  text-align: center;
-  color: var(--color-text);
-}
-
-.stack-image-icon {
-  font-size: 4rem;
-  display: block;
-  margin-bottom: 1rem;
+  opacity: 0.15;
+  transform: translateY(50px) scale(0.85);
+  filter: blur(4px) brightness(0.7);
+  z-index: 5;
 }
 
 .stack-image-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-16) var(--space-20);
+  background: linear-gradient(
+    to top, 
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
+  color: var(--color-cream-50);
   font-weight: 600;
   margin: 0;
+  text-align: center;
+  font-size: var(--font-size-base);
+  letter-spacing: 0.02em;
+  border-radius: 0 0 var(--radius-xl, 16px) var(--radius-xl, 16px);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.4s ease 0.2s,
+    transform 0.4s ease 0.2s;
+}
+
+.stack-image.active .stack-image-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Decorative glow orb behind active image */
+.visual-stack::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  /* Default glow - theme overrides below */
+  background: radial-gradient(
+    circle,
+    rgba(var(--color-teal-500-rgb, 6, 182, 212), 0.2) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: stackGlowPulse 4s ease-in-out infinite;
+  transition: background 0.6s ease;
+}
+
+/* Theme-colored background glow - uses global theme if available */
+[data-project-theme] .visual-stack::before {
+  background: radial-gradient(circle, rgba(var(--theme-primary), 0.25) 0%, transparent 70%);
+}
+
+/* Specific color overrides for data attribute */
+.visual-stack[data-current-theme="blue"]::before {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, transparent 70%);
+}
+
+.visual-stack[data-current-theme="yellow"]::before {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+}
+
+.visual-stack[data-current-theme="green"]::before {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+}
+
+.visual-stack[data-current-theme="purple"]::before {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+}
+
+@keyframes stackGlowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 /* ==========================================================================

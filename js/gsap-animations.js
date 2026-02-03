@@ -709,6 +709,18 @@ const GSAPAnimationManager = {
     const images = document.querySelectorAll('.stack-image');
     const progressFill = document.querySelector('.progress-fill');
     const progressSteps = document.querySelectorAll('.progress-steps .step');
+    const visualStack = document.querySelector('.visual-stack');
+
+    // Track current step for smooth transitions
+    let currentStep = 0;
+
+    // Glow colors for each phase (matching CSS)
+    const glowColors = [
+      'rgba(33, 128, 141, 0.3)',  // Teal - Discovery
+      'rgba(139, 92, 246, 0.3)',  // Purple - Design
+      'rgba(34, 197, 94, 0.3)',   // Green - Development
+      'rgba(251, 191, 36, 0.3)',  // Amber - Launch
+    ];
 
     // Create the pinned scroll timeline
     const sequenceTimeline = gsap.timeline({
@@ -716,48 +728,71 @@ const GSAPAnimationManager = {
         trigger: '.image-sequence-section',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 1,
+        scrub: 0.8,
         pin: '.sequence-container',
         anticipatePin: 1,
         onUpdate: (self) => {
-          // Update progress bar
+          // Smooth progress bar update
           if (progressFill) {
-            progressFill.style.width = `${self.progress * 100}%`;
+            gsap.to(progressFill, {
+              width: `${self.progress * 100}%`,
+              duration: 0.3,
+              ease: 'power2.out',
+            });
           }
 
-          // Determine active step based on progress (4 equal segments)
-          // 0-0.25 = step 0, 0.25-0.5 = step 1, 0.5-0.75 = step 2, 0.75-1 = step 3
-          const step = Math.min(Math.floor(self.progress * 4), 3);
+          // Calculate step with buffer zones for smoother transitions
+          const rawProgress = self.progress * 4;
+          const newStep = Math.min(Math.floor(rawProgress), 3);
 
-          // Update frames
-          frames.forEach((frame, index) => {
-            if (index === step) {
-              frame.classList.add('active');
-            } else {
-              frame.classList.remove('active');
-            }
-          });
+          // Only update if step changed
+          if (newStep !== currentStep) {
+            currentStep = newStep;
 
-          // Update images
-          images.forEach((img, index) => {
-            img.classList.remove('active', 'prev', 'next');
-            if (index === step) {
-              img.classList.add('active');
-            } else if (index < step) {
-              img.classList.add('prev');
-            } else {
-              img.classList.add('next');
+            // Update background glow color
+            if (visualStack) {
+              gsap.to(visualStack, {
+                '--glow-color': glowColors[currentStep],
+                duration: 0.6,
+                ease: 'power2.out',
+              });
             }
-          });
 
-          // Update progress steps
-          progressSteps.forEach((stepEl, index) => {
-            if (index <= step) {
-              stepEl.classList.add('active');
-            } else {
-              stepEl.classList.remove('active');
-            }
-          });
+            // Update frames with staggered animation
+            frames.forEach((frame, index) => {
+              if (index === currentStep) {
+                frame.classList.add('active');
+                gsap.fromTo(frame, 
+                  { opacity: 0.5, x: -10 },
+                  { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }
+                );
+              } else {
+                frame.classList.remove('active');
+              }
+            });
+
+            // Update images with smooth GSAP transitions
+            images.forEach((img, index) => {
+              img.classList.remove('active', 'prev', 'next');
+              
+              if (index === currentStep) {
+                img.classList.add('active');
+              } else if (index < currentStep) {
+                img.classList.add('prev');
+              } else {
+                img.classList.add('next');
+              }
+            });
+
+            // Update progress steps
+            progressSteps.forEach((stepEl, index) => {
+              if (index <= currentStep) {
+                stepEl.classList.add('active');
+              } else {
+                stepEl.classList.remove('active');
+              }
+            });
+          }
         },
       },
     });

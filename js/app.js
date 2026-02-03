@@ -675,22 +675,22 @@ const ProjectThemeSliderManager = {
   /**
    * Update stack images to match current theme
    * Maps project themes to image color sets and swaps sources with animation
-   * 
+   *
    * @param {string} theme - The theme identifier (acaistack, imkerei, project3, project4)
    * @returns {void}
-   * 
+   *
    * Theme to color mapping:
    * - acaistack → blue (teal/cyan accent)
-   * - imkerei → yellow (amber/gold accent)  
+   * - imkerei → yellow (amber/gold accent)
    * - project3 → green (emerald accent)
    * - project4 → purple (violet accent)
    */
   updateStackImages(theme) {
     const themeToColor = {
-      acaistack: 'blue',    // Teal/Blue theme
-      imkerei: 'yellow',    // Amber/Gold theme
-      project3: 'green',    // Green theme
-      project4: 'purple',   // Purple theme
+      acaistack: 'blue', // Teal/Blue theme
+      imkerei: 'yellow', // Amber/Gold theme
+      project3: 'green', // Green theme
+      project4: 'purple', // Purple theme
     };
 
     const colorKey = themeToColor[theme] || 'blue';
@@ -712,7 +712,7 @@ const ProjectThemeSliderManager = {
         if (typeof gsap !== 'undefined') {
           // Kill any existing tweens to prevent animation stacking
           gsap.killTweensOf(img);
-          
+
           gsap.to(img, {
             opacity: 0.5,
             duration: 0.2,
@@ -724,7 +724,7 @@ const ProjectThemeSliderManager = {
                 img.removeEventListener('load', handleLoad);
                 img.removeEventListener('error', handleError);
               };
-              
+
               // Handle image load failure gracefully
               const handleError = () => {
                 Logger.warn(`Failed to load stack image: ${newSrc}`);
@@ -732,7 +732,7 @@ const ProjectThemeSliderManager = {
                 img.removeEventListener('load', handleLoad);
                 img.removeEventListener('error', handleError);
               };
-              
+
               img.addEventListener('load', handleLoad);
               img.addEventListener('error', handleError);
               img.src = newSrc;

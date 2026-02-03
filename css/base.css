@@ -764,11 +764,7 @@ html,
 }
 
 [data-project-theme] .progress-fill {
-  background: linear-gradient(
-    90deg,
-    rgb(var(--theme-primary)),
-    rgb(var(--theme-accent))
-  );
+  background: linear-gradient(90deg, rgb(var(--theme-primary)), rgb(var(--theme-accent)));
 }
 
 [data-project-theme] .progress-steps .step.active {
@@ -790,27 +786,15 @@ html,
 }
 
 [data-project-theme] .hero-orb-1 {
-  background: radial-gradient(
-    circle,
-    rgba(var(--theme-primary), 0.2) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(var(--theme-primary), 0.2) 0%, transparent 70%);
 }
 
 [data-project-theme] .hero-orb-2 {
-  background: radial-gradient(
-    circle,
-    rgba(var(--theme-secondary), 0.15) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(var(--theme-secondary), 0.15) 0%, transparent 70%);
 }
 
 [data-project-theme] .hero-orb-3 {
-  background: radial-gradient(
-    circle,
-    rgba(var(--theme-accent), 0.12) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(var(--theme-accent), 0.12) 0%, transparent 70%);
 }
 
 /* ==========================================================================
@@ -824,15 +808,11 @@ html,
 
 [data-project-theme] .emblem-badge,
 [data-project-theme] .portfolio-showcase-badge {
-  background: linear-gradient(
-    135deg,
-    rgb(var(--theme-primary)),
-    rgb(var(--theme-secondary))
-  );
+  background: linear-gradient(135deg, rgb(var(--theme-primary)), rgb(var(--theme-secondary)));
 }
 
 [data-project-theme] .emblem-glow-ring {
-  box-shadow: 
+  box-shadow:
     0 0 30px rgba(var(--theme-primary), 0.3),
     0 0 60px rgba(var(--theme-primary), 0.2),
     inset 0 0 30px rgba(var(--theme-primary), 0.1);
@@ -916,19 +896,11 @@ html,
 }
 
 [data-project-theme] .chat-header {
-  background: linear-gradient(
-    135deg,
-    rgb(var(--theme-primary)),
-    rgb(var(--theme-secondary))
-  );
+  background: linear-gradient(135deg, rgb(var(--theme-primary)), rgb(var(--theme-secondary)));
 }
 
 [data-project-theme] #chatToggleBtn {
-  background: linear-gradient(
-    135deg,
-    rgb(var(--theme-primary)),
-    rgb(var(--theme-secondary))
-  );
+  background: linear-gradient(135deg, rgb(var(--theme-primary)), rgb(var(--theme-secondary)));
   box-shadow: 0 4px 20px rgba(var(--theme-primary), 0.4);
 }
 

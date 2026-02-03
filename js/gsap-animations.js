@@ -716,10 +716,10 @@ const GSAPAnimationManager = {
 
     // Glow colors for each phase (matching CSS)
     const glowColors = [
-      'rgba(33, 128, 141, 0.3)',  // Teal - Discovery
-      'rgba(139, 92, 246, 0.3)',  // Purple - Design
-      'rgba(34, 197, 94, 0.3)',   // Green - Development
-      'rgba(251, 191, 36, 0.3)',  // Amber - Launch
+      'rgba(33, 128, 141, 0.3)', // Teal - Discovery
+      'rgba(139, 92, 246, 0.3)', // Purple - Design
+      'rgba(34, 197, 94, 0.3)', // Green - Development
+      'rgba(251, 191, 36, 0.3)', // Amber - Launch
     ];
 
     // Create the pinned scroll timeline
@@ -762,7 +762,8 @@ const GSAPAnimationManager = {
             frames.forEach((frame, index) => {
               if (index === currentStep) {
                 frame.classList.add('active');
-                gsap.fromTo(frame, 
+                gsap.fromTo(
+                  frame,
                   { opacity: 0.5, x: -10 },
                   { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }
                 );
@@ -774,7 +775,7 @@ const GSAPAnimationManager = {
             // Update images with smooth GSAP transitions
             images.forEach((img, index) => {
               img.classList.remove('active', 'prev', 'next');
-              
+
               if (index === currentStep) {
                 img.classList.add('active');
               } else if (index < currentStep) {

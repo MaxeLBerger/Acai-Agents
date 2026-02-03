@@ -469,7 +469,26 @@ html,
 .service-icon svg,
 .tech-tag,
 .section-badge,
-.cta-email-link {
+.cta-email-link,
+.sequence-frame,
+.frame-number,
+.progress-bar,
+.progress-fill,
+.progress-steps .step,
+.hero-trust-badge,
+.emblem-badge,
+.portfolio-showcase-badge,
+.emblem-glow-ring,
+.slider-arrow,
+.project-nav-btn .nav-dot,
+.project-nav-btn .nav-label,
+.nav-progress,
+.scroll-arrow svg,
+.chat-widget,
+.chat-header,
+#chatToggleBtn,
+.visual-stack::before,
+.stack-image {
   transition:
     background var(--theme-transition),
     background-color var(--theme-transition),
@@ -610,7 +629,8 @@ html,
   color: rgba(var(--theme-primary), 0.7);
 }
 
-[data-project-theme] .scroll-indicator svg {
+[data-project-theme] .scroll-indicator svg,
+[data-project-theme] .scroll-arrow svg {
   stroke: rgb(var(--theme-primary));
 }
 
@@ -718,6 +738,202 @@ html,
 [data-project-theme] .footer-social a:hover {
   background: rgba(var(--theme-primary), 0.15);
   color: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE SEQUENCE SECTION (How We Build)
+   ========================================================================== */
+
+[data-project-theme] .sequence-frame {
+  background: rgba(var(--theme-primary), 0.05);
+  border-color: transparent;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-project-theme] .sequence-frame.active {
+  background: rgba(var(--theme-primary), 0.1);
+  border-color: rgba(var(--theme-primary), 0.3);
+}
+
+[data-project-theme] .frame-number {
+  color: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .progress-bar {
+  background: rgba(var(--theme-primary), 0.2);
+}
+
+[data-project-theme] .progress-fill {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-accent))
+  );
+}
+
+[data-project-theme] .progress-steps .step.active {
+  color: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE HERO ORBS & GLOWS
+   ========================================================================== */
+
+[data-project-theme] .hero-orb,
+[data-project-theme] .glow-orb {
+  background: radial-gradient(
+    circle,
+    rgba(var(--theme-primary), 0.15) 0%,
+    rgba(var(--theme-secondary), 0.08) 40%,
+    transparent 70%
+  );
+}
+
+[data-project-theme] .hero-orb-1 {
+  background: radial-gradient(
+    circle,
+    rgba(var(--theme-primary), 0.2) 0%,
+    transparent 70%
+  );
+}
+
+[data-project-theme] .hero-orb-2 {
+  background: radial-gradient(
+    circle,
+    rgba(var(--theme-secondary), 0.15) 0%,
+    transparent 70%
+  );
+}
+
+[data-project-theme] .hero-orb-3 {
+  background: radial-gradient(
+    circle,
+    rgba(var(--theme-accent), 0.12) 0%,
+    transparent 70%
+  );
+}
+
+/* ==========================================================================
+   THEME-AWARE HERO BADGES & TRUST ELEMENTS
+   ========================================================================== */
+
+[data-project-theme] .hero-trust-badge {
+  border-color: rgba(var(--theme-primary), 0.2);
+  background: rgba(var(--theme-primary), 0.05);
+}
+
+[data-project-theme] .emblem-badge,
+[data-project-theme] .portfolio-showcase-badge {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-secondary))
+  );
+}
+
+[data-project-theme] .emblem-glow-ring {
+  box-shadow: 
+    0 0 30px rgba(var(--theme-primary), 0.3),
+    0 0 60px rgba(var(--theme-primary), 0.2),
+    inset 0 0 30px rgba(var(--theme-primary), 0.1);
+}
+
+[data-project-theme] .portfolio-showcase-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(var(--theme-primary), 0.3) 0%,
+    rgba(var(--theme-secondary), 0.1) 50%,
+    transparent 70%
+  );
+}
+
+/* ==========================================================================
+   THEME-AWARE FINAL CTA SECTION
+   ========================================================================== */
+
+[data-project-theme] .final-cta {
+  border-top-color: rgba(var(--theme-primary), 0.1);
+}
+
+[data-project-theme] .final-cta::before {
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(var(--theme-primary), 0.1) 0%,
+    transparent 60%
+  );
+}
+
+[data-project-theme] .cta-buttons .btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-secondary))
+  ) !important;
+}
+
+/* ==========================================================================
+   THEME-AWARE SLIDER ARROWS
+   ========================================================================== */
+
+[data-project-theme] .slider-arrow {
+  border-color: rgba(var(--theme-primary), 0.2);
+  color: rgba(var(--theme-primary), 0.7);
+}
+
+[data-project-theme] .slider-arrow:hover {
+  border-color: rgba(var(--theme-primary), 0.5);
+  background: rgba(var(--theme-primary), 0.1);
+  color: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE PROJECT NAV BUTTONS
+   ========================================================================== */
+
+[data-project-theme] .project-nav-btn.active .nav-dot {
+  background: rgb(var(--theme-primary));
+  box-shadow: 0 0 10px rgba(var(--theme-primary), 0.5);
+}
+
+[data-project-theme] .project-nav-btn.active .nav-label {
+  color: rgb(var(--theme-primary));
+}
+
+[data-project-theme] .project-nav-btn:hover .nav-dot {
+  border-color: rgba(var(--theme-primary), 0.5);
+}
+
+[data-project-theme] .nav-progress {
+  background: rgb(var(--theme-primary));
+}
+
+/* ==========================================================================
+   THEME-AWARE CHAT WIDGET
+   ========================================================================== */
+
+[data-project-theme] .chat-widget {
+  border-color: rgba(var(--theme-primary), 0.2);
+}
+
+[data-project-theme] .chat-header {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-secondary))
+  );
+}
+
+[data-project-theme] #chatToggleBtn {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--theme-primary)),
+    rgb(var(--theme-secondary))
+  );
+  box-shadow: 0 4px 20px rgba(var(--theme-primary), 0.4);
+}
+
+[data-project-theme] #chatToggleBtn:hover {
+  box-shadow: 0 6px 30px rgba(var(--theme-primary), 0.5);
 }
 
 /* Base styles */

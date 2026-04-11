@@ -35,6 +35,9 @@ export function initComponents() {
   if (footerPlaceholder) {
     footerPlaceholder.outerHTML = getFooter(activePage);
   }
+
+  // Notify other scripts that navbar/footer are now in the DOM
+  document.dispatchEvent(new CustomEvent('components-loaded'));
 }
 
 // Auto-initialize on DOMContentLoaded

@@ -11,7 +11,7 @@ export function getFooter(_activePage = 'home') {
         <div class="footer-content grid grid-cols-4 gap-8">
           <div class="footer-section">
             <h4>
-              <img src="/assets/logo_small.png" alt="AcaiStack" class="footer-brand-logo" width="20" height="20" />
+              <img src="/assets/logo_small.webp" alt="AcaiStack" class="footer-brand-logo" width="20" height="20" />
               AcaiStack
             </h4>
             <p>Beautiful websites powered by intelligent AI agents. You get the control.</p>

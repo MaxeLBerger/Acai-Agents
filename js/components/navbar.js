@@ -9,7 +9,7 @@ export function getNavbar(activePage = 'home') {
     <header class="navbar" role="banner">
       <div class="navbar-content container">
         <a href="/" class="navbar-brand">
-          <img src="/assets/favicon.png" alt="AcaiStack Logo" class="brand-logo" />
+          <img src="/assets/favicon.webp" alt="AcaiStack Logo" class="brand-logo" width="64" height="51" />
           <span class="brand-text">AcaiStack</span>
         </a>
 

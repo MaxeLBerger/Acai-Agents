@@ -3,6 +3,16 @@
  * Production-ready interactive components for AI Agent website
  * @module acaistack-components
  * @version 2.0.0
+ *
+ * @deprecated NO PRODUCTION PAGE CURRENTLY LOADS THIS FILE.
+ * As of 2026-02-08, all pages use dedicated page-specific scripts instead:
+ *   - FAQ accordion → handled by js/pages/faq.js (faq.html)
+ *   - Contact form  → handled by js/pages/contact.js (contact.html)
+ *   - ROI calculator → handled by js/pages/agents.js (agents.html)
+ *   - Pricing toggle → handled by js/pages/pricing.js (pricing.html)
+ * The CSS counterpart (css/acaistack-components.css) IS still loaded by pages
+ * for styling, but this JS file is dead code.
+ * Consider removing this file entirely in a future cleanup pass.
  */
 
 /* ==========================================================================

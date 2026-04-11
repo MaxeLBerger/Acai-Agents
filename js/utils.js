@@ -364,14 +364,6 @@ const EventDelegate = {
       }
     });
   },
-
-  /**
-   * Remove delegated event listener (simplified)
-   * Note: For actual removal, store the handler function
-   */
-  off(parent, eventType) {
-    parent.removeEventListener(eventType, null);
-  },
 };
 
 /**
@@ -563,19 +555,4 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeAcaiAgents);
 } else {
   initializeAcaiAgents();
-}
-
-// Export for use in other modules (if using ES modules)
-// eslint-disable-next-line no-undef
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  // eslint-disable-next-line no-undef
-  module.exports = {
-    Sanitizer,
-    CSRFManager,
-    FormValidator,
-    EventDelegate,
-    ButtonManager,
-    AccessibilityManager,
-    ErrorHandler,
-  };
 }

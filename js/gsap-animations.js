@@ -732,13 +732,9 @@ const GSAPAnimationManager = {
         pin: '.sequence-container',
         anticipatePin: 1,
         onUpdate: (self) => {
-          // Smooth progress bar update
+          // Direct DOM update for progress bar (no tween creation per frame)
           if (progressFill) {
-            gsap.to(progressFill, {
-              width: `${self.progress * 100}%`,
-              duration: 0.3,
-              ease: 'power2.out',
-            });
+            progressFill.style.width = `${self.progress * 100}%`;
           }
 
           // Calculate step with buffer zones for smoother transitions
@@ -852,11 +848,10 @@ const GSAPAnimationManager = {
       onEnter: (elements) => {
         gsap.fromTo(
           elements,
-          { opacity: 0, y: 30, filter: 'blur(8px)' },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            filter: 'blur(0px)',
             duration: 0.8,
             stagger: 0.1,
             ease: 'power3.out',
@@ -867,7 +862,6 @@ const GSAPAnimationManager = {
         gsap.to(elements, {
           opacity: 0,
           y: 30,
-          filter: 'blur(8px)',
           duration: 0.4,
           stagger: 0.05,
         });
@@ -953,49 +947,49 @@ const GSAPAnimationManager = {
       return;
     }
 
-    // Parallax for hero orbs
-    gsap.to('.hero-orb-1', {
-      y: -100,
-      scrollTrigger: {
+    // Parallax for hero orbs - consolidated into single ScrollTrigger
+    const orb1 = document.querySelector('.hero-orb-1');
+    const orb2 = document.querySelector('.hero-orb-2');
+    const orb3 = document.querySelector('.hero-orb-3');
+    const scrollInd = document.querySelector('.scroll-indicator');
+
+    if (orb1 || orb2 || orb3 || scrollInd) {
+      ScrollTrigger.create({
         trigger: '.gsap-hero',
         start: 'top top',
         end: 'bottom top',
         scrub: 1,
-      },
-    });
+        onUpdate: (self) => {
+          const p = self.progress;
+          if (orb1) orb1.style.transform = `translateY(${-100 * p}px)`;
+          if (orb2) orb2.style.transform = `translateY(${-150 * p}px)`;
+          if (orb3)
+            orb3.style.transform = `translate(-50%, -50%) translateY(${-80 * p}px) scale(${1 + 0.2 * p})`;
+          if (scrollInd) {
+            scrollInd.style.opacity = `${1 - p * 5}`;
+            scrollInd.style.transform = `translateY(${20 * p}px)`;
+          }
+        },
+      });
+    }
 
-    gsap.to('.hero-orb-2', {
-      y: -150,
-      scrollTrigger: {
-        trigger: '.gsap-hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
-      },
-    });
-
-    gsap.to('.hero-orb-3', {
-      y: -80,
-      scale: 1.2,
-      scrollTrigger: {
-        trigger: '.gsap-hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1,
-      },
-    });
-
-    // Fade out scroll indicator on scroll
-    gsap.to('.scroll-indicator', {
-      opacity: 0,
-      y: 20,
-      scrollTrigger: {
-        trigger: '.gsap-hero',
-        start: 'top top',
-        end: '20% top',
-        scrub: 1,
-      },
-    });
+    // Pause hero orb CSS animations when hero section is off-screen
+    // Works for both index (.gsap-hero) and subpages (.gsap-page-hero)
+    const heroSection =
+      document.querySelector('.gsap-hero') || document.querySelector('.gsap-page-hero');
+    const heroOrbs = document.querySelectorAll('.hero-orb');
+    if (heroSection && heroOrbs.length) {
+      const orbObserver = new IntersectionObserver(
+        (entries) => {
+          const isVisible = entries[0].isIntersecting;
+          heroOrbs.forEach((orb) => {
+            orb.style.animationPlayState = isVisible ? 'running' : 'paused';
+          });
+        },
+        { threshold: 0 }
+      );
+      orbObserver.observe(heroSection);
+    }
   },
 
   /**
@@ -1052,7 +1046,6 @@ const GSAPAnimationManager = {
     gsap.from(testimonialCards, {
       y: 60,
       opacity: 0,
-      filter: 'blur(10px)',
       duration: 0.8,
       ease: 'power3.out',
       stagger: {
@@ -1324,15 +1317,3 @@ window.addEventListener('resize', () => {
     GSAPAnimationManager.refresh();
   }, 250);
 });
-
-/**
- * Export for potential module usage
- */
-// eslint-disable-next-line no-undef
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  // eslint-disable-next-line no-undef
-  module.exports = {
-    GSAPAnimationManager,
-    SmoothScrollManager,
-  };
-}

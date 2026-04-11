@@ -51,10 +51,12 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-security": "^3.0.0",
     "globals": "^15.0.0",
+    "html-minifier-terser": "^7.2.0",
     "live-server": "^1.2.2",
     "postcss": "^8.4.0",
     "postcss-cli": "^11.0.0",
     "prettier": "^3.4.0",
+    "sharp": "^0.34.5",
     "terser": "^5.36.0"
   },
   "browserslist": [

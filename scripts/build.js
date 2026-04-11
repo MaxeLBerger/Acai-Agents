@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { minify } from 'html-minifier-terser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +18,7 @@ const JS_DIR = path.join(ROOT_DIR, 'js'); // Added as source for js
 /**
  * Main Build Function
  */
-function build() {
+async function build() {
   console.log('Starting Production Build...');
 
   // 1. Clean dist
@@ -52,7 +53,7 @@ function build() {
   console.log('📜 Building JS Bundle...');
   try {
     execSync(
-      'npx terser js/utils.js js/gsap-animations.js js/acaistack-components.js js/app.js -o dist/js/bundle.min.js --compress --mangle',
+      'npx terser js/utils.js js/gsap-animations.js js/app.js -o dist/js/bundle.min.js --compress --mangle',
       { stdio: 'inherit', cwd: ROOT_DIR }
     );
   } catch (e) {
@@ -76,22 +77,41 @@ function build() {
     );
   }
 
+  console.log('📄 Copying & minifying page-specific JS...');
+  const JS_PAGES_DIR = path.join(JS_DIR, 'pages');
+  if (fs.existsSync(JS_PAGES_DIR)) {
+    const distPagesDir = path.join(DIST_DIR, 'js', 'pages');
+    fs.mkdirSync(distPagesDir, { recursive: true });
+    const pageScripts = fs.readdirSync(JS_PAGES_DIR).filter((f) => f.endsWith('.js'));
+    for (const script of pageScripts) {
+      try {
+        execSync(`npx terser js/pages/${script} -o dist/js/pages/${script} --compress --mangle`, {
+          stdio: 'inherit',
+          cwd: ROOT_DIR,
+        });
+      } catch (e) {
+        console.error(`Failed to minify js/pages/${script}, copying as-is`);
+        fs.copyFileSync(path.join(JS_PAGES_DIR, script), path.join(distPagesDir, script));
+      }
+    }
+  }
+
   // 5. Process HTML
   console.log('📄 Processing HTML...');
 
   // Index.html
-  processHtmlFile(path.join(ROOT_DIR, 'index.html'), 'index.html', false);
+  await processHtmlFile(path.join(ROOT_DIR, 'index.html'), 'index.html', false);
 
   // Pages - output directly to dist/ root for Vercel cleanUrls to work
   // This allows /services to automatically serve services.html
   if (fs.existsSync(PAGES_DIR)) {
     const pages = fs.readdirSync(PAGES_DIR);
-    pages.forEach((page) => {
+    for (const page of pages) {
       if (page.endsWith('.html')) {
         // Output directly to dist/services.html instead of dist/pages/services.html
-        processHtmlFile(path.join(PAGES_DIR, page), page, false);
+        await processHtmlFile(path.join(PAGES_DIR, page), page, false);
       }
-    });
+    }
   }
 
   console.log('✅ Build Complete! Output in /dist');
@@ -122,9 +142,9 @@ function copyDir(src, dest) {
 }
 
 /**
- * Process HTML file to replace script tags
+ * Process HTML file to replace script tags and minify
  */
-function processHtmlFile(srcPath, destRelPath, isSubdirectory) {
+async function processHtmlFile(srcPath, destRelPath, isSubdirectory) {
   let content = fs.readFileSync(srcPath, 'utf8');
 
   // 1. Remove individual local scripts with more robust regex (handles different attribute orders and spaces)
@@ -182,10 +202,22 @@ function processHtmlFile(srcPath, destRelPath, isSubdirectory) {
     content = content.replace(/src="assets\//g, 'src="/assets/');
   }
 
-  // Cleanup any double spaces or trailing spaces left by replacements
-  content = content.replace(/\s\s+/g, ' ');
+  // 6. Minify HTML
+  content = await minify(content, {
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    removeEmptyAttributes: true,
+    minifyCSS: true,
+    minifyJS: true,
+    sortAttributes: true,
+    sortClassName: true,
+  });
 
   fs.writeFileSync(path.join(DIST_DIR, destRelPath), content);
 }
 
-build();
+build().catch((err) => {
+  console.error('Build failed:', err);
+  process.exit(1);
+});

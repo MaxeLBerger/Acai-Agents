@@ -13,17 +13,52 @@
 
     <title>AI Agent Marketplace - AcaiStack</title>
 
+    <!-- FOUC Prevention: Apply color scheme before paint -->
+    <script>
+      ((d) => {
+        const t = localStorage.getItem('acaistack-dark-mode');
+        if (t === 'true' || (!t && matchMedia('(prefers-color-scheme:dark)').matches))
+          d.setAttribute('data-color-scheme', 'dark');
+        else d.setAttribute('data-color-scheme', 'light');
+      })(document.documentElement);
+    </script>
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/components.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/layout.css" />
-    <link rel="stylesheet" href="/css/gsap-animations.css" />
-    <link rel="stylesheet" href="/css/acaistack-components.css" />
     <link rel="stylesheet" href="/css/pages/agents.css" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Non-critical CSS (deferred) -->
+    <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="/css/acaistack-components.css" media="print" onload="this.media = 'all'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/animations.css" />
+      <link rel="stylesheet" href="/css/gsap-animations.css" />
+      <link rel="stylesheet" href="/css/acaistack-components.css" />
+    </noscript>
+
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
   </head>
   <body data-page-theme="default">
     <div class="hero-grid"></div>
@@ -100,7 +135,7 @@
               </div>
               <div class="agent-card-buttons">
                 <a href="/contact?agent=email" class="agent-card-btn agent-card-btn-primary">Get Started</a>
-                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+                <a href="#roi-calculator" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
               </div>
             </article>
 
@@ -137,7 +172,7 @@
               </div>
               <div class="agent-card-buttons">
                 <a href="/contact?agent=booking" class="agent-card-btn agent-card-btn-primary">Get Started</a>
-                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+                <a href="#roi-calculator" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
               </div>
             </article>
 
@@ -174,7 +209,7 @@
               </div>
               <div class="agent-card-buttons">
                 <a href="/contact?agent=support" class="agent-card-btn agent-card-btn-primary">Get Started</a>
-                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+                <a href="#roi-calculator" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
               </div>
             </article>
 
@@ -211,7 +246,7 @@
               </div>
               <div class="agent-card-buttons">
                 <a href="/contact?agent=sales" class="agent-card-btn agent-card-btn-primary">Get Started</a>
-                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+                <a href="#roi-calculator" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
               </div>
             </article>
 
@@ -248,7 +283,7 @@
               </div>
               <div class="agent-card-buttons">
                 <a href="/contact?agent=callcenter" class="agent-card-btn agent-card-btn-primary">Get Started</a>
-                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+                <a href="#roi-calculator" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
               </div>
             </article>
 
@@ -285,7 +320,7 @@
               </div>
               <div class="agent-card-buttons">
                 <a href="/contact?agent=outreach" class="agent-card-btn agent-card-btn-primary">Get Started</a>
-                <a href="#" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
+                <a href="#roi-calculator" class="agent-card-btn agent-card-btn-secondary">Learn More</a>
               </div>
             </article>
           </div>
@@ -293,7 +328,7 @@
       </section>
 
       <!-- ROI Calculator Section -->
-      <section class="roi-section">
+      <section class="roi-section" id="roi-calculator">
         <div class="container">
           <div class="roi-calculator scroll-reveal">
             <h2 class="roi-calculator-title">Calculate Your ROI</h2>
@@ -400,49 +435,7 @@
     <script src="/js/utils.js" defer></script>
     <script src="/js/app.js" defer></script>
     <script src="/js/gsap-animations.js" defer></script>
-    <script src="/js/acaistack-components.js" defer></script>
 
-    <!-- ROI Calculator Logic -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const hoursSlider = document.getElementById('hours-slider');
-        const costSlider = document.getElementById('cost-slider');
-        const hoursValue = document.getElementById('hours-value');
-        const costValue = document.getElementById('cost-value');
-        const timeSaved = document.getElementById('time-saved');
-        const costSavings = document.getElementById('cost-savings');
-        const annualSavings = document.getElementById('annual-savings');
-        const roiPercent = document.getElementById('roi-percent');
-
-        function calculateROI() {
-          const hours = parseInt(hoursSlider.value);
-          const cost = parseInt(costSlider.value);
-
-          // Assume 80% automation rate and 4.33 weeks per month
-          const automationRate = 0.8;
-          const weeksPerMonth = 4.33;
-          const avgAgentCost = 200; // Average monthly agent cost
-
-          const monthlyHoursSaved = Math.round(hours * weeksPerMonth * automationRate);
-          const monthlySavings = Math.round(monthlyHoursSaved * cost);
-          const yearlySavings = monthlySavings * 12;
-          const yearlyAgentCost = avgAgentCost * 12;
-          const roi = Math.round(((yearlySavings - yearlyAgentCost) / yearlyAgentCost) * 100);
-
-          hoursValue.textContent = hours + ' hours';
-          costValue.textContent = '€' + cost + '/hour';
-          timeSaved.textContent = monthlyHoursSaved + ' hours';
-          costSavings.textContent = '€' + monthlySavings.toLocaleString();
-          annualSavings.textContent = '€' + yearlySavings.toLocaleString();
-          roiPercent.textContent = roi + '%';
-        }
-
-        hoursSlider.addEventListener('input', calculateROI);
-        costSlider.addEventListener('input', calculateROI);
-
-        // Initial calculation
-        calculateROI();
-      });
-    </script>
+    <script src="/js/pages/agents.js" defer></script>
   </body>
 </html>

@@ -13,18 +13,36 @@
 
     <title>Privacy Policy - AcaiStack</title>
 
+    <!-- FOUC Prevention: Apply color scheme before paint -->
+    <script>
+      ((d) => {
+        const t = localStorage.getItem('acaistack-dark-mode');
+        if (t === 'true' || (!t && matchMedia('(prefers-color-scheme:dark)').matches))
+          d.setAttribute('data-color-scheme', 'dark');
+        else d.setAttribute('data-color-scheme', 'light');
+      })(document.documentElement);
+    </script>
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/components.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/layout.css" />
-    <link rel="stylesheet" href="/css/gsap-animations.css" />
-    <link rel="stylesheet" href="/css/acaistack-components.css" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+
+    <!-- Non-critical CSS (deferred) -->
+    <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" media="print" onload="this.media = 'all'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/animations.css" />
+      <link rel="stylesheet" href="/css/gsap-animations.css" />
+    </noscript>
+
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
 
     <link rel="stylesheet" href="/css/pages/legal.css" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   </head>
   <body data-page-theme="default">
     <div class="hero-grid"></div>
@@ -45,10 +63,10 @@
 
     <main id="main-content" class="relative-content page-content">
       <!-- Hero Section -->
-      <section class="page-hero gsap-page-hero">
+      <section class="page-hero">
         <div class="container">
           <div class="hero-content text-center">
-            <h1 class="page-title gsap-split-text">
+            <h1 class="page-title">
               <span class="title-line"><span class="gradient-text-animated">Privacy</span> Policy</span>
             </h1>
             <p class="page-subtitle title-line">
@@ -397,6 +415,5 @@
     <script type="module" src="/js/components-loader.js"></script>
     <script src="/js/utils.js" defer></script>
     <script src="/js/app.js" defer></script>
-    <script src="/js/gsap-animations.js" defer></script>
   </body>
 </html>

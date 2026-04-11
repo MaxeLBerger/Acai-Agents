@@ -13,17 +13,50 @@
 
     <title>Portfolio - AcaiStack</title>
 
+    <!-- FOUC Prevention: Apply color scheme before paint -->
+    <script>
+      ((d) => {
+        const t = localStorage.getItem('acaistack-dark-mode');
+        if (t === 'true' || (!t && matchMedia('(prefers-color-scheme:dark)').matches))
+          d.setAttribute('data-color-scheme', 'dark');
+        else d.setAttribute('data-color-scheme', 'light');
+      })(document.documentElement);
+    </script>
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/components.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/layout.css" />
-    <link rel="stylesheet" href="/css/gsap-animations.css" />
-    <link rel="stylesheet" href="/css/acaistack-components.css" />
     <link rel="stylesheet" href="/css/pages/portfolio.css" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Non-critical CSS (deferred) -->
+    <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" media="print" onload="this.media = 'all'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/animations.css" />
+      <link rel="stylesheet" href="/css/gsap-animations.css" />
+    </noscript>
+
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
   </head>
   <body data-page-theme="default">
     <div class="hero-grid"></div>
@@ -76,10 +109,13 @@
             >
               <div class="portfolio-card-thumbnail">
                 <img
-                  src="/assets/portfolio/imkerei_feuerstein.png"
+                  src="/assets/portfolio/imkerei_feuerstein.webp"
                   alt="Imkerei Feuerstein - Bavarian Beekeeping Website"
                   class="portfolio-card-image"
-                  loading="eager"
+                  width="1200"
+                  height="596"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="portfolio-card-body">
@@ -290,37 +326,6 @@
     <script src="/js/app.js" defer></script>
     <script src="/js/gsap-animations.js" defer></script>
 
-    <script>
-      // Portfolio Filter Functionality
-      document.addEventListener('DOMContentLoaded', function () {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioCards = document.querySelectorAll('.portfolio-card-new');
-
-        filterBtns.forEach((btn) => {
-          btn.addEventListener('click', function () {
-            // Update active state
-            filterBtns.forEach((b) => b.classList.remove('active'));
-            this.classList.add('active');
-
-            const filter = this.dataset.filter;
-
-            // Filter cards
-            portfolioCards.forEach((card) => {
-              if (filter === 'all' || card.dataset.category === filter) {
-                card.style.display = 'flex';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-              } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                  card.style.display = 'none';
-                }, 300);
-              }
-            });
-          });
-        });
-      });
-    </script>
+    <script src="/js/pages/portfolio.js" defer></script>
   </body>
 </html>

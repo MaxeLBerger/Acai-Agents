@@ -13,17 +13,50 @@
 
     <title>Services - AcaiStack</title>
 
+    <!-- FOUC Prevention: Apply color scheme before paint -->
+    <script>
+      ((d) => {
+        const t = localStorage.getItem('acaistack-dark-mode');
+        if (t === 'true' || (!t && matchMedia('(prefers-color-scheme:dark)').matches))
+          d.setAttribute('data-color-scheme', 'dark');
+        else d.setAttribute('data-color-scheme', 'light');
+      })(document.documentElement);
+    </script>
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/components.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/layout.css" />
-    <link rel="stylesheet" href="/css/gsap-animations.css" />
-    <link rel="stylesheet" href="/css/acaistack-components.css" />
     <link rel="stylesheet" href="/css/pages/services.css" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Non-critical CSS (deferred) -->
+    <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" media="print" onload="this.media = 'all'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/animations.css" />
+      <link rel="stylesheet" href="/css/gsap-animations.css" />
+    </noscript>
+
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
   </head>
   <body data-page-theme="default">
     <div class="hero-grid"></div>
@@ -126,9 +159,7 @@
           </div>
 
           <!-- Alternative pricing note for AI Agents -->
-          <p style="text-align: center; color: var(--color-text-muted); margin-top: 1rem; font-size: 0.9375rem">
-            AI Agents also available one-time: €499 – €1,999
-          </p>
+          <p class="services-pricing-note">AI Agents also available one-time: €499 – €1,999</p>
         </div>
       </section>
 

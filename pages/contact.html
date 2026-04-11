@@ -9,21 +9,52 @@
       name="description"
       content="Contact AcaiStack - Let's have an honest conversation about your project. No sales pitch, just real solutions."
     />
-    <meta name="csrf-token" content="" />
-
     <title>Contact - AcaiStack</title>
 
+    <!-- FOUC Prevention: Apply color scheme before paint -->
+    <script>
+      ((d) => {
+        const t = localStorage.getItem('acaistack-dark-mode');
+        if (t === 'true' || (!t && matchMedia('(prefers-color-scheme:dark)').matches))
+          d.setAttribute('data-color-scheme', 'dark');
+        else d.setAttribute('data-color-scheme', 'light');
+      })(document.documentElement);
+    </script>
+
+    <!-- Performance: Preconnect to CDN -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/components.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/layout.css" />
-    <link rel="stylesheet" href="/css/gsap-animations.css" />
-    <link rel="stylesheet" href="/css/acaistack-components.css" />
     <link rel="stylesheet" href="/css/pages/contact.css" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Non-critical CSS (deferred) -->
+    <link rel="stylesheet" href="/css/animations.css" media="print" onload="this.media = 'all'" />
+    <link rel="stylesheet" href="/css/gsap-animations.css" media="print" onload="this.media = 'all'" />
+    <noscript>
+      <link rel="stylesheet" href="/css/animations.css" />
+      <link rel="stylesheet" href="/css/gsap-animations.css" />
+    </noscript>
+
+    <link rel="icon" type="image/png" href="/assets/favicon-32.png" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
   </head>
   <body data-page-theme="default">
     <div class="hero-grid"></div>
@@ -59,7 +90,7 @@
           <div class="contact-grid">
             <!-- Left Column - Contact Form -->
             <div class="contact-form-card scroll-reveal">
-              <form id="contactForm" action="#" method="POST">
+              <form id="contactForm" method="POST">
                 <div class="form-row">
                   <div class="form-group">
                     <label for="name" class="form-label required">Name</label>
@@ -139,7 +170,7 @@
                 </div>
                 <p class="contact-info-text">30 minutes, no commitment.</p>
                 <p class="contact-info-subtext">Let's discuss your project.</p>
-                <a href="#" class="contact-info-cta">
+                <a href="#contactForm" class="contact-info-cta">
                   Schedule Now
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -164,9 +195,7 @@
                   <span class="contact-info-title">Email Us Directly</span>
                 </div>
                 <p class="contact-info-text">
-                  <a href="mailto:hello@acaistack.dev" style="color: var(--color-primary); text-decoration: none"
-                    >hello@acaistack.dev</a
-                  >
+                  <a href="mailto:hello@acaistack.dev" class="contact-email-link">hello@acaistack.dev</a>
                 </p>
                 <p class="contact-info-subtext">We respond within 24 hours</p>
               </div>
@@ -246,6 +275,7 @@
     <script type="module" src="/js/components-loader.js"></script>
     <script src="/js/utils.js" defer></script>
     <script src="/js/app.js" defer></script>
+    <script src="/js/pages/contact.js" defer></script>
     <script src="/js/gsap-animations.js" defer></script>
   </body>
 </html>

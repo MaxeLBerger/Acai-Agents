@@ -1,335 +1,10 @@
 /**
  * AcaiStack Layout CSS
+ * Page structure, sections, grids
  * Note: CSS variables and base typography are defined in base.css
+ * Note: Buttons, forms, cards, containers, and utility classes are in components.css and base.css
  */
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: none;
-  text-decoration: none;
-  position: relative;
-}
-
-.btn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-.btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
-}
-
-.btn--primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.btn--primary:active {
-  background: var(--color-primary-active);
-}
-
-.btn--secondary {
-  background: var(--color-secondary);
-  color: var(--color-text);
-}
-
-.btn--secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.btn--secondary:active {
-  background: var(--color-secondary-active);
-}
-
-.btn--outline {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.btn--outline:hover {
-  background: var(--color-secondary);
-}
-
-.btn--sm {
-  padding: var(--space-4) var(--space-12);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-sm);
-}
-
-.btn--lg {
-  padding: var(--space-10) var(--space-20);
-  font-size: var(--font-size-lg);
-  border-radius: var(--radius-md);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Form elements */
-.form-control {
-  display: block;
-  width: 100%;
-  padding: var(--space-8) var(--space-12);
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-base);
-  transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
-}
-
-textarea.form-control {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-}
-
-select.form-control {
-  padding: var(--space-8) var(--space-12);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: var(--select-caret-light);
-  background-repeat: no-repeat;
-  background-position: right var(--space-12) center;
-  background-size: 16px;
-  padding-right: var(--space-32);
-}
-
-/* Add a dark mode specific caret */
-@media (prefers-color-scheme: dark) {
-  select.form-control {
-    background-image: var(--select-caret-dark);
-  }
-}
-
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
-  background-image: var(--select-caret-dark);
-}
-
-[data-color-scheme="light"] select.form-control {
-  background-image: var(--select-caret-light);
-}
-
-.form-control:focus {
-  border-color: var(--color-primary);
-  outline: var(--focus-outline);
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.form-group {
-  margin-bottom: var(--space-16);
-}
-
-/* Card component */
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: box-shadow var(--duration-normal) var(--ease-standard);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card__body {
-  padding: var(--space-16);
-}
-
-.card__header,
-.card__footer {
-  padding: var(--space-16);
-  border-bottom: 1px solid var(--color-card-border-inner);
-}
-
-/* Status indicators - simplified with CSS variables */
-.status {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-6) var(--space-12);
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.status--success {
-  background-color: rgba(var(--color-success-rgb, 33, 128, 141), var(--status-bg-opacity));
-  color: var(--color-success);
-  border: 1px solid rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
-}
-
-.status--error {
-  background-color: rgba(var(--color-error-rgb, 192, 21, 47), var(--status-bg-opacity));
-  color: var(--color-error);
-  border: 1px solid rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
-}
-
-.status--warning {
-  background-color: rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-bg-opacity));
-  color: var(--color-warning);
-  border: 1px solid rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
-}
-
-.status--info {
-  background-color: rgba(var(--color-info-rgb, 98, 108, 113), var(--status-bg-opacity));
-  color: var(--color-info);
-  border: 1px solid rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
-}
-
-/* Container layout */
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: var(--space-16);
-  padding-left: var(--space-16);
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: var(--container-sm);
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: var(--container-md);
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: var(--container-lg);
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-xl);
-  }
-}
-
-/* Utility classes */
-.flex {
-  display: flex;
-}
-.flex-col {
-  flex-direction: column;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-8 {
-  gap: var(--space-8);
-}
-.gap-16 {
-  gap: var(--space-16);
-}
-
-.m-0 {
-  margin: 0;
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
-}
-
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
-}
-
-.block {
-  display: block;
-}
-.hidden {
-  display: none;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
-  border: 1px solid var(--color-border-secondary);
-}
-
-/* END PERPLEXITY DESIGN SYSTEM */
 /* ═══════════════════════════════════════════════════════════════════════════
    ACAI AGENTS LAYOUT CSS - Page structure, sections, grids
    ═════════════════════════════════════════════════════════════════════════ */
@@ -592,14 +267,13 @@ section {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-overlay);
   color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  backdrop-filter: blur(10px);
   z-index: 20;
   transition: all 0.2s ease;
   font-size: 24px;
@@ -1220,8 +894,8 @@ section {
 
 .service-overview-card {
   position: relative;
-  background: rgba(18, 18, 22, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-surface-card);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1238,7 +912,7 @@ section {
   background: linear-gradient(
     180deg,
     rgba(var(--color-teal-500-rgb), 0.1) 0%,
-    rgba(18, 18, 22, 0.9) 100%
+    var(--color-surface) 100%
   );
 }
 
@@ -1339,7 +1013,7 @@ section {
 
 .pricing-section {
   padding: var(--space-96) 0;
-  background: linear-gradient(180deg, var(--color-background) 0%, rgba(10, 10, 12, 1) 100%);
+  background: var(--color-background);
 }
 
 .pricing-grid {
@@ -1352,8 +1026,8 @@ section {
 
 .pricing-card {
   position: relative;
-  background: rgba(18, 18, 22, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-surface);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: var(--space-32);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1361,14 +1035,14 @@ section {
 
 .pricing-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-border);
 }
 
 .pricing-card.featured {
   background: linear-gradient(
     180deg,
     rgba(var(--color-teal-500-rgb), 0.15) 0%,
-    rgba(18, 18, 22, 0.95) 50%
+    var(--color-surface) 50%
   );
   border-color: var(--color-primary);
   transform: scale(1.02);
@@ -1398,7 +1072,7 @@ section {
   text-align: center;
   margin-bottom: var(--space-24);
   padding-bottom: var(--space-24);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--color-card-border-inner);
 }
 
 .pricing-name {
@@ -1445,7 +1119,7 @@ section {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   padding: var(--space-10) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--color-card-border-inner);
 }
 
 .pricing-features li:last-child {
@@ -1488,7 +1162,6 @@ section {
   height: 300px;
   background: radial-gradient(circle, rgba(var(--color-teal-500-rgb), 0.3) 0%, transparent 70%);
   border-radius: 50%;
-  filter: blur(40px);
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
@@ -1575,12 +1248,7 @@ section {
 .team-section {
   position: relative;
   padding: var(--space-112) 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 12, 1) 0%,
-    rgba(15, 15, 20, 1) 50%,
-    rgba(10, 10, 12, 1) 100%
-  );
+  background: var(--color-background);
   overflow: hidden;
 }
 
@@ -1603,7 +1271,6 @@ section {
 .team-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
   opacity: 0.3;
 }
 
@@ -1612,7 +1279,7 @@ section {
   height: 500px;
   top: -100px;
   left: -100px;
-  background: linear-gradient(135deg, var(--color-primary), transparent);
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
 }
 
 .team-glow-2 {
@@ -1620,7 +1287,7 @@ section {
   height: 400px;
   bottom: -100px;
   right: -100px;
-  background: linear-gradient(135deg, var(--color-secondary), transparent);
+  background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
 }
 
 .team-showcase {
@@ -1665,15 +1332,15 @@ section {
 }
 
 .team-card-front {
-  background: linear-gradient(180deg, rgba(25, 25, 30, 0.9) 0%, rgba(18, 18, 22, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
 }
 
 .team-card-back {
   background: linear-gradient(
     180deg,
     rgba(var(--color-teal-500-rgb), 0.15) 0%,
-    rgba(18, 18, 22, 0.98) 100%
+    var(--color-surface) 100%
   );
   border: 1px solid rgba(var(--color-teal-500-rgb), 0.3);
   transform: rotateY(180deg);
@@ -1685,7 +1352,7 @@ section {
   background: linear-gradient(
     180deg,
     rgba(var(--color-teal-500-rgb), 0.1) 0%,
-    rgba(18, 18, 22, 0.95) 100%
+    var(--color-surface) 100%
   );
   border-color: rgba(var(--color-teal-500-rgb), 0.3);
 }
@@ -1809,9 +1476,9 @@ section {
 .status-dot {
   width: 8px;
   height: 8px;
-  background: #22c55e;
+  background: var(--color-success);
   border-radius: 50%;
-  box-shadow: 0 0 10px #22c55e;
+  box-shadow: 0 0 10px var(--color-success);
 }
 
 /* Card Back Styles */
@@ -1848,8 +1515,8 @@ section {
 .social-link {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -1874,7 +1541,7 @@ section {
   background: linear-gradient(
     180deg,
     rgba(var(--color-teal-500-rgb), 0.05) 0%,
-    rgba(18, 18, 22, 0.8) 100%
+    var(--color-surface) 100%
   );
   border: none;
 }
@@ -1945,8 +1612,8 @@ section {
   gap: var(--space-48);
   margin-top: var(--space-64);
   padding: var(--space-32);
-  background: rgba(18, 18, 22, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-surface-card);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
 }
 
@@ -1970,7 +1637,7 @@ section {
 .team-stat-divider {
   width: 1px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-border);
 }
 
 /* Team Section Responsive */
@@ -2213,7 +1880,7 @@ section {
   }
 
   .card {
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
     box-shadow: none;
     break-inside: avoid;
   }

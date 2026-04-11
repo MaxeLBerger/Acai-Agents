@@ -15,8 +15,6 @@
 /* Contact Form Styles */
 .contact-form-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-xl);
   padding: 2.5rem;
@@ -50,7 +48,7 @@
 .form-textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-md);
   color: var(--color-text);
@@ -63,7 +61,7 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .form-input::placeholder,
@@ -81,7 +79,7 @@
 }
 
 .form-select option {
-  background: var(--color-bg-dark);
+  background: var(--color-surface);
   color: var(--color-text);
 }
 
@@ -96,7 +94,7 @@
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   border: none;
   border-radius: var(--border-radius-md);
-  color: white;
+  color: var(--color-btn-primary-text);
   font-size: 1.0625rem;
   font-weight: 700;
   cursor: pointer;
@@ -124,8 +122,6 @@
 
 .contact-info-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   padding: 1.75rem;
@@ -133,7 +129,7 @@
 }
 
 .contact-info-card:hover {
-  border-color: rgba(6, 182, 212, 0.3);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
   transform: translateY(-4px);
   box-shadow: var(--shadow-glow-primary);
 }
@@ -152,7 +148,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(6, 182, 212, 0.1);
+  background: rgba(var(--color-primary-rgb), 0.1);
   border-radius: var(--border-radius-md);
 }
 
@@ -181,7 +177,7 @@
   padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   border-radius: var(--border-radius-md);
-  color: white;
+  color: var(--color-btn-primary-text);
   font-weight: 600;
   font-size: 0.9375rem;
   text-decoration: none;
@@ -196,7 +192,12 @@
 /* What to Expect Section */
 .expect-section {
   padding: 5rem 0;
-  background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.03), transparent);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(var(--color-primary-rgb), 0.03),
+    transparent
+  );
 }
 
 .expect-section-title {
@@ -274,15 +275,13 @@
   text-align: center;
   padding: 2rem 1.5rem;
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   transition: all var(--transition-smooth);
 }
 
 .trust-item:hover {
-  border-color: rgba(34, 197, 94, 0.3);
+  border-color: rgba(var(--color-success-rgb), 0.3);
   transform: translateY(-4px);
 }
 
@@ -337,4 +336,104 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+/* Contact email link styling */
+.contact-email-link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* ── Thank-you message (shown after successful submission) ─────────── */
+.contact-thank-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  animation: thankYouFadeIn 0.5s ease-out;
+}
+
+@keyframes thankYouFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-thank-you-icon {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-btn-primary-text);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 24px rgba(var(--color-primary-rgb), 0.35);
+}
+
+.contact-thank-you-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.contact-thank-you-text {
+  font-size: 1.0625rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  max-width: 28rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-thank-you-subtext {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.contact-thank-you-reset {
+  max-width: 16rem;
+}
+
+/* ── Form validation states ────────────────────────────────────────── */
+.form-group.has-error .form-input,
+.form-group.has-error .form-textarea,
+.form-group.has-error .form-select {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group.has-success .form-input,
+.form-group.has-success .form-textarea,
+.form-group.has-success .form-select {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.form-error {
+  font-size: 0.8125rem;
+  color: var(--color-error);
+  margin-top: 0.375rem;
+}
+
+/* Loading / success button states */
+.form-submit-btn.btn-loading,
+.form-submit-btn.btn-success {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.form-submit-btn.btn-success {
+  background: linear-gradient(135deg, var(--color-success), var(--color-primary));
 }

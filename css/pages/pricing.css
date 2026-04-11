@@ -368,6 +368,11 @@
   display: block;
 }
 
+/* Surface background variant for alternating pricing sections */
+.pricing-section--surface {
+  background: var(--color-surface);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .pricing-grid {

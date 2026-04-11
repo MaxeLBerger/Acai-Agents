@@ -26,8 +26,6 @@
 .privacy-toc,
 .terms-toc {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-xl);
   padding: 2rem;
@@ -140,8 +138,6 @@
 
 .privacy-contact-box {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   padding: 1.5rem 2rem;
@@ -177,8 +173,6 @@
 
 .privacy-right-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   padding: 1.25rem;
@@ -205,8 +199,6 @@
 
 .terms-highlight-box {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   padding: 1.5rem 2rem;
@@ -246,8 +238,6 @@
 
 .terms-pricing-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   padding: 1.25rem;

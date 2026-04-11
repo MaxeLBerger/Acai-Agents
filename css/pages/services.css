@@ -20,8 +20,6 @@
 .service-card-premium {
   position: relative;
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-xl);
   padding: 3rem;
@@ -33,10 +31,10 @@
 
 .service-card-premium:hover {
   transform: translateY(-8px);
-  border-color: rgba(6, 182, 212, 0.4);
+  border-color: rgba(var(--color-primary-rgb), 0.4);
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(6, 182, 212, 0.15);
+    0 0 60px rgba(var(--color-primary-rgb), 0.15);
 }
 
 .service-card-premium-header {
@@ -93,7 +91,7 @@
   justify-content: center;
   width: 1.5rem;
   height: 1.5rem;
-  background: rgba(34, 197, 94, 0.15);
+  background: rgba(var(--color-success-rgb), 0.15);
   border-radius: 50%;
   color: var(--color-success);
   font-size: 0.75rem;
@@ -116,7 +114,7 @@
   text-decoration: none;
   border-radius: var(--border-radius-md);
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  color: white;
+  color: var(--color-btn-primary-text);
   transition: all var(--transition-smooth);
 }
 
@@ -148,8 +146,6 @@
   text-align: center;
   padding: 2rem;
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-xl);
   transition: all var(--transition-smooth);
@@ -158,7 +154,7 @@
 
 .process-step:hover {
   transform: translateY(-4px);
-  border-color: rgba(6, 182, 212, 0.3);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -172,9 +168,9 @@
   border-radius: 50%;
   font-size: 1.25rem;
   font-weight: 800;
-  color: white;
+  color: var(--color-btn-primary-text);
   margin-bottom: 1.25rem;
-  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.4);
 }
 
 .process-step-title {
@@ -198,4 +194,12 @@
 .guarantee-wrapper {
   display: flex;
   justify-content: center;
+}
+
+/* Alternative pricing note below service cards */
+.services-pricing-note {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  font-size: 0.9375rem;
 }
